@@ -1,0 +1,1 @@
+Game.CSS.Load('index.css');
