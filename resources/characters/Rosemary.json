@@ -2,7 +2,7 @@
 	"Name": "Rosemary",
 	"ID": "Rosemary",
 	"Sound": "",
-	"Color": "#00f",
+	"Color": "#008",
 	"Default": "grin",
 	"Expressions": {
 		"neutral": "neutral.svg",
