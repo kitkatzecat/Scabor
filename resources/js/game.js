@@ -28,5 +28,42 @@ var Game = {
 				console.log('Game.CSS.Unload: failed to unload "'+source+'": object is undefined');
 			}
 		}
+	},
+	When: function(condition=function(){return true;},callback=function(result=true){},time=500,tries=5,attempt=0) {
+		if (attempt < tries) {
+			console.log('Game.When: Checking condition (attempt '+(attempt+1)+' of '+tries+')');
+			console.log(condition);
+
+			var ret;
+			try {
+				ret = condition();
+			} catch(e) {
+				console.log('Game.When: Condition function error: '+e);
+			}
+
+			if (!!ret) {
+				console.log('Game.When: Condition is true');
+				console.log(condition);
+				try {
+					callback(true);
+				} catch(e) {
+					console.log('Game.When: Callback function error: '+e);
+				}
+			} else {
+				attempt++;
+				setTimeout(function(){
+					Game.When(condition,callback,time,tries,attempt);
+				},time);
+			}
+
+		} else {
+			console.log('Game.When: Condition unable to be validated');
+			console.log(condition);
+			try {
+				callback(false);
+			} catch(e) {
+				console.log('Game.When: Callback function error: '+e);
+			}
+		}
 	}
 };
