@@ -3,3 +3,9 @@ Rosemary.mp3
 	by InspectorJ on Freesound.org
 	https://freesound.org/s/403008/
 	Licensed under Creative Commons Attribution
+
+Simon.mp3
+	Adapted from "UI Confirmation Alert, A2.wav"
+	by InspectorJ on Freesound.org
+	https://freesound.org/s/403007/
+	Licensed under Creative Commons Attribution
