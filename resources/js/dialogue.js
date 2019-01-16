@@ -40,7 +40,7 @@ Game.Dialogue = {
 				Game.Dialogue.Composition.Image.style.display = 'none';
 			}
 			
-			Game.Dialogue.Text = Input.Text.replace('{character_name}',Game.Story['Character']['Name']);
+			Game.Dialogue.Text = Input.Text.replace('{character_name}',Game.Story['Me']['Name']);
 			
 			Game.Dialogue.Composition.TextAnimationCount = 0;
 			Game.Dialogue.Composition.TextAnimationInterval = setInterval(function() {
@@ -53,7 +53,7 @@ Game.Dialogue = {
 				}
 			},10);
 			
-			Game.Dialogue.Who = Input.Who.replace('{character_name}',Game.Story['Character']['Name']);
+			Game.Dialogue.Who = Input.Who.replace('{character_name}',Game.Story['Me']['Name']);
 
 			Game.Dialogue.Composition.Title.innerHTML = Game.Dialogue.Who;
 			Game.Dialogue.Color = Input.Color;
@@ -229,7 +229,7 @@ Game.Dialogue = {
 		if (typeof Game.Dialogue.OnClose == 'function') {
 			try {
 				Game.Dialogue.OnClose();
-			} catch(e) {'Game.Dialogue.NextForce: error while executing dialogue OnClose: '+e}
+			} catch(e) {'Game.Dialogue.NextForce: Error while executing dialogue OnClose: '+e}
 			Game.Dialogue.OnClose = false;
 		} else {
 			Game.Dialogue.OnClose = false;
@@ -253,8 +253,12 @@ Game.Dialogue = {
 		document.body.appendChild(Game.Dialogue.Composition.Container);
 		Game.Dialogue.Visible = true;
 		
-		Game.Room.Movement.SetSpeed(0);
-		Game.Room.Movement.Locked = true;
+		try {
+			Game.Room.Movement.SetSpeed(0);
+			Game.Room.Movement.Locked = true;
+		} catch(e) {
+			console.log('Game.Dialogue.Open: Error while setting room movement: '+e);
+		}
 	},
 	Close: function() {
 		try {
@@ -291,7 +295,11 @@ Game.Dialogue = {
 			Game.Dialogue.Composition.Title.innerHTML = '';
 			Game.Dialogue.Composition.Title.style.backgroundColor = '';
 			
-			Game.Room.Movement.Locked = false;
+			try {
+				Game.Room.Movement.Locked = false;
+			} catch(e) {
+				console.log('Game.Dialogue.Open: Error while setting room movement: '+e);
+			}
 			
 			Game.Dialogue.Text = false;
 			if (Game.Dialogue.Queue.length > 0) {
@@ -324,16 +332,16 @@ Game.Dialogue = {
 						for (var i = 0; i < result[Game.Dialogue.Composition.RequestID].length; i++) {
 							Game.Dialogue.Speak(result[Game.Dialogue.Composition.RequestID][i]);
 						}
-						console.log('Game.Dialogue.Response: loaded script "'+Game.Dialogue.Composition.RequestURI+'" for action "'+Game.Dialogue.Composition.RequestID+'"');
+						console.log('Game.Dialogue.Response: Loaded script "'+Game.Dialogue.Composition.RequestURI+'" for action "'+Game.Dialogue.Composition.RequestID+'"');
 					} else {
 						Game.Dialogue.LoadedScripts[Game.Dialogue.Composition.RequestURI.substr(0,Game.Dialogue.Composition.RequestURI.lastIndexOf('.')).replace('/','__')] = result;
-						console.log('Game.Dialogue.Response: loaded script "'+Game.Dialogue.Composition.RequestURI+'" as "'+Game.Dialogue.Composition.RequestURI.substr(0,Game.Dialogue.Composition.RequestURI.lastIndexOf('.')).replace('/','__')+'"');
+						console.log('Game.Dialogue.Response: Loaded script "'+Game.Dialogue.Composition.RequestURI+'" as "'+Game.Dialogue.Composition.RequestURI.substr(0,Game.Dialogue.Composition.RequestURI.lastIndexOf('.')).replace('/','__')+'"');
 					}
 				} catch(err) {
-					Game.Dialogue.Speak({Who:'Error',Text:'Unable to load script from "'+Game.Dialogue.Composition.RequestURI+'": '+err,Color:'#888',Sound:'c5.mp3'});
+					console.log('Game.Dialogue.Response: Unable to load script from "'+Game.Dialogue.Composition.RequestURI+'": '+err);
 				}
 			} else {
-				Game.Dialogue.Speak({Who:'Error',Text:'Unable to load script from "'+Game.Dialogue.Composition.RequestURI+'": '+Game.Dialogue.Composition.Request.statusText,Color:'#888',Sound:'c5.mp3'});
+				console.log('Game.Dialogue.Response: Unable to load script from "'+Game.Dialogue.Composition.RequestURI+'": '+Game.Dialogue.Composition.Request.statusText);
 			}
 		}
 		Game.Loader.Hide('dialogue');
@@ -355,42 +363,47 @@ Game.Dialogue = {
 	LoadedScripts: {},
 	Composition: {}
 };
-Game.Dialogue.Next = Game.Dialogue.NextForce;
 
-Game.Dialogue.Composition.Container = document.createElement('div');
-Game.Dialogue.Composition.Container.className = 'dialogue_container dialogue_container_animated-open font_text noselect';
+window.addEventListener('load',function() {
+	Game.CSS.Load('dialogue.css');
 
-Game.Dialogue.Composition.Background = document.createElement('div');
-Game.Dialogue.Composition.Background.className = 'dialogue_background dialogue_background_animated-open font_text noselect';
+	Game.Dialogue.Next = Game.Dialogue.NextForce;
 
-Game.Dialogue.Composition.Image = document.createElement('img');
-Game.Dialogue.Composition.Image.className = 'dialogue_image noselect';
-Game.Dialogue.Composition.Image.style.display = 'none';
-
-Game.Dialogue.Composition.Bubble = document.createElement('div');
-Game.Dialogue.Composition.Bubble.className = 'dialogue_bubble font_text noselect';
-Game.Dialogue.Composition.Bubble.onclick = Game.Dialogue.SkipTextAnimation;
-
-Game.Dialogue.Composition.Title = document.createElement('div');
-Game.Dialogue.Composition.Title.className = 'dialogue_title font_title noselect';
-
-Game.Dialogue.Composition.Button = document.createElement('div');
-Game.Dialogue.Composition.Button.className = 'dialogue_button dialogue_button_image-check font_title noselect';
-Game.Dialogue.Composition.Button.onclick = Game.Dialogue.Next;
-
-Game.Dialogue.Composition.PromptContainer = document.createElement('div');
-Game.Dialogue.Composition.PromptContainer.className = 'dialogue_prompt dialogue_prompt_animated-open font_text noselect';
-Game.Dialogue.Composition.PromptContainer.style.display = 'none';
-
-document.body.appendChild(Game.Dialogue.Composition.Image);
-Game.Dialogue.Composition.Container.appendChild(Game.Dialogue.Composition.Bubble);
-Game.Dialogue.Composition.Container.appendChild(Game.Dialogue.Composition.Button);
-Game.Dialogue.Composition.Container.appendChild(Game.Dialogue.Composition.Title);
-document.body.appendChild(Game.Dialogue.Composition.PromptContainer);
-
-document.addEventListener("keyup", function(e) {
-	if (e.keyCode == 13) {
-		Game.Dialogue.Next();
-		e.preventDefault();
-	}
+	Game.Dialogue.Composition.Container = document.createElement('div');
+	Game.Dialogue.Composition.Container.className = 'dialogue_container dialogue_container_animated-open font_text noselect';
+	
+	Game.Dialogue.Composition.Background = document.createElement('div');
+	Game.Dialogue.Composition.Background.className = 'dialogue_background dialogue_background_animated-open font_text noselect';
+	
+	Game.Dialogue.Composition.Image = document.createElement('img');
+	Game.Dialogue.Composition.Image.className = 'dialogue_image noselect';
+	Game.Dialogue.Composition.Image.style.display = 'none';
+	
+	Game.Dialogue.Composition.Bubble = document.createElement('div');
+	Game.Dialogue.Composition.Bubble.className = 'dialogue_bubble font_text noselect';
+	Game.Dialogue.Composition.Bubble.onclick = Game.Dialogue.SkipTextAnimation;
+	
+	Game.Dialogue.Composition.Title = document.createElement('div');
+	Game.Dialogue.Composition.Title.className = 'dialogue_title font_title noselect';
+	
+	Game.Dialogue.Composition.Button = document.createElement('div');
+	Game.Dialogue.Composition.Button.className = 'dialogue_button dialogue_button_image-check font_title noselect';
+	Game.Dialogue.Composition.Button.onclick = Game.Dialogue.Next;
+	
+	Game.Dialogue.Composition.PromptContainer = document.createElement('div');
+	Game.Dialogue.Composition.PromptContainer.className = 'dialogue_prompt dialogue_prompt_animated-open font_text noselect';
+	Game.Dialogue.Composition.PromptContainer.style.display = 'none';
+	
+	document.body.appendChild(Game.Dialogue.Composition.Image);
+	Game.Dialogue.Composition.Container.appendChild(Game.Dialogue.Composition.Bubble);
+	Game.Dialogue.Composition.Container.appendChild(Game.Dialogue.Composition.Button);
+	Game.Dialogue.Composition.Container.appendChild(Game.Dialogue.Composition.Title);
+	document.body.appendChild(Game.Dialogue.Composition.PromptContainer);
+	
+	document.addEventListener("keyup", function(e) {
+		if (e.keyCode == 13) {
+			Game.Dialogue.Next();
+			e.preventDefault();
+		}
+	});
 });
