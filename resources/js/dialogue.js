@@ -118,7 +118,7 @@ Game.Dialogue = {
 			
 			if (typeof Input.Image !== 'undefined' && Input.Image != false) {
 				Game.Dialogue.Image = Input.Image;
-				Game.Dialogue.Composition.Image.src = 'resources/images/characters/'+Input.Image;
+				Game.Dialogue.Composition.Image.src = './resources/images/characters/'+Input.Image;
 				if (Game.Dialogue.Previous != false) {
 					if (Input.Who !== Game.Dialogue.Previous.Who) {
 						Game.Dialogue.Composition.Image.className = 'dialogue_image noselect';
@@ -330,7 +330,7 @@ Game.Dialogue = {
 					result = JSON.parse(result);
 					if (Game.Dialogue.Composition.RequestID != false) {
 						for (var i = 0; i < result[Game.Dialogue.Composition.RequestID].length; i++) {
-							Game.Dialogue.Speak(result[Game.Dialogue.Composition.RequestID][i]);
+							Game.Dialogue.Line(result[Game.Dialogue.Composition.RequestID][i]);
 						}
 						console.log('Game.Dialogue.Response: Loaded script "'+Game.Dialogue.Composition.RequestURI+'" for action "'+Game.Dialogue.Composition.RequestID+'"');
 					} else {
@@ -352,13 +352,51 @@ Game.Dialogue = {
 		if (typeof Game.Dialogue.LoadedScripts[filevar] !== 'undefined') {
 			if (typeof Game.Dialogue.LoadedScripts[filevar][id] !== 'undefined') {
 				for (var i = 0; i < Game.Dialogue.LoadedScripts[filevar][id].length; i++) {
-					Game.Dialogue.Speak(Game.Dialogue.LoadedScripts[filevar][id][i]);
+					Game.Dialogue.Line(Game.Dialogue.LoadedScripts[filevar][id][i]);
 					Game.Loader.Hide('dialogue');
 				}
 			}
 		} else {
 			Game.Dialogue.Load(file,id);
 		}
+	},
+	Line: function(script) {
+		if (typeof Game.Characters != 'undefined') {
+			if (Game.Characters.Loaded.hasOwnProperty(script['Who'])) {
+				//console.log('Game.Dialogue.Line: Character "'+script['Who']+'" is loaded');
+				var character = Game.Characters.Loaded[script['Who']];
+				var dialogue = {};
+
+				dialogue['Who'] = character['Name'];
+				dialogue['Color'] = character['Color'];
+				dialogue['Sound'] = character['Sound'];
+				if (script.hasOwnProperty('Expression')) {
+					if (!script['Expression']) {
+						var exp = character['Expressions'][character['Default']];
+					} else {
+						if (character['Expressions'].hasOwnProperty(script['Expression'])) {
+							var exp = character['Expressions'][script['Expression']];
+						} else {
+							var exp = character['Expressions'][character['Default']];
+						}
+					}
+				}
+				if (!!exp) {
+					dialogue['Image'] = character['ID']+'/'+exp;
+				} else {
+					dialogue['Image'] = false;
+				}
+
+				var speak = Object.assign({}, script, dialogue);
+				Game.Dialogue.Speak(speak);
+			} else {
+				console.log('Game.Dialogue.Line: [Warning] Character "'+script['Who']+'" is not loaded. Speaking line directly.');
+				Game.Dialogue.Speak(script);
+			}
+		} else {
+			console.log('Game.Dialogue.Line: [Warning] Game.Characters is not initialized. Speaking line directly.');
+			Game.Dialogue.Speak(script);
+	}
 	},
 	LoadedScripts: {},
 	Composition: {}
