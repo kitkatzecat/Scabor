@@ -8,11 +8,12 @@
 	"Tutorials": {
 		"Room_Leave": false
 	},
+	"Now": false,
 	"Progress": {
 		"Prologue": {
 			"Completed": false
 		},
-		"Chapter-1": {
+		"Chapter1": {
 			"Completed": false,
 			"Leave_Room-7_Begin": false,
 			"Visit_Room-Other_1": false,
