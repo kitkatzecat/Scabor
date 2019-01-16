@@ -1,0 +1,21 @@
+{
+	"Name": "Rosemary",
+	"ID": "Rosemary",
+	"Sound": "",
+	"Color": "#00f",
+	"Default": "grin",
+	"Expressions": {
+		"neutral": "neutral.svg",
+		"annoyed": "annoyed.svg",
+		"confused": "confused.svg",
+		"deadpan": "deadpan.svg",
+		"embarrassed": "embarrassed.svg",
+		"grin": "grin.svg",
+		"scared": "scared.svg",
+		"surprised": "surprised.svg",
+		"surprised-sad": "surprised-sad.svg",
+		"talking-excited": "talking-excited.svg",
+		"talking": "talking-neutral.svg",
+		"thinking": "thinking.svg"
+	}
+}
