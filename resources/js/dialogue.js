@@ -176,7 +176,7 @@ Game.Dialogue = {
 			Game.Dialogue.Prompt[i].innerHTML = options[i]['Text'];
 			Game.Dialogue.Prompt[i].option = options[i];
 			Game.Dialogue.Prompt[i].onclick = function() {
-				Game.Sound.Play('c3.mp3');
+				Game.Sound.Play('click.mp3');
 				
 				try {
 					if (typeof this.option['Function'] == 'string') {
@@ -370,7 +370,15 @@ Game.Dialogue = {
 
 				dialogue['Who'] = character['Name'];
 				dialogue['Color'] = character['Color'];
-				dialogue['Sound'] = character['Sound'];
+				if (Game.Dialogue.Queue.length > 0) {
+					if (Game.Dialogue.Queue[Game.Dialogue.Queue.length-1]['Who'] == dialogue['Who']) {
+						dialogue['Sound'] = false;
+					} else {
+						dialogue['Sound'] = character['Sound'];
+					}
+				} else {
+					dialogue['Sound'] = character['Sound'];
+				}
 				if (script.hasOwnProperty('Expression')) {
 					if (!script['Expression']) {
 						var exp = character['Expressions'][character['Default']];
