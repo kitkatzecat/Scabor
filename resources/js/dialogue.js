@@ -79,6 +79,7 @@ Game.Dialogue = {
 					Game.Dialogue.Sound = Input.Sound;
 				} catch(e) {
 					Game.Dialogue.Sound = false;
+					console.log('Game.Dialogue.Speak: Error while playing sound: '+e);
 				}
 			} else {
 				Game.Dialogue.Sound = false;
