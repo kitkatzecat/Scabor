@@ -8,24 +8,43 @@ var Game = {
 			var name = source.substr(0,source.lastIndexOf('.')).replace('/','__');
 			Game.CSS.Loaded[name] = css;
 			
-			console.log('Game.CSS.Load: loaded stylesheet "'+source+'" as "'+name+'"');
+			console.log('Game.CSS.Load: Loaded stylesheet "'+source+'" as "'+name+'"');
 			return name;
 		},
 		Loaded: {},
 		UnloadAll: function() {
 			for (var key in Game.CSS.Loaded) {
-				if (Game.CSS.Loaded.hasOwnProperty(key)) {
-					Game.CSS.Loaded[key].parentNode.removeChild(Game.CSS.Loaded[key]);
-					delete Game.CSS.Loaded[key];
-				}
+				Game.CSS.Unload(key);
 			}
+			console.log('Game.CSS.UnloadAll: Unloaded all stylesheets');
 		},
 		Unload: function(source) {
 			if (Game.CSS.Loaded.hasOwnProperty(source)) {
 				Game.CSS.Loaded[source].parentNode.removeChild(Game.CSS.Loaded[source]);
 				delete Game.CSS.Loaded[source];
 			} else {
-				console.log('Game.CSS.Unload: failed to unload "'+source+'": object is undefined');
+				console.log('Game.CSS.Unload: Failed to unload "'+source+'": object is undefined');
+			}
+		}
+	},
+	Loader: {
+		Composition: {
+			Load: false,
+			Loading: []
+		},
+		Show: function(id) {
+			if (Game.Loader.Composition.Loading.indexOf(id) < 0) {
+				Game.Loader.Composition.Loading.push(id);
+			}
+			Game.Loader.Composition.Load.style.display = 'block';
+		},
+		Hide: function(id) {
+			var loc = Game.Loader.Composition.Loading.indexOf(id);
+			if (loc > -1) {
+				Game.Loader.Composition.Loading.splice(loc,1);
+			}
+			if (Game.Loader.Composition.Loading.length == 0) {
+				Game.Loader.Composition.Load.style.display = 'none';
 			}
 		}
 	},
@@ -67,3 +86,11 @@ var Game = {
 		}
 	}
 };
+window.addEventListener('load',function() {
+	Game.CSS.Load('game.css');
+
+	Game.Loader.Composition.Load = document.createElement('div');
+	Game.Loader.Composition.Load.style.display = 'none';
+	Game.Loader.Composition.Load.className = 'game_loader';
+	document.body.appendChild(Game.Loader.Composition.Load);
+});
