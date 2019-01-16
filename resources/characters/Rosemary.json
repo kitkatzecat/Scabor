@@ -1,7 +1,7 @@
 {
 	"Name": "Rosemary",
 	"ID": "Rosemary",
-	"Sound": "",
+	"Sound": "Rosemary.mp3",
 	"Color": "#008",
 	"Default": "grin",
 	"Expressions": {
