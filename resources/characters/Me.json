@@ -1,7 +1,7 @@
 {
 	"Name": "Me",
 	"ID": "Me",
-	"Sound": "",
+	"Sound": "Me.mp3",
 	"Color": "#880",
 	"Default": false,
 	"Expressions": {}

@@ -9,3 +9,9 @@ Simon.mp3
 	by InspectorJ on Freesound.org
 	https://freesound.org/s/403007/
 	Licensed under Creative Commons Attribution
+	
+Me.mp3
+	Adapted from "UI Confirmation Alert, A4.wav"
+	by InspectorJ on Freesound.org
+	https://freesound.org/s/403005/
+	Licensed under Creative Commons Attribution
