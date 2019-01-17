@@ -1,0 +1,117 @@
+.room_move-right {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	bottom: 48px;
+	width: 15%;
+	/*outline: 3px solid #0f0;*/
+	background-color: transparent;
+	z-index: 90;
+	cursor: none;
+}
+.room_move-left {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	bottom: 48px;
+	width: 15%;
+	/*outline: 3px solid #0f0;*/
+	background-color: transparent;
+	z-index: 90;
+	cursor: none;
+}
+#room {
+	width: auto;
+	height: calc(100% - 48px);
+	position: fixed;
+	top: 0px;
+	z-index: 0;
+}
+.room_button {
+	position: fixed;
+	top: 5%;
+	left: 5%;
+	height: 64px;
+	width: 64px;
+	border: 2px solid #000;
+	border-radius: 50px;
+	z-index: 92;
+	cursor: pointer;
+	background-position: center center;
+	background-size: 50% 50%;
+	background-repeat: no-repeat;
+	background-image: url('../images/room_button_arrow-left-black.svg');
+	background-color: rgb(37,114,235);
+}
+.room_button:hover {
+	border-color: #fff;
+	box-shadow: 2px 2px 0px #000, -2px 2px 0px #000, 2px -2px 0px #000, -2px -2px 0px #000;
+	background-image: url('../images/room_button_arrow-left-white.svg');
+}
+.room_button:hover + .room_button_caption {
+	display: block;
+}
+.room_button_caption {
+	position: fixed;
+	top: calc(5% + 18px);
+	left: calc(5% + 16px);
+	height: 32px;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	z-index: 91;
+	cursor: default;
+	background-color: rgb(96,96,96);
+	color: #fff;
+	padding-left: 64px;
+	padding-right: 16px;
+	font-size: 18px;
+	line-height: 32px;
+	display: none;
+	transform-origin: 0px 50%;
+	
+	animation: room_button_caption_animation .1s ease-out;
+}
+@keyframes room_button_caption_animation {
+	0% {transform: scaleX(0.01);}
+	100% {transform: scaleX(1);}
+}
+
+.room_cover {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: 95;
+	background: #343434;
+}
+.room_cover_animated-open {
+	animation: room_cover_animation-open .2s ease-in 1;
+}
+.room_cover_animated-close {
+	animation: room_cover_animation-close .2s ease-out 1;
+}
+@keyframes room_cover_animation-open {
+	0% {opacity:0;}
+	100% {opacity:1;}
+}
+@keyframes room_cover_animation-close {
+	0% {opacity:1;}
+	100% {opacity:0;}
+}
+
+.room_compass {
+	position: fixed;
+	top: 5%;
+	right: 5%;
+	width: 15%;
+	max-width: 400px;
+	height: auto;
+	transform: rotateZ(0deg);
+	z-index: 94;
+	pointer-events: none;
+	filter: drop-shadow(0px 0px 12px rgba(0,0,0,0.7));
+}
+body {
+	background-color: #343434;
+}
