@@ -1,0 +1,26 @@
+.cursor {
+	position: fixed;
+	top: 32px;
+	left: 32px;
+	width: 48px;
+	height: 48px;
+	display: inline-block;
+	pointer-events: none;
+	z-index: 200;
+}
+.cursor_magnifying-glass {
+	background-image: url('../images/cursor_magnifying-glass.svg');
+	transform: translate(-21px,-18px);
+}
+.cursor_dialogue {
+	background-image: url('../images/cursor_dialogue.svg');
+	transform: translate(-24px,-22px);
+}
+.cursor_room_arrow-left {
+	background-image: url('../images/room_arrow-left.svg');
+	transform: translate(-24px,-24px);
+}
+.cursor_room_arrow-right {
+	background-image: url('../images/room_arrow-right.svg');
+	transform: translate(-24px,-24px);
+}
