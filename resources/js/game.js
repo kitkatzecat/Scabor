@@ -48,6 +48,37 @@ var Game = {
 			}
 		}
 	},
+	Bar: {
+		Composition: {
+			Bar: false,
+			Room: false,
+			Buttons: []
+		},
+		Add: function(img,text,funct,align='left') {
+			var button = document.createElement('div');
+			button.className = 'game_bar_button font_title noselect';
+			button.style.float = align;
+			button.onmousedown = function() {
+				Game.Sound.Play('c3.mp3');
+			}
+			button.onclick = funct;
+			button.innerHTML = '<img class="game_bar_button_image noselect" src="resources/images/'+img+'">'+text;
+			
+			Game.Bar.Composition.Bar.appendChild(button);
+			Game.Bar.Composition.Buttons.push(button);
+			
+			return button;
+		},
+		Room: function(text) {
+			Game.Bar.Composition.Room.innerText = text;
+		},
+		Hide: function() {
+			Game.Bar.Composition.Bar.style.display = 'none';
+		},
+		Show: function() {
+			Game.Bar.Composition.Bar.style.display = '';
+		}
+	},
 	When: function(condition=function(){return true;},callback=function(result=true){},time=500,tries=5,attempt=0) {
 		if (attempt < tries) {
 			console.log('Game.When: Checking condition (attempt '+(attempt+1)+' of '+tries+')');
@@ -88,6 +119,15 @@ var Game = {
 };
 window.addEventListener('load',function() {
 	Game.CSS.Load('game.css');
+	
+	Game.Bar.Composition.Bar = document.createElement('div');
+	Game.Bar.Composition.Bar.id = 'game_bar';
+	Game.Bar.Composition.Bar.className = 'noselect';
+	Game.Bar.Composition.Room = document.createElement('div');
+	Game.Bar.Composition.Room.id = 'game_bar_room';
+	Game.Bar.Composition.Room.className = 'noselect font_title';
+	document.body.appendChild(Game.Bar.Composition.Bar);
+	Game.Bar.Composition.Bar.appendChild(Game.Bar.Composition.Room);
 
 	Game.Loader.Composition.Load = document.createElement('div');
 	Game.Loader.Composition.Load.style.display = 'none';
