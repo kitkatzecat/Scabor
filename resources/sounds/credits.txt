@@ -15,3 +15,9 @@ Me.mp3
 	by InspectorJ on Freesound.org
 	https://freesound.org/s/403005/
 	Licensed under Creative Commons Attribution
+
+click.mp3
+	Adapted from "Place.wav"
+	by ryusa on Freesound.org
+	https://freesound.org/s/467563/
+	Licensed under Creative Commons Attribution
