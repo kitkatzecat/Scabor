@@ -411,7 +411,7 @@ Game.Dialogue = {
 	Composition: {}
 };
 
-window.addEventListener('load',function() {
+Game.Dialogue.Init = function() {
 	Game.CSS.Load('dialogue.css');
 
 	Game.Dialogue.Next = Game.Dialogue.NextForce;
@@ -453,4 +453,4 @@ window.addEventListener('load',function() {
 			e.preventDefault();
 		}
 	});
-});
+}
