@@ -1,0 +1,309 @@
+{
+	"Begin": [
+		{"Who":"Me","Text":"Augh...","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"Huh..?","Color":"#880","Sound":false,"Close":"Game.Events['Chapter-1']['Begin_Reveal']();"}
+	],
+	"Begin_Reveal": [
+		{"Who":"Me","Text":"Where am I?","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"I... just woke up?","Color":"#880","Sound":false}
+	],
+	"Interact_Room-7_Door-Interior_Begin": [
+		{"Who":"Me","Text":"A door... this must lead out of this room.","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"Should I go out?","Color":"#880","Sound":false,"Prompt":[{"Text":"Yes","Function":"Game.Events['Chapter-1']['Leave_Room-7_Begin']();"},{"Text":"No","Function":false}]}
+	],
+	"Interact_Room_Door-Interior": [
+		{"Who":"Me","Text":"This door goes back out to the hallway.","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"Should I go out?","Color":"#880","Sound":false,"Prompt":[{"Text":"Yes","Function":"Game.Events['Chapter-1']['Leave_Room']();"},{"Text":"No","Function":false}]}
+	],
+	"Interact_Night-Stand": [
+		{"Who":"Me","Text":"A night stand?","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"Maybe there's something in one of its drawers...","Color":"#880","Sound":false}
+	],
+	"Interact_Night-Stand_Other": [
+		{"Who":"Me","Text":"A night stand...","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"Just like in the room I was in.","Color":"#880","Sound":false}
+	],
+	"Interact_Night-Stand_Drawer-Top": [
+		{"Who":"Me","Text":"The top drawer of the night stand...","Color":"#880","Sound":"drawer-open.mp3","Function":"Game.Splash.Show('','Chapter-1_Night-Stand_Drawer-Top_Open','enter',98);Game.Story['Chapter-1']['Interact_Night-Stand_Drawer']=true;"},
+		{"Who":"Me","Text":"There's nothing inside it.","Color":"#880","Sound":"ch4.mp3","Close":"Game.Splash.Hide();Game.Sound.Play('drawer-close.mp3');"}
+	],
+	"Interact_Night-Stand_Drawer-Bottom": [
+		{"Who":"Me","Text":"The bottom drawer of the night stand...","Color":"#880","Sound":"drawer-open.mp3","Function":"Game.Splash.Show('','Chapter-1_Night-Stand_Drawer-Bottom_Open','enter',98);Game.Story['Chapter-1']['Interact_Night-Stand_Drawer']=true;"},
+		{"Who":"Me","Text":"There's nothing inside it.","Color":"#880","Sound":"ch4.mp3","Close":"Game.Splash.Hide();Game.Sound.Play('drawer-close.mp3');"}
+	],
+	"Interact_Bed_Begin": [
+		{"Who":"Me","Text":"The bed is pretty basic...","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"It doesn't really look that bad, though.","Color":"#880","Sound":false}
+	],
+	"Interact_Bed_Other": [
+		{"Who":"Me","Text":"The bed is pretty basic...","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"Almost identical to the one in the room I was in.","Color":"#880","Sound":false}
+	],
+	"Interact_Door-Frame": [
+		{"Who":"Me","Text":"This door frame is made of nice wood...","Color":"#880","Sound":"ch4.mp3"}
+	],
+	"Interact_Outlet": [
+		{"Who":"Me","Text":"Just a regular power outlet.","Color":"#880","Sound":"ch4.mp3"}
+	],
+	"Interact_Wall": [
+		{"Who":"Me","Text":"It's the wall.","Color":"#880","Sound":"ch4.mp3"}
+	],
+	"Interact_Floor": [
+		{"Who":"Me","Text":"The floor is hard concrete.","Color":"#880","Sound":"ch4.mp3"}
+	],
+	"Interact_Floor_Restroom": [
+		{"Who":"Me","Text":"The floor is non-slip tile.","Color":"#880","Sound":"ch4.mp3"}
+	],
+	"Interact_Speaker_Initial": [
+		{"Who":"Me","Text":"An intercom speaker?","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"Why would you need that here?","Color":"#880","Sound":false}
+	],
+	"Interact_Speaker": [
+		{"Who":"Me","Text":"Another intercom speaker.","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"How many of these does this place have?","Color":"#880","Sound":false}
+	],
+	"Interact_Air-Vent_Initial": [
+		{"Who":"Me","Text":"An air vent...","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"Nothing special about it.","Color":"#880","Sound":false}
+	],
+	"Interact_Air-Vent_1": [
+		{"Who":"Me","Text":"Another air vent...","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"There's a lot of these here.","Color":"#880","Sound":false}
+	],
+	"Interact_Air-Vent_2": [
+		{"Who":"Me","Text":"More air vents...","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"Why does this place have so many?","Color":"#880","Sound":false}
+	],
+	"Interact_Air-Vent_3": [
+		{"Who":"Me","Text":"Another air vent...","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"They must be really serious about clean air.","Color":"#880","Sound":false}
+	],
+	"Interact_Air-Vent_4": [
+		{"Who":"Me","Text":"An air vent...","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"At least I know the air is clean.","Color":"#880","Sound":false}
+	],
+	"Interact_Room-7_Door": [
+		{"Who":"Me","Text":"The door to Room #7. This is the room I came out of.","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"Should I go inside?","Color":"#880","Sound":false,"Prompt":[{"Text":"Yes","Function":"Game.Events['Chapter-1']['Enter']['Room-7']();"},{"Text":"No","Function":false}]}
+	],
+	"Interact_Room-5_Door": [
+		{"Who":"Me","Text":"The door to Room #5.","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"Should I go inside?","Color":"#880","Sound":false,"Prompt":[{"Text":"Yes","Function":"Game.Events['Chapter-1']['Enter']['Room-5']();"},{"Text":"No","Function":false}]}
+	],
+	"Interact_Room-6_Door": [
+		{"Who":"Me","Text":"The door to Room #6.","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"Should I go inside?","Color":"#880","Sound":false,"Prompt":[{"Text":"Yes","Function":"Game.Events['Chapter-1']['Enter']['Room-6']();"},{"Text":"No","Function":false}]}
+	],
+	"Interact_Room-8_Door" : [
+		{"Who":"Me","Text":"The door to Room #8.","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"Should I go inside?","Color":"#880","Sound":false,"Prompt":[{"Text":"Yes","Function":"Game.Events['Chapter-1']['Enter']['Room-8']();"},{"Text":"No","Function":false}]}
+	],
+	"Interact_Room_Door_Numbers": [
+		{"Who":"Me","Text":"All of these doors are numbered: 5, 6, 7, 8...","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"So where are 1, 2, 3, and 4?","Color":"#880","Sound":false}
+	],
+	"Visit_Rooms-Hall_2": [
+		{"Who":"Me","Text":"Another long hallway...","Color":"#880","Sound":"ch4.mp3"}
+	],
+	"Interact_Rooms-Hall_Door_Interior_Initial" : [
+		{"Who":"Me","Text":"A large, heavy-looking wooden door...","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"It looks ominous.","Color":"#880","Sound":false},
+		{"Who":"Me","Text":"Should I go through?","Color":"#880","Sound":false,"Prompt":[{"Text":"Yes","Function":"Game.Events['Chapter-1']['Enter_Rooms-Hall_Door_Interior_Initial']();"},{"Text":"No","Function":false}]}
+	],
+	"Interact_Rooms-Hall_Door_Interior" : [
+		{"Who":"Me","Text":"This door leads out to the foyer.","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"Should I go out?","Color":"#880","Sound":false,"Prompt":[{"Text":"Yes","Function":"Game.Events['Chapter-1']['Enter']['Foyer-2F_Rooms-Hall']();"},{"Text":"No","Function":false}]}
+	],
+	"Interact_Rooms-Hall_Door" : [
+		{"Who":"Me","Text":"This door leads back to the hall that the rooms were in.","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"Should I go in?","Color":"#880","Sound":false,"Prompt":[{"Text":"Yes","Function":"Game.Events['Chapter-1']['Enter']['Rooms-Hall_Door']();"},{"Text":"No","Function":false}]}
+	],
+	"Interact_Rooms-Hall_Restroom_Door" : [
+		{"Who":"Me","Text":"It looks like a restroom.","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"Should I go inside?","Color":"#880","Sound":false,"Prompt":[{"Text":"Yes","Function":"Game.Events['Chapter-1']['Enter']['Rooms-Hall_Restroom']();"},{"Text":"No","Function":false}]}
+	],
+	"Interact_Keycard-Reader_White" : [
+		{"Who":"Me","Text":"Some sort of card reader.","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"It has a white light shining on it.","Color":"#880","Sound":false}
+	],
+	"Interact_Keycard-Reader_Red" : [
+		{"Who":"Me","Text":"Some sort of card reader.","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"It has a red light shining on it.","Color":"#880","Sound":false}
+	],
+	"Visit_Rooms-Hall_Restroom" : [
+		{"Who":"Me","Text":"Just a normal restroom.","Color":"#880","Sound":"ch4.mp3"}
+	],
+	"Visit_Room-Other_1": [
+		{"Who":"Me","Text":"This room looks a lot like the one I was in...","Color":"#880","Sound":"ch4.mp3"}
+	],
+	"Visit_Room_Post": [
+		{"Who":"Me","Text":"So Simon and Rosemary both woke up in rooms just like this one...","Color":"#880","Sound":"ch4.mp3"}
+	],
+	"Visit_Room-7_Other": [
+		{"Who":"Me","Text":"The other rooms look a lot like this one...","Color":"#880","Sound":"ch4.mp3"}
+	],
+	"Visit_Room-Other_2": [
+		{"Who":"Me","Text":"These rooms all look very similar...","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"What is this, some kind of hotel?","Color":"#880","Sound":false}
+	],
+	"Interact_Stairs_Rooms-Hall": [
+		{"Who":"Me","Text":"These stairs must lead up to the next floor...","Color":"#880","Sound":"ch4.mp3"}
+	],
+	"Interact_Stairs_Foyer-2F_1F": [
+		{"Who":"Me","Text":"It looks like these stairs lead down to the first floor...","Color":"#880","Sound":"ch4.mp3"}
+	],
+	"Interact_Stairs_Foyer-2F_3F": [
+		{"Who":"Me","Text":"These stairs must go up to the next floor...","Color":"#880","Sound":"ch4.mp3"}
+	],
+	"Interact_Restroom_Stall": [
+		{"Who":"Me","Text":"There's 3 stalls...","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"Nothing unusual.","Color":"#880","Sound":false}
+	],
+	"Interact_Restroom_Mirror": [
+		{"Who":"Me","Text":"jkndflkjnkwmelfkjnmjnkm","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"Nothing unusual.","Color":"#880","Sound":false}
+	],
+	"Interact_Restroom_Sink": [
+		{"Who":"Me","Text":"There are 3 sinks...","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"At least I know I can keep my hands clean.","Color":"#880","Sound":false}
+	],
+	"Introduce_Rosemary-Simon": [
+		{"Who":"?????","Text":"...there can't be nobody else!","Color":"#008","Sound":"Rosemary.mp3","Function":"Game.Events['Chapter-1']['Music']['strack1'].unload();"},
+		{"Who":"?????","Text":"Maybe we're alone...","Color":"#080","Sound":"Simon.mp3"},
+		{"Who":"?????","Text":"No way, a place this big? There's gotta be someone here!","Color":"#008","Sound":"Rosemary.mp3"},
+		{"Who":"?????","Text":"Yeah, but-","Color":"#080","Sound":"Simon.mp3"},
+		{"Who":"?????","Text":"Hey!","Color":"#008","Sound":"Rosemary.mp3","Image":"Rosemary/talking-excited.svg","Function":"Game.Splash.Hide();Game.Events['Chapter-1']['Music']['strack2'].play();"},
+		{"Who":"?????","Text":"You, over there!","Color":"#008","Sound":false,"Image":"Rosemary/talking-excited.svg"},
+		{"Who":"Me","Text":"Me?","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"?????","Text":"No, the wall.","Color":"#008","Sound":"Rosemary.mp3","Image":"Rosemary/annoyed.svg"},
+		{"Who":"?????","Text":"Yes, of course you!","Color":"#008","Sound":false,"Image":"Rosemary/grin.svg"},
+		{"Who":"?????","Text":"See, Simon? I told you there had to be someone else here!","Color":"#008","Sound":false,"Image":"Rosemary/talking-excited.svg"},
+		{"Who":"Simon","Text":"...","Color":"#080","Sound":"ch2.mp3","Expression":"deadpan"},
+		{"Who":"Rosemary","Text":"I'm Rosemary, but you can call me Rose if you want.","Color":"#008","Sound":"ch1.mp3","Expression":"grin"},
+		{"Who":"Rosemary","Text":"Who're you?","Color":"#008","Sound":false,"Expression":"grin"},
+		{"Who":"Me","Text":"I'm {character_name}. Nice to meet you.","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Simon","Text":"I'm Simon, as you probably heard. Nice to meet you, too.","Color":"#080","Sound":"ch2.mp3","Expression":"neutral"},
+		{"Who":"Rosemary","Text":"Where did you come from?","Color":"#008","Sound":"ch1.mp3","Expression":"confused"},
+		{"Who":"Me","Text":"Like, my hometown?","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Rosemary","Text":"No, just now!","Color":"#008","Sound":"ch1.mp3","Expression":"annoyed"},
+		{"Who":"Rosemary","Text":"How did you get into this room?","Color":"#008","Sound":false,"Expression":"talking"},
+		{"Who":"Me","Text":"Oh, I came through that big wooden door over there.","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Rosemary","Text":"Did you wake up in some sort of bedroom?","Color":"#008","Sound":"ch1.mp3","Expression":"confused"},
+		{"Who":"Me","Text":"Yeah, actually. Why?","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Simon","Text":"We did, too.","Color":"#080","Sound":"ch2.mp3","Expression":"confused"},
+		{"Who":"Me","Text":"What?","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Rosemary","Text":"Yeah, strange, right?","Color":"#008","Sound":"ch1.mp3","Expression":"deadpan"},
+		{"Who":"Rosemary","Text":"What is this place, anyway?","Color":"#008","Sound":false,"Expression":"confused"},
+		{"Who":"Me","Text":"From what I've seen, it seems like some sort of hotel.","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Rosemary","Text":"That'd explain the rooms.","Color":"#008","Sound":"ch1.mp3","Expression":"thinking"},
+		{"Who":"Simon","Text":"If it is a hotel, they'd have a lobby, right?","Color":"#080","Sound":"ch2.mp3","Expression":"confused"},
+		{"Who":"Rosemary","Text":"Yeah, that'd make sense.","Color":"#008","Sound":"ch1.mp3","Expression":"talking"},
+		{"Who":"Simon","Text":"And hotels usually have the lobby on the ground floor, right?","Color":"#080","Sound":"ch2.mp3","Expression":"thinking"},
+		{"Who":"Simon","Text":"So if we go downstairs, we should find a lobby, and maybe someone who can tell us where we are!","Color":"#080","Sound":false,"Expression":"talking-excited"},
+		{"Who":"Rosemary","Text":"Makes sense to me.","Color":"#008","Sound":"ch1.mp3","Expression":"neutral"},
+		{"Who":"Simon","Text":"Then let's head downstairs!","Color":"#080","Sound":"ch2.mp3","Expression":"talking-excited","Close":"Game.Events['Chapter-1']['Presence']['2F_Foyer']();setTimeout(function(){Game.Dialogue.Play('Tutorial.json','Chapter-1_Presence');},1000);"}
+	],
+	"Presence_Rosemary_Post-Introduce": [
+		{"Who":"Rosemary","Text":"You know, I guess this really is like a hotel!","Color":"#008","Sound":"ch1.mp3","Expression":"talking-excited"},
+		{"Who":"Rosemary","Text":"But why would we have just woken up here?","Color":"#008","Sound":false,"Expression":"confused"},
+		{"Who":"Rosemary","Text":"I don't even remember how I got here, do you?","Color":"#008","Sound":false,"Expression":"thinking"},
+		{"Who":"Me","Text":"No, I don't, actually.","Color":"#880","Sound":"ch4.mp3","Image":false},
+		{"Who":"Rosemary","Text":"That's really weird.","Color":"#008","Sound":"ch1.mp3","Expression":"thinking"},
+		{"Who":"Rosemary","Text":"Well, maybe going downstairs will solve this mystery!","Color":"#008","Sound":false,"Expression":"talking-excited"}
+	],
+	"Presence_Simon_Post-Introduce": [
+		{"Who":"Simon","Text":"There's something I still don't understand...","Color":"#080","Sound":"ch2.mp3","Expression":"confused"},
+		{"Who":"Simon","Text":"Do you remember how we got here?","Color":"#080","Sound":false,"Expression":"talking"},
+		{"Who":"Me","Text":"Actually, I don't...","Color":"#880","Sound":"ch4.mp3","Image":false},
+		{"Who":"Me","Text":"It was just black; I heard a rumbling noise, and that's when I woke up.","Color":"#880","Sound":false,"Image":false},
+		{"Who":"Simon","Text":"I don't get it...","Color":"#080","Sound":"ch2.mp3","Expression":"thinking"},
+		{"Who":"Simon","Text":"...but let's just head downstairs for now.","Color":"#080","Sound":false,"Expression":"talking"}
+	],
+	"Leave_Rosemary-Simon_Post-Introduce": [
+		{"Who":"Rosemary","Text":"You're going to look around some more?","Color":"#008","Sound":"ch1.mp3","Expression":"confused","Function":"Game.Splash.Container.style.zIndex = '97';"},
+		{"Who":"Rosemary","Text":"We'll wait here for you!","Color":"#008","Sound":false,"Expression":"grin","Close":"Game.Room.LoadNow();"}
+	],
+	"Move_Foyer-2F_3F_No": [
+		{"Who":"Rosemary","Text":"Where are you going?","Color":"#008","Sound":"ch1.mp3","Expression":"confused"},
+		{"Who":"Rosemary","Text":"I don't think we'll find a lobby in the upstairs!","Color":"#008","Sound":false,"Expression":"confused"}
+	],
+	"Enter_Foyer-1F_Initial": [
+		{"Who":"Rosemary","Text":"Look!","Color":"#008","Sound":"ch1.mp3","Expression":"talking-excited"},
+		{"Who":"Rosemary","Text":"This door goes to the lobby, look at the sign!","Color":"#008","Sound":false,"Image":false,"Function":"Game.Splash.Show('','Chapter-1_Door_Lobby','fade',98);","Close":"Game.Splash.Hide();"},
+		{"Who":"Simon","Text":"Then let's go!","Color":"#080","Sound":"ch2.mp3","Expression":"talking-excited"}
+	],
+	"Interact_Lobby_Door_Initial": [
+		{"Who":"Rosemary","Text":"Alright, let's find out what's going on!","Color":"#008","Sound":"ch1.mp3","Expression":"talking-excited","Function":"Game.Events['Chapter-1']['Music']['strack3']();Game.Presence.ClearAll();"},
+		{"Who":"Rosemary","Text":"...","Color":"#008","Sound":"door-lock.mp3","Image":false,"Function":"Game.Splash.Show('','Chapter-1_Door_Lobby','enter',98);Game.Events['Chapter-1']['Music']['strack2'].unload();","Close":"Game.Splash.Hide();"},
+		{"Who":"Rosemary","Text":"What?","Color":"#008","Sound":"ch1.mp3","Expression":"surprised","Function":"Game.Events['Chapter-1']['Music']['strack3'].play();"},
+		{"Who":"Simon","Text":"What are you waiting for?","Color":"#080","Sound":"ch2.mp3","Expression":"confused"},
+		{"Who":"Rosemary","Text":"It's locked!","Color":"#008","Sound":"ch1.mp3","Expression":"surprised-sad"},
+		{"Who":"Simon","Text":"What? Why?","Color":"#080","Sound":"ch2.mp3","Expression":"surprised"},
+		{"Who":"Me","Text":"Maybe it has something to do with this thing next to the door...","Color":"#880","Sound":"ch4.mp3","Image":false},
+		{"Who":"Me","Text":"It looks like some sort of card reader.","Color":"#880","Sound":false,"Image":false,"Function":"Game.Splash.Show('','Chapter-1_Door_Lobby_Keycard-Reader','fade',98);","Close":"Game.Splash.Hide();"},
+		{"Who":"Rosemary","Text":"A card reader?","Color":"#008","Sound":"ch1.mp3","Expression":"confused"},
+		{"Who":"Rosemary","Text":"Oh! I saw those by the doors upstairs, too!","Color":"#008","Sound":false,"Expression":"surprised"},
+		{"Who":"Rosemary","Text":"They must work like locks...","Color":"#008","Sound":false,"Expression":"thinking"},
+		{"Who":"Simon","Text":"If it is a lock, then how do we unlock it?","Color":"#080","Sound":"ch2.mp3","Expression":"confused"},
+		{"Who":"Me","Text":"This one has a red light on it, what did the others look like?","Color":"#880","Sound":"ch4.mp3","Image":false,"Function":"Game.Splash.Show('','Chapter-1_Door_Lobby_Keycard-Reader','fade',98);","Close":"Game.Splash.Hide();"},
+		{"Who":"Rosemary","Text":"I remember!","Color":"#008","Sound":"ch1.mp3","Expression":"talking-excited"},
+		{"Who":"Rosemary","Text":"The one by the door that led back to the hall with the rooms had a white light.","Color":"#008","Sound":false,"Image":false,"Function":"Game.Splash.Show('','Chapter-1_Door_Rooms-Hall_Keycard-Reader','fade',98);","Close":"Game.Splash.Hide();"},
+		{"Who":"Simon","Text":"And we didn't have any trouble going through those doors...","Color":"#080","Sound":"ch2.mp3","Expression":"thinking"},
+		{"Who":"Rosemary","Text":"So white means it's unlocked!","Color":"#008","Sound":"ch1.mp3","Expression":"talking-excited"},
+		{"Who":"Simon","Text":"If white means it's unlocked...","Color":"#080","Sound":"ch2.mp3","Expression":"thinking"},
+		{"Who":"Rosemary","Text":"Then red must mean we need a keycard to open it!","Color":"#008","Sound":"ch1.mp3","Expression":"talking-excited"},
+		{"Who":"Simon","Text":"...","Color":"#080","Sound":"ch2.mp3","Expression":"deadpan"},
+		{"Who":"Rosemary","Text":"But where would we get a keycard?","Color":"#008","Sound":"ch1.mp3","Expression":"confused"},
+		{"Who":"Me","Text":"Maybe there's one around here somewhere...","Color":"#880","Sound":"ch4.mp3","Image":false},
+		{"Who":"Simon","Text":"Let's try looking around on this floor!","Color":"#080","Sound":"ch2.mp3","Expression":"neutral"},
+		{"Who":"Rosemary","Text":"Alright then, let's find a keycard!","Color":"#008","Sound":"ch1.mp3","Expression":"grin","Close":"Game.Events['Chapter-1']['Presence']['1F_Foyer']();"}
+	],
+	"Interact_Foyer-1F_Lobby-Sign": [
+		{"Who":"Me","Text":"This sign leaves no question that that door goes out to the lobby.","Color":"#880","Sound":"ch4.mp3","Image":false}
+	],
+	"Move_Foyer-1F_2F_No_Initial": [
+		{"Who":"Rosemary","Text":"Where are you going?","Color":"#008","Sound":"ch1.mp3","Expression":"confused"},
+		{"Who":"Rosemary","Text":"We need to go to the lobby!","Color":"#008","Sound":false,"Expression":"talking-excited"}
+	],
+	"Move_Foyer-1F_2F_No": [
+		{"Who":"Rosemary","Text":"Where are you going?","Color":"#008","Sound":"ch1.mp3","Expression":"confused"},
+		{"Who":"Rosemary","Text":"We need to find a keycard so we can open the door to the lobby!","Color":"#008","Sound":false,"Expression":"talking-excited"}
+	],
+	"Interact_Foyer-1F_Gate": [
+		{"Who":"Me","Text":"There's a gate blocking these stairs.","Color":"#880","Sound":"ch4.mp3","Image":false,"Function":"if (!Game.Story['Chapter-1']['Interact_Foyer-1F_Gate']) {Game.Dialogue.Play('Chapter-1.json','Interact_Foyer-1F_Gate_Initial');Game.Story['Chapter-1']['Interact_Foyer-1F_Gate']=true;}"}
+	],
+	"Interact_Foyer-1F_Gate_Initial": [
+		{"Who":"Rosemary","Text":"What's this blocked off for?","Color":"#008","Sound":"ch1.mp3","Expression":"confused"},
+		{"Who":"Simon","Text":"Maybe that side is under construction?","Color":"#080","Sound":"ch2.mp3","Expression":"confused"},
+		{"Who":"Rosemary","Text":"I don't know, I feel like if it were under construction there'd be signs or something.","Color":"#008","Sound":"ch1.mp3", "Expression":"thinking"},
+		{"Who":"Rosemary","Text":"Or, at least someone else around.","Color":"#008","Sound":false, "Expression":"confused"}
+	],
+	"Interact_Stairs_Foyer-1F_2F_Right": [
+		{"Who":"Me","Text":"These stairs go back up to the 2nd floor.","Color":"#880","Sound":"ch4.mp3"}
+	],
+	"Presence_Rosemary_Foyer-1F_Initial": [
+		{"Who":"Rosemary","Text":"Finally, maybe someone will be able to tell us what's going on!","Color":"#008","Sound":"ch1.mp3","Expression":"talking-excited"},
+		{"Who":"Rosemary","Text":"This is a pretty weird hotel.","Color":"#008","Sound":false,"Expression":"confused"}
+	],
+	"Presence_Simon_Foyer-1F_Initial": [
+		{"Who":"Simon","Text":"I hope we don't look crazy...","Color":"#080","Sound":"ch2.mp3","Expression":"neutral"},
+		{"Who":"Simon","Text":"I still don't even remember how we got here...","Color":"#080","Sound":false,"Expression":"thinking"}
+	],
+	"Presence_Rosemary_Foyer-1F": [
+		{"Who":"Rosemary","Text":"Finding a keycard shouldn't be too hard...","Color":"#008","Sound":"ch1.mp3","Expression":"neutral"},
+		{"Who":"Me","Text":"But what would it look like?","Color":"#880","Sound":"ch4.mp3","Image":false},
+		{"Who":"Rosemary","Text":"Well, the light on the reader is red...","Color":"#008","Sound":"ch1.mp3","Expression":"thinking"},
+		{"Who":"Rosemary","Text":"So maybe the card is, too!","Color":"#008","Sound":false,"Expression":"talking-excited"},
+		{"Who":"Me","Text":"I hope so...","Color":"#880","Sound":"ch4.mp3","Image":false},
+		{"Who":"Me","Text":"That'd make it easy to find.","Color":"#880","Sound":false,"Image":false}
+	],
+	"Presence_Simon_Foyer-1F": [
+		{"Who":"Simon","Text":"Where would we find a keycard..?","Color":"#080","Sound":"ch2.mp3","Expression":"thinking"},
+		{"Who":"Me","Text":"Maybe we could try one of those doors over there?","Color":"#880","Sound":"ch4.mp3","Image":false},
+		{"Who":"Simon","Text":"I hope we find one...","Color":"#080","Sound":"ch2.mp3","Expression":"thinking"}
+	],
+	"Interact_Offices-Hall_Restroom_Door" : [
+		{"Who":"Me","Text":"It looks like a restroom.","Color":"#880","Sound":"ch4.mp3"},
+		{"Who":"Me","Text":"Should I go inside?","Color":"#880","Sound":false,"Prompt":[{"Text":"Yes","Function":"Game.Events['Chapter-1']['Enter']['Offices-Hall_Restroom']();"},{"Text":"No","Function":false}]}
+	]
+}
