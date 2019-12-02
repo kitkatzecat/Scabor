@@ -35,7 +35,7 @@ var Game = {
 			js.setAttribute('language','javascript');
 			js.setAttribute('src','./resources/js/'+source);
 			document.head.appendChild(js);
-			var name = (source.substr(0,source.lastIndexOf('.')).replace('/','__')).toLowerCase();
+			var name = (source.substr(0,source.lastIndexOf('.')).replace('/','__'));
 			name = name.charAt(0).toUpperCase() + name.slice(1);
 			Game.JS.Loaded[name] = js;
 
@@ -191,6 +191,7 @@ window.addEventListener('load',function() {
 
 		Game.JS.Load('characters.js');
 		Game.JS.Load('dialogue.js');
+		Game.JS.Load('cutscene.js');
 
 		Game.JS.Load('sound.js');
 		Game.JS.Load('music.js');
