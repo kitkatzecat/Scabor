@@ -1,0 +1,18 @@
+{
+	"default": {
+		"title": "2F - Rooms Hall",
+		"room": "hall_test.svg",
+		"orientation": "90",
+		"background": false,
+		"back": false,
+		"scripts": [],
+		"js": [],
+		"onload": "Game.Music.Load('Chapter1_0.mp3',true);"
+	},
+	"Chapter1": {
+		"title": "?? - Hallway"
+	},
+	"Chapter2": {
+		"onload": "Game.Dialogue.Play('test.json','Conversation');"
+	}
+}
