@@ -11,6 +11,11 @@ Game.Characters = {
 					try {
 						result = JSON.parse(result);
 						Game.Characters.Loaded[result['ID']] = result;
+						try {
+							Game.Sound.Load(result['Sound']);
+						} catch(e) {
+							console.log('Game.Characters.Load: Game.Sound.Load error: '+e);
+						}
 						console.log('Game.Characters.Load: Loaded character "'+result['Name']+'" from "'+source+'.json" as "'+result['ID']+'"');
 					} catch(err) {
 						console.log('Game.Characters.Load: Unable to load character from "'+source+'.json" (JSON parse): '+err);
