@@ -1,18 +1,28 @@
 {
 	"default": {
+		"id": "2F_Rooms-Hall_1",
 		"title": "2F - Rooms Hall",
 		"room": "hall_test.svg",
 		"orientation": "90",
 		"background": false,
 		"back": false,
-		"scripts": [],
+		"scripts": ["test.json"],
 		"js": [],
-		"onload": "Game.Music.Load('Chapter1_0.mp3',true);"
+		"onload": "Game.Music.Load('Chapter1_0.mp3',true);",
+		"sound_from": {
+			"default": "door-open.mp3"
+		}
 	},
 	"Chapter1": {
 		"title": "?? - Hallway"
 	},
 	"Chapter2": {
-		"onload": "Game.Dialogue.Play('test.json','Conversation');"
+		"onload": "Game.Dialogue.Play('test.json','Conversation');",
+		"js": ["events/test.js"],
+		"background": "earth.png"
+	},
+	"Broken": {
+		"id": "2F_Rooms-Hall_1_broken",
+		"onload": ""
 	}
 }
