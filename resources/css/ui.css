@@ -1,0 +1,118 @@
+.ui_background {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: 119;
+	background: rgba(0,0,0,0.5);
+	backdrop-filter:blur(3px);
+	-webkit-backdrop-filter:blur(3px);
+}
+.ui_background_animated-open {
+	animation: ui_background_animation-open 1s ease-out 1;
+}
+.ui_background_animated-close {
+	animation: ui_background_animation-close 0.5s ease-in 1;
+}
+@keyframes ui_background_animation-open {
+	0% {opacity:0;backdrop-filter:blur(0px);-webkit-backdrop-filter:blur(0px);}
+	100% {opacity:1;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);}
+}
+@keyframes ui_background_animation-close {
+	0% {opacity:1;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);}
+	100% {opacity:0;backdrop-filter:blur(0px);-webkit-backdrop-filter:blur(0px);}
+}
+
+.ui_container {
+	position: fixed;
+	top: 50%;
+	left: 15%;
+	right: 15%;
+	max-height: 90%;
+	overflow: auto;
+	padding-top: 32px;
+	padding-left: 7%;
+	padding-right: 7%;
+	padding-bottom: 32px;
+	background-color: rgba(22,22,22,0.9);
+	border: 3px solid rgb(99,99,99);
+	border-radius: 30px;
+	box-sizing: border-box;
+	color: #fff;
+	z-index: 120;
+	font-size: 1.5em;
+	transform: translateY(-50%);
+	transform-origin: 50% 25%;
+}
+.ui_container_animated-open {
+	animation: ui_container_animation-open 0.2s ease-out 1;
+}
+.ui_container_animated-close {
+	animation: ui_container_animation-close 0.5s ease-in 1;
+}
+@keyframes ui_container_animation-open {
+	0% {opacity:0;transform:scale(1.1) translateY(-50%);}
+	100% {opacity:1;transform:scale(1) translateY(-50%);}
+}
+@keyframes ui_container_animation-close {
+	0% {opacity:1;transform:scale(1) translateY(-50%);}
+	30% {opacity:0;transform:scale(1.1) translateY(-50%);}
+	100% {opacity:0;transform:scale(1.1) translateY(-50%);}
+}
+
+.ui_title {
+	font-size: 2em;
+	color: rgba(255,255,255,0.9);
+	margin-top: 8px;
+	margin-bottom: 16px;
+	padding: 0px;
+	display: inline-block;
+}
+.ui_button {
+	display: inline-block;
+	float: right;
+	margin-top: 32px;
+	margin-left: 16px;
+	padding-left: 32px;
+	padding-right: 32px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	background: rgb(44,44,44);
+	color: #fff;
+	border-radius: 12px;
+    border: 2px solid rgb(99,99,99);
+	cursor: pointer;
+}
+.ui_button:hover {
+	background: rgb(99,99,99);
+}
+
+.ui_container > input[type=text], .ui_container > select {
+    max-width: 550px;
+    font-size: 18px;
+    margin-top: 8px;
+    width: 100%;
+    border: 2px solid rgb(99,99,99);
+    background: rgb(22,22,22);
+    border-radius: 12px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    padding-right: 16px;
+    padding-left: 16px;
+    box-sizing: border-box;
+    color: #fff;
+}
+.ui_container > input[type=text] {
+	cursor: text;
+}
+.ui_container > select {
+	cursor: pointer;
+}
+.ui_container > input[type=text]:hover, .ui_container > select:hover {
+	background: rgb(44,44,44);
+}
+.ui_container > input[type=text]:focus, .ui_container > select:focus {
+	background: #fff;
+	color: #000;
+}
