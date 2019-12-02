@@ -32,8 +32,6 @@ Game.Room = {
 	    Game.Room.Composition.Request.setRequestHeader("Cache-Control", "no-cache");
 	    Game.Room.Composition.Request.send(null);
 		
-		Game.Room.Compass.Load(file);
-		
 		try {
 			Game.Presence.ClearAll();
 		} catch(e) {
@@ -59,7 +57,8 @@ Game.Room = {
 				if (l < 0) { l = 0; }
 				Game.Room.Composition.Image.style.left = '-'+l+'px';
 				Game.Room.Composition.Image.onmouseover = function() {Game.Cursor.Set('magnifying-glass');};
-				Game.Room.Composition.Image.onmouseout = function() {Game.Cursor.Hide();};
+				Game.Room.Composition.Image.addEventListener('mousedown',function() {Game.Sound.Play('click.mp3');});
+				Game.Room.Composition.Image.addEventListener('mouseout',function() {Game.Cursor.Hide();});
 				Game.Room.Resize();
 				
 				try {
@@ -77,7 +76,7 @@ Game.Room = {
 				
 				console.log('Game.Room.Response: Room "'+Game.Room.Composition.RequestURI+'" loaded at position '+Game.Room.Composition.RequestPos+'% (-'+l+'px)');
 			} else {
-				Game.Dialogue.Speak({Who:'Error',Text:'Unable to load room from "'+Game.Room.Composition.RequestURI+'": '+Game.Room.Composition.Request.statusText,Color:'#888',Sound:'c5.mp3'});
+				Game.Dialogue.Speak({Who:'Error',Text:'Unable to load room from "'+Game.Room.Composition.RequestURI+'": '+Game.Room.Composition.Request.statusText,Color:'#888'});
 				try {
 					Game.Room.Loaded();
 				} catch(e) {console.log('Game.Room.Response: Error processing Game.Room.Loaded function: '+e);}
@@ -374,19 +373,10 @@ Game.Room = {
 			} else {
 				Game.Room.Compass.Composition.style.transform = 'rotateX(0deg) rotateY(0deg)';
 			}
-		},
-		Load: function(room) {
-			if (Game.Room.Compass.Rooms.hasOwnProperty(room)) {
-				Game.Room.Compass.Set(parseInt(Game.Room.Compass.Rooms[room]));
-			} else {
-				Game.Room.Compass.Set(0);
-			}
-		},
-		Rooms: {}
+		}
 	}
 }
-
-window.addEventListener('load',function() {
+Game.Room.Init = function() {
 	Game.CSS.Load('room.css');
 
 	Game.Room.Composition.Right = document.createElement('div');
@@ -440,35 +430,9 @@ window.addEventListener('load',function() {
 	document.body.appendChild(Game.Room.Composition.ButtonCaption);
 	
 	Game.Room.Compass.Composition = document.createElement('img');
-	Game.Room.Compass.Composition.className = 'room_compass';
+	Game.Room.Compass.Composition.className = 'room_compass noselect';
 	Game.Room.Compass.Composition.src = 'resources/images/room_compass.svg';
 	document.body.appendChild(Game.Room.Compass.Composition);
-	
-	(function() {
-		var request = new XMLHttpRequest;
-		
-		request.open('GET', 'resources/rooms/compass.json', true);
-		
-		request.onreadystatechange = function() {
-			if (request.readyState == 4) {
-				if (request.status == 200) {
-					var result = request.responseText;
-					try {
-						result = JSON.parse(result);
-						Game.Room.Compass.Rooms = result;
-						console.log('Game.Room [anonymous]: Compass data loaded');
-					} catch(err) {
-						console.log('Game.Room [anonymous]: Unable to load compass data: '+err);
-					}
-				} else {
-					console.log('Game.Room [anonymous]: Unable to load compass data: '+request.statusText);
-				}
-			}
-		};
-		
-		request.setRequestHeader("Cache-Control", "no-cache");
-		request.send(null);
-	})();
 	
 	document.addEventListener("keydown", function(e) {
 		if (e.keyCode == 65 || e.keyCode == 37) {
@@ -498,4 +462,4 @@ window.addEventListener('load',function() {
 			e.preventDefault();
 		}
 	});
-});
+}
