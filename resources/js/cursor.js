@@ -14,13 +14,13 @@ Game.Cursor = {
 		Game.Cursor.Composition.Cursor.remove();
 		document.body.style.cursor = '';
 	},
+	Init: function() {
+		Game.CSS.Load('cursor.css');
+
+		document.body.addEventListener('mousemove',Game.Cursor.MouseMove);
+
+		Game.Cursor.Composition.Cursor = document.createElement('div');
+		Game.Cursor.Composition.Cursor.className = 'cursor cursor_magnifying-glass';
+	},
 	Composition: {}
 }
-window.addEventListener('load',function(){
-	Game.CSS.Load('cursor.css');
-
-	document.body.addEventListener('mousemove',Game.Cursor.MouseMove);
-
-	Game.Cursor.Composition.Cursor = document.createElement('div');
-	Game.Cursor.Composition.Cursor.className = 'cursor cursor_magnifying-glass';
-});
