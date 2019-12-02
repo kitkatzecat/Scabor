@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cutscene</title>
+	<link rel="stylesheet" href="../css/font.css">
+	<style>
+		body {
+			background: #fff;
+		}
+	</style>
+	<script>
+		var countdown = 10;
+		function Load() {
+			console.log('load called');
+			setTimeout(function() {
+				test();
+				Cutscene.Ready();
+			},5000);
+		}
+		function test() {
+			if (countdown == 0) {
+				document.getElementById('text').innerHTML = 0;
+				Cutscene.End();
+			} else {
+				document.getElementById('text').innerHTML = countdown;
+				countdown--;
+				setTimeout(test,1000);
+			}
+		}
+	</script>
+</head>
+<body>
+	<p>cutscene ending in <span id="text">[]</span> seconds...</p>
+</body>
+</html>
