@@ -115,7 +115,7 @@ body {
 .game_loader {
 	position: fixed;
 	top: 5%;
-	right: 5%;
+	left: 5%;
 	width: 32px;
 	height: 32px;
 	border: 4px solid #b00;
