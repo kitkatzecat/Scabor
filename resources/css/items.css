@@ -1,0 +1,36 @@
+.item_box {
+	width: 108px;
+	height: 154px;
+	padding: 0px;
+	box-sizing: border-box;
+	border: 2px solid transparent;
+	border-radius: 5px;
+	margin: 2px;
+	text-align: center;
+	font-size: 20px;
+	line-height: 16px;
+	cursor: pointer;
+	float: left;
+	position: relative;
+	transition: transform 0.2s ease-in-out;
+}
+.item_box:hover {
+	border: 2px solid rgb(99,99,99);
+	background-color: rgba(255,255,255,0.2);
+	transform: scale(1.05);
+}
+
+.item_image {
+	width: 96px;
+	height: 96px;
+}
+
+.item_quantity {
+	background-color: rgba(255,255,255,0.2);
+	position: absolute;
+	top: 4px;
+	right: 4px;
+	font-size: 14px;
+	padding: 6px;
+	border-radius: 100%;
+}

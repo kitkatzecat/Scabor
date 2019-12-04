@@ -1,0 +1,32 @@
+{
+	"default": {
+		"name": "Unknown",
+		"image": "Unknown.svg",
+		"description": "An unknown item. If this is in your inventory, something probably went wrong."
+	},
+    "Keycard_Red": {
+        "image": "Keycard_Red.svg",
+        "name": "Red Keycard",
+        "description": "A keycard that can open doors locked with a red security clearance."
+    },
+    "Keycard_Blue": {
+        "image": "Keycard_Blue.svg",
+        "name": "Blue Keycard",
+        "description": "A keycard that can open doors locked with a blue security clearance."
+    },
+    "Keycard_Yellow": {
+        "image": "Keycard_Yellow.svg",
+        "name": "Yellow Keycard",
+        "description": "A keycard that can open doors locked with a yellow security clearance."
+    },
+    "Keycard_Master": {
+        "image": "Keycard_Master.svg",
+        "name": "Master Keycard",
+        "description": "A master keycard that can open doors locked with any security clearance. Use it wisely!"
+    },
+    "Die": {
+        "image": "Die.svg",
+        "name": "Die",
+        "description": "A small, rounded cube with dots on each side to represent numbers... I hope you knew that already."
+    }
+}
