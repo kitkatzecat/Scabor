@@ -60,9 +60,16 @@ var Game = {
 			console.log('Game.JS.UnloadAll: Unloaded all JavaScript scripts');
 		},
 		Unload: function(source) {
-			if (Game.JS.Loaded.hasOwnProperty(source)) {
-				Game.JS.Loaded[source].parentNode.removeChild(Game.JS.Loaded[source]);
-				delete Game.JS.Loaded[source];
+			var name = (source.substr(0,source.lastIndexOf('.')).replace('/','__'));
+			name = name.charAt(0).toUpperCase() + name.slice(1);
+			try {
+				Game[name].UnInit();
+			} catch(e) {
+				console.log('Game.JS.Unload: Unable to execute UnInit of '+name+': '+e);
+			}
+			if (Game.JS.Loaded.hasOwnProperty(name)) {
+				Game.JS.Loaded[name].remove();
+				delete Game.JS.Loaded[name];
 			} else {
 				console.log('Game.JS.Unload: Failed to unload "'+source+'": object is undefined');
 			}
