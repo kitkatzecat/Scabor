@@ -119,7 +119,7 @@ Game.Dialogue = {
 			
 			if (typeof Input.Image !== 'undefined' && Input.Image != false) {
 				Game.Dialogue.Image = Input.Image;
-				Game.Dialogue.Composition.Image.src = './resources/images/characters/'+Input.Image;
+				Game.Dialogue.Composition.Image.src = './resources/images/'+Input.Image;
 				if (Game.Dialogue.Previous != false) {
 					if (Input.Who !== Game.Dialogue.Previous.Who) {
 						Game.Dialogue.Composition.Image.className = 'dialogue_image noselect';
@@ -391,9 +391,13 @@ Game.Dialogue = {
 					}
 				}
 				if (!!exp) {
-					dialogue['Image'] = character['ID']+'/'+exp;
+					dialogue['Image'] = 'characters/'+character['ID']+'/'+exp;
 				} else {
-					dialogue['Image'] = false;
+					if (typeof script['Image'] != 'undefined') {
+						dialogue['Image'] = script['Image'];
+					} else {
+						dialogue['Image'] = false;
+					}
 				}
 
 				var speak = Object.assign({}, script, dialogue);
