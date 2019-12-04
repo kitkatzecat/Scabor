@@ -63,7 +63,7 @@ Game.Place = {
 						var js = element.substr(0,element.lastIndexOf('.')).replace('/','__');
 						js = js.charAt(0).toUpperCase() + js.slice(1)
 						if (typeof Game.Place.Current[element] == 'undefined') {
-							Game.JS.Unload(js);
+							Game.JS.Unload(element);
 						}
 					});
 				}
@@ -78,6 +78,18 @@ Game.Place = {
 				Game.Room.Loaded = function() {
 					if (!Game.Splash.Visible) {
 						Game.Splash.Show();
+					}
+
+					if (typeof Game.Place.Current['back'] != 'undefined' && !Game.Place.Current['back'] == false) {
+						Game.Room.OnLeave = function() {
+							try {
+								eval(Game.Place.Current['onleave']);
+							} catch(e) {
+								console.log('Game.Place.Enter [Game.When anonymous]: Error evaluating "onleave" of current place: '+e);
+							}
+							Game.Place.Load(Game.Place.Current['back'],true);
+						}
+						Game.Room.Leave.Show();
 					}
 
 					if (typeof Game.Place.Current['sound_from'] != 'undefined') {
