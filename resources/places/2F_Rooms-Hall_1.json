@@ -6,6 +6,7 @@
 		"orientation": "90",
 		"background": false,
 		"back": false,
+		"onleave": "",
 		"scripts": ["test.json"],
 		"js": [],
 		"onload": "Game.Music.Load('Chapter1_0.mp3',true);",
@@ -19,7 +20,9 @@
 	"Chapter2": {
 		"onload": "Game.Dialogue.Play('test.json','Conversation');",
 		"js": ["events/test.js"],
-		"background": "earth.png"
+		"background": "earth.png",
+		"back": "2F_Rooms-Hall_1",
+		"onleave": "Game.Story.Now = 'Chapter1';"
 	},
 	"Broken": {
 		"id": "2F_Rooms-Hall_1_broken",

@@ -10,7 +10,7 @@
 	],
 	"Conversation": [
 		{"Who":"Rosemary","Text":"What is this place, anyway?","Expression":"confused"},
-		{"Who":"Me","Text":"From what I've seen, it seems like a hotel or something."},
+		{"Who":"Me","Text":"From what I've seen, it seems like a hotel or something.","Image":"items/Keycard_Red.svg"},
 		{"Who":"Simon","Text":"If it is a hotel, they'd have a reception area, right?","Expression":"confused"},
 		{"Who":"Rosemary","Text":"Yeah, that'd make sense.","Expression":"talking"},
 		{"Who":"Simon","Text":"And hotels usually have reception on the ground floor, right?","Expression":"talking"},
