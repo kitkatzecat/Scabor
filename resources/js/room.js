@@ -238,13 +238,12 @@ Game.Room = {
 		},
 		Message: 'Leave this room?',
 		On: function() {
-			Game.Dialogue.Speak({Who:'Narrator',Text:Game.Room.Leave.Message,Sound:'c5.mp3',Color:'#888',Prompt:[
+			Game.Dialogue.Speak({Who:'Narrator',Text:Game.Room.Leave.Message,Sound:'Me.mp3',Color:'#888',Prompt:[
 				{Text:'Yes',Function:function() {
 					if (typeof Game.Room.BeforeLeave == 'function') {
 						try {
-							
+							Game.Room.BeforeLeave();
 						} catch(e) {console.log('Game.Room.Leave.On: Game.Room.BeforeLeave error: '+e);}
-						Game.Room.BeforeLeave();
 					} else {
 						if (typeof Game.Room.OnLeave == 'function') {
 							try {
@@ -421,7 +420,10 @@ Game.Room.Init = function() {
 	Game.Room.Composition.Button = document.createElement('div');
 	Game.Room.Composition.Button.className = 'room_button font_text noselect';
 	Game.Room.Composition.Button.style.display = 'none';
-	Game.Room.Composition.Button.onclick = Game.Room.Leave.On
+	Game.Room.Composition.Button.onmousedown = function() {
+		Game.Sound.Play('click.mp3');
+	}
+	Game.Room.Composition.Button.onclick = Game.Room.Leave.On;
 	document.body.appendChild(Game.Room.Composition.Button);
 	
 	Game.Room.Composition.ButtonCaption = document.createElement('div');
