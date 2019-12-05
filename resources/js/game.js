@@ -194,12 +194,6 @@ window.addEventListener('load',function() {
 		document.body.appendChild(Game.Bar.Composition.Bar);
 		Game.Bar.Composition.Bar.appendChild(Game.Bar.Composition.Room);
 
-		Game.JS.Load('story.js');
-
-		Game.JS.Load('characters.js');
-		Game.JS.Load('dialogue.js');
-		Game.JS.Load('cutscene.js');
-
 		Game.JS.Load('sound.js');
 		Game.JS.Load('music.js');
 		Game.JS.Load('splash.js');
@@ -209,6 +203,13 @@ window.addEventListener('load',function() {
 		Game.JS.Load('room.js');
 		Game.JS.Load('place.js');
 		Game.JS.Load('items.js');
+
+		Game.JS.Load('story.js');
+
+		Game.JS.Load('characters.js');
+		Game.JS.Load('dialogue.js');
+		Game.JS.Load('cutscene.js');
+		Game.JS.Load('presence.js');
 
 		Game.When(function() {return typeof Game.Splash != 'undefined'},function(result) {
 			if (result) {
