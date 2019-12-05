@@ -409,7 +409,7 @@ Game.Dialogue = {
 		} else {
 			console.log('Game.Dialogue.Line: [Warning] Game.Characters is not initialized. Speaking line directly.');
 			Game.Dialogue.Speak(script);
-	}
+		}
 	},
 	LoadedScripts: {},
 	Composition: {}
