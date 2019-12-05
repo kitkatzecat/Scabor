@@ -1,6 +1,9 @@
 Game.UI = {
 	Show: function(obj) {
-		Game.UI.Hidden();
+		//Game.UI.Hidden();
+		try {
+			Game.UI.Composition.Current.remove();
+		} catch (e) {}
 		if (obj.tagName.toLowerCase() == 'div') {
 			obj.className = 'ui_container ui_container_animated-open font_text';
 			Game.UI.Composition.Current = obj;
@@ -40,6 +43,7 @@ Game.UI.Init = function() {
 	Game.UI.Composition.Background = document.createElement('div');
 	Game.UI.Composition.Background.className = 'ui_background ui_background_animated-open font_text noselect';
 	Game.CSS.Load('ui.css');
+	Game.UI.Hidden();
 }
 
 Game.Ui = Game.UI;
