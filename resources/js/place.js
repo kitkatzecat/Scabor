@@ -113,6 +113,12 @@ Game.Place = {
 						document.body.style.backgroundImage = 'none';
 					}
 
+					try {
+						Game.Presence.CheckPersist();
+					} catch(e) {
+						console.log('Game.Place.Enter: Error calling Game.Presence.CheckPersist: '+e);
+					}
+
 					setTimeout(function(){
 						Game.Splash.Animation = 'fade';
 						Game.Splash.Hide();
