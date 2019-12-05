@@ -32,11 +32,11 @@ Game.Room = {
 	    Game.Room.Composition.Request.setRequestHeader("Cache-Control", "no-cache");
 	    Game.Room.Composition.Request.send(null);
 		
-		try {
+		/*try {
 			Game.Presence.ClearAll();
 		} catch(e) {
 			console.log('Game.Room.LoadNow: Error while calling Game.Presence.ClearAll: '+e);
-		}
+		}*/
 		Game.Room.Leave.Hide();
 	},
 	Loaded: false,
