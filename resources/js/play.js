@@ -14,6 +14,7 @@ Game.When(function() {
 }, function(r) {
 	if (r) {
 		Game.Characters.Loaded['Me']['Name'] = 'Makoto';
+		Game.Story['Me']['Name'] = 'Makoto';
 	}
 },500,10);
 

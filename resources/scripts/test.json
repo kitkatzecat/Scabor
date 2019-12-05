@@ -73,7 +73,7 @@
 		{"Who":"Me","Text":"I don't know how to walk on stairs...","Color":"#880","Sound":"a4.mp3","Close":"Game.Splash.Show('GAME<br/>OV');"}
 	],
 	"Rosemaryy": [
-		{"Who":"Rosemary","Text":"akjsghksdfhglkajshglk","Color":"#080","Sound":"ch1.mp3"},
-		{"Who":"Rosemary","Text":"fuck","Color":"#080","Sound":false}
+		{"Who":"Rosemary","Text":"akjsghksdfhglkajshglk","Expression":"talking-excited"},
+		{"Who":"Rosemary","Text":"fuck","Expression":"deadpan"}
 	]
 }
