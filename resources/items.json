@@ -2,7 +2,8 @@
 	"default": {
 		"name": "Unknown",
 		"image": "Unknown.svg",
-		"description": "An unknown item. If this is in your inventory, something probably went wrong."
+		"description": "An unknown item. If this is in your inventory, something probably went wrong.",
+		"id": "default"
 	},
     "Keycard_Red": {
         "image": "Keycard_Red.svg",
