@@ -25,8 +25,10 @@
 		"back": "2F_Rooms-Hall_1",
 		"onleave": "Game.Story.Now = 'Chapter1';"
 	},
-	"Broken": {
+	"Chapter1:Completed": {
 		"id": "2F_Rooms-Hall_1_broken",
-		"onload": ""
+		"title": "Rooms hall broken",
+		"onload": "",
+		"orientation": "180"
 	}
 }
