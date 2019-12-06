@@ -113,6 +113,12 @@ Game.Place = {
 						document.body.style.backgroundImage = 'none';
 					}
 
+					if (typeof Game.Place.Current['boxes'] != 'undefined' && Game.Place.Current['boxes'] != false) {
+						Game.Items.BoxIndex = Object.assign({},Game.Items.BoxBase,Game.Place.Current['boxes']);
+					} else {
+						Game.Items.BoxIndex = Object.assign({},Game.Items.BoxBase);
+					}
+
 					try {
 						Game.Presence.CheckPersist();
 					} catch(e) {
