@@ -6,7 +6,8 @@
 	},
 	"Friends": [],
 	"Tutorial": {
-		"Room_Leave": false
+		"Room_Leave": false,
+		"Items_Get": false
 	},
 	"Now": false,
 	"Progress": {

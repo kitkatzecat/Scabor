@@ -1,0 +1,8 @@
+{
+	"Name": "Tutorial",
+	"ID": "Tutorial",
+	"Sound": "Tutorial.mp3",
+	"Color": "#888",
+	"Default": false,
+	"Expressions": {}
+}
