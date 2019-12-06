@@ -16,6 +16,18 @@ Game.Place = {
 						if (typeof result[Game.Story.Now] != 'undefined') {
 							Object.assign(Game.Place.Next,result[Game.Story.Now]);
 						}
+						for (var key in result) {
+							if (!result.hasOwnProperty(key)) continue;
+				
+							if (key.indexOf(Game.Story.Now) != -1 && key.indexOf(':') != -1) {
+								var k = key.split(':');
+								if (Game.Story.Progress[Game.Story.Now].hasOwnProperty(k[1])) {
+									if (!!Game.Story.Progress[Game.Story.Now][k[1]]) {
+										Object.assign(Game.Place.Next,result[key]);
+									}
+								}
+							}
+						}
 						console.log('Game.Place.Load: Room "'+Game.Place.Next['id']+'" loaded');
 
 						if (enter || !Game.Place.Current) {
