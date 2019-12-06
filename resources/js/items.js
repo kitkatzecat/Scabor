@@ -1,5 +1,5 @@
 Game.Items = {
-	Open: function(box,text='A drawer...') {
+	Open: function(box,text='A drawer...',sound="drawer-open.mp3") {
 		if (typeof Game.Items.BoxIndex == "undefined" || Game.Items.BoxIndex == false) {
 			console.log('Game.Items.Open: No boxes are loaded or box Index is undefined');
 		} else if (typeof Game.Items.BoxIndex[box] == "undefined") {
@@ -7,16 +7,20 @@ Game.Items = {
 		} else {
 			box = Game.Items.BoxIndex[box];
 			if (box.length == 0) {
-				Game.Dialogue.Line({Who:"Me",Text:text});
-				Game.Dialogue.Line({Who:"Me",Text:"...looks like it's empty."});
+				Game.Dialogue.Line({Who:"Me",Text:text,Sound:sound});
+				Game.Dialogue.Line({Who:"Me",Text:"...looks like it's empty.",Sound:Game.Characters.Loaded['Me']['Sound']});
 			} else {
-				Game.Dialogue.Line({Who:"Me",Text:text});
-				Game.Dialogue.Line({Who:"Me",Text:"...looks like there are "+box.length+" items in it. [INDEV]"});
+				Game.Dialogue.Line({Who:"Me",Text:text,Sound:sound});
+				box.forEach(element => {
+					Game.Items.GetPlayerItem(element);
+				});
 			}
 		}
 	},
 	Init: function() {
 		Game.CSS.Load('items.css');
+
+		Game.Sound.Load('Item.mp3');
 
 		var box = new XMLHttpRequest;
 	
@@ -277,6 +281,24 @@ Game.Items = {
 		});
 
 		return quantity;
+	},
+	GetPlayerItem: function(item,dialogue=true) {
+		var obj = Game.Items.GetItem(item);
+		var q = Game.Items.GetPlayerItemQuantity(item);
+		var n = !(q > 0);
+		Game.Story.Items.push(obj['id']);
+		if (dialogue) {
+			if (n) {
+				Game.Dialogue.Speak({Who:'Item',Text:'You got a new item!',Color:'#888',Image:'items/'+obj['image'],Sound:"Item.mp3"});
+				Game.Dialogue.Speak({Who:'Item',Text:obj['name']+' - '+obj['description'],Color:'#888',Image:'items/'+obj['image'],Sound:false});
+			} else {
+				Game.Dialogue.Speak({Who:'Item',Text:'You got another '+obj['name']+'! You now have '+(q+1)+'.',Color:'#888',Image:'items/'+obj['image'],Sound:"Item.mp3"});
+			}
+			if (!Game.Story.Tutorial['Items_Get']) {
+				Game.Dialogue.Play('Tutorial.json','Items_Get');
+				Game.Story['Tutorial']['Items_Get'] = true;
+			}
+		}
 	},
 	BoxIndex: {},
 	BoxBase: {},
