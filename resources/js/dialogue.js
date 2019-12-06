@@ -11,16 +11,7 @@ Game.Dialogue = {
 	Previous: false,
 	Speak: function(Input={Who:'Game.Dialogue.Speak: Input.Who not defined',Text:'Game.Dialogue.Speak: Input.Text not defined',Color:'#888',Image:false,Sound:false,Function:false,Prompt:false,Close:false}) {
 		if (Game.Dialogue.Text != false) {
-			Game.Dialogue.Queue.push({
-				Who: Input.Who,
-				Image: Input.Image,
-				Text: Input.Text,
-				Color: Input.Color,
-				Sound: Input.Sound,
-				Function: Input.Function,
-				Prompt: Input.Prompt,
-				Close: Input.Close
-			});
+			Game.Dialogue.Queue.push(Input);
 			Game.Dialogue.Composition.Button.className = 'dialogue_button dialogue_button_image-arrow-right font_title noselect';
 		} else {
 			if (Game.Dialogue.Visible == false) {
@@ -370,14 +361,24 @@ Game.Dialogue = {
 
 				dialogue['Who'] = character['Name'];
 				dialogue['Color'] = character['Color'];
-				if (Game.Dialogue.Queue.length > 0) {
-					if (Game.Dialogue.Queue[Game.Dialogue.Queue.length-1]['Who'] == dialogue['Who']) {
-						dialogue['Sound'] = false;
+				if (script.hasOwnProperty('Sound') && script['Sound'] != false) {
+					dialogue['Sound'] = script['Sound'];
+				} else {
+					if (Game.Dialogue.Queue.length > 0) {
+						if (Game.Dialogue.Queue[Game.Dialogue.Queue.length-1]['Who'] == dialogue['Who']) {
+							dialogue['Sound'] = false;
+						} else {
+							dialogue['Sound'] = character['Sound'];
+						}
+					} else if (Game.Dialogue.Text != false) {
+						if (Game.Dialogue.Who == dialogue['Who']) {
+							dialogue['Sound'] = false;
+						} else {
+							dialogue['Sound'] = character['Sound'];
+						}
 					} else {
 						dialogue['Sound'] = character['Sound'];
 					}
-				} else {
-					dialogue['Sound'] = character['Sound'];
 				}
 				if (script.hasOwnProperty('Expression')) {
 					if (!script['Expression']) {
