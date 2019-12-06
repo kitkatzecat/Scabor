@@ -1,0 +1,27 @@
+{
+	"Chapter1_Enter_Rooms-Hall": [
+		{"Who":"Tutorial","Text":"Well done! You're now in the hallway."},
+		{"Who":"Tutorial","Text":"Hold your cursor at the right or left edges of the screen to shift your view of the area."},
+		{"Who":"Tutorial","Text":"Navigate around the place by clicking the blue arrows on the walls."},
+		{"Who":"Tutorial","Text":"See that weird circle-line thing in the top right of your screen?"},
+		{"Who":"Tutorial","Text":"That's a compass! Use it to orient yourself as you move through the halls."},
+		{"Who":"Tutorial","Text":"You can inspect an object by clicking on it with your cursor (which is a magnifying glass)."},
+		{"Who":"Tutorial","Text":"Don't be afraid to inspect anything and everything you see!"}
+	],
+	"Chapter1_Presence": [
+		{"Who":"Tutorial","Text":"Looks like you've found some friends!"},
+		{"Who":"Tutorial","Text":"When you have someone else in the room with you, they'll show in the bottom right corner of the screen."},
+		{"Who":"Tutorial","Text":"Try clicking on them to talk to them and get their reactions to stuff that's happening!"},
+		{"Who":"Tutorial","Text":"Or, if you're stuck, they might be able to guide you in the right direction."},
+		{"Who":"Tutorial","Text":"Strike up a conversation!"}
+	],
+	"Room_Leave": [
+		{"Who":"Tutorial","Text":"Oh no! It looks like this room doesn't have a door out! Now you can never leave!"},
+		{"Who":"Tutorial","Text":"Just kidding!"},
+		{"Who":"Tutorial","Text":"If you go in a room that doesn't have an exit door visible, a blue arrow will show in the top left of the screen."},
+		{"Who":"Tutorial","Text":"Just give that arrow a click and you'll be back to the adventure in no time!"}
+	],
+	"Items_Get": [
+		{"Who":"Tutorial","Text":"Click the \"Items\" button in the bottom left part of the screen to view your items."}
+	]
+}
