@@ -56,6 +56,8 @@ Game.Presence = {
 
 		Game.Presence.Composition.Button.style.display = 'block';
 
+		Game.Present.CheckPersist();
+
 		return p;
 	},
 	CheckPersist: function() {
@@ -63,7 +65,9 @@ Game.Presence = {
 		var object = Game.Presence.Present;
 		for (var property in object) {
 			if (object.hasOwnProperty(property)) {
-				if (typeof object[property].persist != 'undefined' && object[property].persist.indexOf(Game.Place.Current['id']) != -1) {
+				if (typeof object[property].persist != 'undefined' && Array.isArray(object[property].persist) && object[property].persist.indexOf(Game.Place.Current['id']) != -1) {
+					Game.Presence.Show(property);
+				} else if (typeof object[property].persist != 'undefined' && object[property].persist == true) {
 					Game.Presence.Show(property);
 				}
 			}
