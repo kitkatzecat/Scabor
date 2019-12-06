@@ -6,6 +6,7 @@ window.onbeforeunload = function() {
 Game.Characters.Load('Rosemary');
 Game.Characters.Load('Simon');
 Game.Characters.Load('Me');
+Game.Characters.Load('Tutorial');
 
 //Game.Dialogue.Load('test.json');
 

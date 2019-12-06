@@ -12,7 +12,8 @@
 		"onload": "Game.Music.Load('Chapter1_0.mp3',true);",
 		"sound_from": {
 			"default": "door-open.mp3"
-		}
+		},
+		"boxes": {}
 	},
 	"Chapter1": {
 		"title": "?? - Hallway"
