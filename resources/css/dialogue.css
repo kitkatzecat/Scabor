@@ -4,7 +4,7 @@
 	left: -32px;
 	padding-left: 72px;
 	padding-right: 48px;
-	padding-top: 16px;
+	padding-top: 12px;
 	border: 2px solid #000;
 	border-radius: 32px;
 	height: 128px;
@@ -38,9 +38,9 @@
 	bottom: 190px;
 	left: 10%;
 	z-index: 99;
-	width: auto;
-	height: calc(100% - 190px);
-	max-height: 800px;
+	width: 50%;
+	height: auto;
+	max-height: calc(100% - 190px);
 	max-width: calc(800px - 20%);
 }
 .dialogue_image_animated-open {
@@ -203,7 +203,7 @@
 	animation: dialogue_container_animation-open 0.5s ease-out 1;
 }
 .dialogue_container_animated-close {
-	animation: dialogue_container_animation-close 0.5s ease-in 1;
+	animation: dialogue_container_animation-close 0.6s ease-in 1;
 	pointer-events: none;
 }
 @keyframes dialogue_container_animation-open {
@@ -213,7 +213,49 @@
 }
 @keyframes dialogue_container_animation-close {
 	0% {transform:translateX(0%);}
+	83% {transform:translateX(-100%);}
 	100% {transform:translateX(-100%);}
+}
+
+.dialogue_container_background {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: 97;
+	cursor: none;
+}
+
+.dialogue_transcript_text {
+	padding-left: 84px;
+	font-size: 0.8em;
+	padding-bottom: 24px;
+}
+.dialogue_transcript_name {
+	padding-top: 24px;
+	padding-left: 84px;
+}
+.dialogue_transcript_line {
+	width: 100%;
+	min-height: 98px;
+	border-top: 1px solid #808080;
+}
+.dialogue_transcript_line:first-child {
+	border-top: none;
+}
+.dialogue_transcript_line:last-child {
+	margin-bottom: 32px;
+}
+.dialogue_transcript_image {
+	width: 72px;
+	height: 90px;
+	float: left;
+}
+
+.dialogue_character {
+	transition: opacity 0.08s linear;
+	opacity: 0;
 }
 
 .dialogue_background {
@@ -231,7 +273,7 @@
 	animation: dialogue_background_animation-open 1s ease-out 1;
 }
 .dialogue_background_animated-close {
-	animation: dialogue_background_animation-close 0.5s ease-in 1;
+	animation: dialogue_background_animation-close 0.6s ease-in 1;
 	pointer-events: none;
 }
 @keyframes dialogue_background_animation-open {
@@ -240,5 +282,6 @@
 }
 @keyframes dialogue_background_animation-close {
 	0% {opacity:1;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);}
+	83% {opacity:0;backdrop-filter:blur(0px);-webkit-backdrop-filter:blur(0px);}
 	100% {opacity:0;backdrop-filter:blur(0px);-webkit-backdrop-filter:blur(0px);}
 }

@@ -250,7 +250,7 @@ Game.Room = {
 								Game.Room.OnLeave();
 							} catch(e) {console.log('Game.Room.Leave.On: Game.Room.OnLeave error: '+e);}
 						}
-						Game.Room.OnLeave = false;
+						//Game.Room.OnLeave = false;
 					}
 				}},
 				{Text:'No',Function:false}

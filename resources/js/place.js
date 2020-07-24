@@ -27,6 +27,12 @@ Game.Place = {
 									}
 								}
 							}
+							if (key.indexOf(Game.Story.Now) != -1 && key.indexOf('!') != -1) {
+								var k = key.split(':');
+								if (!Game.Story.Progress[Game.Story.Now][k[1]] || !Game.Story.Progress[Game.Story.Now].hasOwnProperty(k[1])) {
+									Object.assign(Game.Place.Next,result[key]);
+								}
+							}
 						}
 						console.log('Game.Place.Load: Room "'+Game.Place.Next['id']+'" loaded');
 
@@ -49,11 +55,12 @@ Game.Place = {
 		request.setRequestHeader("Cache-Control", "no-cache");
 		request.send(null);
 	},
-	Enter: function(delay=1) {
-		if (!Game.Place.Next == false) {
+	Enter: function(delay=1,splash=true) {
+		if (!Game.Place.Next == false && Game.Place.BeforeEnter == false) {
 			var timeout = 0;
-			if (!Game.Splash.Visible) {
+			if (!Game.Splash.Visible && splash) {
 				Game.Splash.Show();
+				Game.Splash.Container.style.cursor = 'wait';
 				timeout = 500;
 			}
 
@@ -62,7 +69,19 @@ Game.Place = {
 				Game.Place.Current = Game.Place.Next;
 				Game.Place.Next = false;
 				Game.Bar.Room(Game.Place.Current['title']);
-				Game.Room.Load(Game.Place.Current['room']);
+
+				var pos = 50;
+				if (typeof Game.Place.Current['position_from'] != 'undefined' && Game.Place.Current['position_from'] !== false) {
+					if (typeof Game.Place.Current['position_from']['default'] != 'undefined') {
+						pos = Game.Place.Current['position_from']['default'];
+					}
+					if (typeof Game.Place.Current['position_from'][Game.Place.Previous['id']] != 'undefined') {
+						pos = Game.Place.Current['position_from'][Game.Place.Previous['id']];
+					}
+				}
+
+				Game.Room.Load(Game.Place.Current['room'],pos);
+
 				Game.Room.Compass.Set(Game.Place.Current['orientation']);
 				Game.Place.Current['scripts'].forEach(element => {
 					var script = element.substr(0,element.lastIndexOf('.')).replace('/','__');
@@ -88,20 +107,34 @@ Game.Place = {
 				});
 		
 				Game.Room.Loaded = function() {
-					if (!Game.Splash.Visible) {
+					if (!Game.Splash.Visible && splash) {
 						Game.Splash.Show();
+						Game.Splash.Container.style.cursor = 'wait';
 					}
 
 					if (typeof Game.Place.Current['back'] != 'undefined' && !Game.Place.Current['back'] == false) {
 						Game.Room.OnLeave = function() {
-							try {
-								eval(Game.Place.Current['onleave']);
-							} catch(e) {
-								console.log('Game.Place.Enter [Game.When anonymous]: Error evaluating "onleave" of current place: '+e);
-							}
 							Game.Place.Load(Game.Place.Current['back'],true);
 						}
 						Game.Room.Leave.Show();
+					}
+
+					if (typeof Game.Place.Previous['onleave'] != 'undefined' && Game.Place.Previous['onleave'] != false) {
+						if (Array.isArray(Game.Place.Previous['onleave'])) {
+							Game.Place.Previous['onleave'].forEach(function(s,i) {
+								try {
+									eval(s);
+								} catch(e) {
+									console.log('Game.Place.Enter [Game.When anonymous]: Error evaluating "onleave['+i+']" of current place: '+e);
+								}
+							});
+						} else {
+							try {
+								eval(Game.Place.Previous['onleave']);
+							} catch(e) {
+								console.log('Game.Place.Enter [Game.When anonymous]: Error evaluating "onleave" of current place: '+e);
+							}
+						}
 					}
 
 					if (typeof Game.Place.Current['sound_from'] != 'undefined') {
@@ -138,20 +171,46 @@ Game.Place = {
 					}
 
 					setTimeout(function(){
-						Game.Splash.Animation = 'fade';
-						Game.Splash.Hide();
-						try {
-							eval(Game.Place.Current['onload']);
-						} catch(e) {
-							console.log('Game.Place.Enter [Game.When anonymous]: Error evaluating "onload" of current place: '+e);
+						if (splash) {
+							Game.Splash.Animation = 'fade';
+							Game.Splash.Hide();
+							Game.Splash.Container.style.cursor = '';
 						}
-					},(delay*1000));
+						if (typeof Game.Place.Current['onload'] != 'undefined' && Game.Place.Current['onload'] !== false) {
+							if (Array.isArray(Game.Place.Current['onload'])) {
+								Game.Place.Current['onload'].forEach(function(s,i) {
+									try {
+										eval(s);
+									} catch(e) {
+										console.log('Game.Place.Enter [Game.When anonymous]: Error evaluating "onload['+i+']" of current place: '+e);
+									}
+								});
+							} else {
+								try {
+									eval(Game.Place.Current['onload']);
+								} catch(e) {
+									console.log('Game.Place.Enter [Game.When anonymous]: Error evaluating "onload" of current place: '+e);
+								}
+							}
+						}
+					},(delay*500));
 				}
 			},timeout);
-		} else {
+		} else if (Game.Place.Next == false) {
 			console.log('Game.Place.Enter: No place loaded to enter');
+		} else if (typeof Game.Place.BeforeEnter == 'function') {
+			try {
+				Game.Place.BeforeEnter();
+			} catch(e) {
+				console.log('Game.Place.BeforeEnter: Error: '+e);
+			}
+		} else {
+			console.log('Game.Place.Enter: An error occurred, attempting to fix and trying again...');
+			Game.Place.BeforeEnter = false;
+			Game.Place.Enter();
 		}
 	},
+	BeforeEnter: false,
 	Previous: false,
 	Current: false,
 	Next: false

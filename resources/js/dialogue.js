@@ -13,11 +13,22 @@ Game.Dialogue = {
 		if (Game.Dialogue.Text != false) {
 			Game.Dialogue.Queue.push(Input);
 			Game.Dialogue.Composition.Button.className = 'dialogue_button dialogue_button_image-arrow-right font_title noselect';
+			if (Game.Dialogue.Prompt == false) {
+				Game.Dialogue.Composition.ContainerBackground.Cursor = 'arrow';
+			}
 		} else {
 			if (Game.Dialogue.Visible == false) {
 				Game.Dialogue.Open();
 			}
-
+		
+			if (Game.Dialogue.Queue.length > 0) {
+				Game.Dialogue.Composition.Button.className = 'dialogue_button dialogue_button_image-arrow-right font_title noselect';
+				Game.Dialogue.Composition.ContainerBackground.Cursor = 'arrow';
+			} else {
+				Game.Dialogue.Composition.Button.className = 'dialogue_button dialogue_button_image-check font_title noselect';
+				Game.Dialogue.Composition.ContainerBackground.Cursor = 'check';
+			}
+	
 			try {
 				clearInterval(Game.Dialogue.Composition.TextAnimationInterval);
 			} catch(e) {}
@@ -34,15 +45,25 @@ Game.Dialogue = {
 			Game.Dialogue.Text = Input.Text.replace('{character_name}',Game.Story['Me']['Name']);
 			
 			Game.Dialogue.Composition.TextAnimationCount = 0;
+			Game.Dialogue.Composition.TextAnimationCharacters = [];
+			for (let i = 0; i < Game.Dialogue.Text.length; i++) {
+				let c = document.createElement('span');
+				c.className = 'dialogue_character font_text';
+				c.innerHTML = Game.Dialogue.Text.charAt(i);
+				Game.Dialogue.Composition.TextAnimationCharacters.push(c);
+				Game.Dialogue.Composition.Bubble.appendChild(c);
+			}
 			Game.Dialogue.Composition.TextAnimationInterval = setInterval(function() {
 				if (Game.Dialogue.Composition.TextAnimationCount < Game.Dialogue.Text.length) {
-					Game.Dialogue.Composition.Bubble.insertAdjacentHTML('beforeend',Game.Dialogue.Text.substr(Game.Dialogue.Composition.TextAnimationCount,1));
+					Game.Dialogue.Composition.TextAnimationCharacters[Game.Dialogue.Composition.TextAnimationCount].style.opacity = '1';
 					Game.Dialogue.Composition.TextAnimationCount++;
 				} else {
-					Game.Dialogue.Composition.Bubble.innerHTML = Game.Dialogue.Text;
+					Game.Dialogue.Composition.TextAnimationCharacters.forEach(function(c) {
+						c.style.opacity = '1';
+					});
 					clearInterval(Game.Dialogue.Composition.TextAnimationInterval);
 				}
-			},10);
+			},7);
 			
 			Game.Dialogue.Who = Input.Who.replace('{character_name}',Game.Story['Me']['Name']);
 
@@ -52,6 +73,34 @@ Game.Dialogue = {
 			
 			console.log('[Dialogue] '+Input.Who+': '+Input.Text);
 			
+			if (typeof Input.Set !== 'undefined' && Input.Set != false) {
+				let i = Input.Set;
+				if (!Array.isArray(Input.Set)) {
+					i = [Input.Set];
+				}
+				i.forEach(function(v) {
+					let k = [v];
+					let val = true;
+					let c = Game.Story.Now;
+
+					if (v.indexOf('!') != -1) {
+						k = v.split('!');
+						val = false;
+					}
+					if (v.indexOf(':') != -1) {
+						k = v.split(':');
+						val = true;
+					}
+
+					if (k.length == 2) {
+						c = k[0];
+						k[0] = k[1];
+					}
+
+					Game.Story.Progress[c][k[0]] = val;
+				});
+			}
+
 			if (typeof Input.Close !== 'undefined') {
 				if (typeof Input.Close == 'string') {
 					try {
@@ -101,13 +150,16 @@ Game.Dialogue = {
 					} catch(e) {console.log('Game.Dialogue.Speak: Error while processing dialogue function: '+e);}
 				}
 			}
-			
+			if (typeof Input['Play'] !== 'undefined') {
+				Game.Dialogue.ProcessBlock(Input['Play'],Input['File']);
+			}
+		
 			if (typeof Input.Prompt !== 'undefined') {
 				if (Array.isArray(Input.Prompt)) {
-					Game.Dialogue.OpenPrompt(Input.Prompt);
+					Game.Dialogue.OpenPrompt(Input.Prompt,Input);
 				}
 			}
-			
+						
 			if (typeof Input.Image !== 'undefined' && Input.Image != false) {
 				Game.Dialogue.Image = Input.Image;
 				Game.Dialogue.Composition.Image.src = './resources/images/'+Input.Image;
@@ -139,12 +191,11 @@ Game.Dialogue = {
 				Game.Dialogue.Composition.Image.src = '';
 				Game.Dialogue.Composition.Image.style.display = 'none';
 			}
-		}
-		
-		if (Game.Dialogue.Queue.length > 0) {
-			Game.Dialogue.Composition.Button.className = 'dialogue_button dialogue_button_image-arrow-right font_title noselect';
-		} else {
-			Game.Dialogue.Composition.Button.className = 'dialogue_button dialogue_button_image-check font_title noselect';
+
+			Game.Dialogue.Transcript.push(Input);
+			if (Game.Dialogue.Transcript.length > 30) {
+				Game.Dialogue.Transcript.shift();
+			}
 		}
 	},
 	SkipTextAnimation: function() {
@@ -153,10 +204,11 @@ Game.Dialogue = {
 			Game.Dialogue.Composition.Bubble.innerHTML = Game.Dialogue.Text;
 		}
 	},
-	OpenPrompt: function(options) {
+	OpenPrompt: function(options,line) {
 		Game.Dialogue.Composition.PromptContainer.className = 'dialogue_prompt dialogue_prompt_animated-open font_text noselect';
 		Game.Dialogue.Composition.PromptContainer.style.display = '';
 		Game.Dialogue.Composition.Button.style.display = 'none';
+		Game.Dialogue.Composition.ContainerBackground.Cursor = 'question';
 		Game.Dialogue.Next = function() {};
 		
 		Game.Dialogue.Prompt = [];
@@ -168,7 +220,35 @@ Game.Dialogue = {
 			Game.Dialogue.Prompt[i].option = options[i];
 			Game.Dialogue.Prompt[i].onclick = function() {
 				Game.Sound.Play('click.mp3');
-				
+
+				if (typeof this.option['Set'] !== 'undefined' && this.option['Set'] != false) {
+					let i = this.option['Set'];
+					if (!Array.isArray(this.option['Set'])) {
+						i = [this.option['Set']];
+					}
+					i.forEach(function(v) {
+						let k = [v];
+						let val = true;
+						let c = Game.Story.Now;
+	
+						if (v.indexOf('!') != -1) {
+							k = v.split('!');
+							val = false;
+						}
+						if (v.indexOf(':') != -1) {
+							k = v.split(':');
+							val = true;
+						}
+	
+						if (k.length == 2) {
+							c = k[0];
+							k[0] = k[1];
+						}
+	
+						Game.Story.Progress[c][k[0]] = val;
+					});
+				}
+					
 				try {
 					if (typeof this.option['Function'] == 'string') {
 						try {
@@ -198,12 +278,17 @@ Game.Dialogue = {
 						}, 500);
 					}
 				} catch(e) {console.log('Game.Dialogue.OpenPrompt (option.onclick): Error while processing prompt function: '+e);}
+
+				if (typeof this.option['Play'] !== 'undefined') {
+					Game.Dialogue.ProcessBlock(this.option['Play'],line['File']);
+				}
 			}
 			Game.Dialogue.Composition.PromptContainer.appendChild(Game.Dialogue.Prompt[i]);
 		}
 	},
 	ClosePrompt: function() {
 		Game.Dialogue.Composition.PromptContainer.className = 'dialogue_prompt dialogue_prompt_animated-close font_text noselect';
+		Game.Dialogue.Composition.ContainerBackground.Cursor = 'check';
 		Game.Dialogue.Composition.Button.style.display = '';
 		Game.Dialogue.Prompt = false;
 		Game.Dialogue.Composition.PromptContainer.style.pointerEvents = 'none';
@@ -257,6 +342,7 @@ Game.Dialogue = {
 			clearInterval(Game.Dialogue.Composition.TextAnimationInterval);
 		} catch(e) {}
 		Game.Dialogue.Composition.Bubble.innerHTML = Game.Dialogue.Text;
+		Game.Dialogue.Composition.ContainerBackground.Cursor = 'arrow';
 		
 		Game.Dialogue.Who = false;
 		Game.Dialogue.Image = false;
@@ -274,11 +360,15 @@ Game.Dialogue = {
 		Game.Dialogue.ClosePrompt();
 		
 		setTimeout(function(){
-			Game.Dialogue.Composition.Container.parentNode.removeChild(Game.Dialogue.Composition.Container);
-			Game.Dialogue.Composition.Container.className = 'dialogue_container dialogue_container_animated-open font_text noselect';
+			try {
+				Game.Dialogue.Composition.Container.parentNode.removeChild(Game.Dialogue.Composition.Container);
+				Game.Dialogue.Composition.Container.className = 'dialogue_container dialogue_container_animated-open font_text noselect';
+			} catch(e) {}
 			
-			Game.Dialogue.Composition.Background.parentNode.removeChild(Game.Dialogue.Composition.Background);
-			Game.Dialogue.Composition.Background.className = 'dialogue_background dialogue_background_animated-open font_text noselect';
+			try {
+				Game.Dialogue.Composition.Background.parentNode.removeChild(Game.Dialogue.Composition.Background);
+				Game.Dialogue.Composition.Background.className = 'dialogue_background dialogue_background_animated-open font_text noselect';
+			} catch(e) {}
 			
 			Game.Dialogue.Composition.Image.style.display = 'none';
 			Game.Dialogue.Composition.Image.className = 'dialogue_image noselect';
@@ -297,56 +387,56 @@ Game.Dialogue = {
 			if (Game.Dialogue.Queue.length > 0) {
 				Game.Dialogue.Speak(Game.Dialogue.Queue.shift());
 			}
-		},500);
+		},490);
 	},
 	Load: function(file,id=false) {
 		Game.Loader.Show('dialogue');
-		Game.Dialogue.Composition.Request = new XMLHttpRequest;
-		Game.Dialogue.Composition.RequestURI = file;
-		Game.Dialogue.Composition.RequestID = id;
+		let Request = new XMLHttpRequest;
+		let RequestURI = file;
+		let RequestID = id;
 		
 		if (id != false && Game.Dialogue.Visible == false) {
 			document.body.appendChild(Game.Dialogue.Composition.Background);
 		}
 		
-	    Game.Dialogue.Composition.Request.open('GET', 'resources/scripts/'+file, true);
-	    Game.Dialogue.Composition.Request.onreadystatechange = Game.Dialogue.Response;
-	    Game.Dialogue.Composition.Request.setRequestHeader("Cache-Control", "no-cache");
-	    Game.Dialogue.Composition.Request.send(null);
-	},
-	Response: function() {
-		if (Game.Dialogue.Composition.Request.readyState == 4) {
-			if (Game.Dialogue.Composition.Request.status == 200) {
-				var result = Game.Dialogue.Composition.Request.responseText;
-				try {
-					result = JSON.parse(result);
-					if (Game.Dialogue.Composition.RequestID != false) {
-						for (var i = 0; i < result[Game.Dialogue.Composition.RequestID].length; i++) {
-							Game.Dialogue.Line(result[Game.Dialogue.Composition.RequestID][i]);
+		Request.open('GET', 'resources/scripts/'+file, true);
+		Request.onreadystatechange = function() {
+			if (Request.readyState == 4) {
+				if (Request.status == 200) {
+					var result = Request.responseText;
+					try {
+						result = JSON.parse(result);
+						if (RequestID != false) {
+							if (result.hasOwnProperty(RequestID)) {
+								Game.Loader.Hide('dialogue');
+								Game.Dialogue.ProcessBlock(result[RequestID],RequestURI);
+								console.log('Game.Dialogue.Load (Response): Loaded script "'+RequestURI+'" for action "'+RequestID+'"');
+							} else {
+								console.log('Game.Dialogue.Load (Response): Loaded script "'+RequestURI+'" successfully, but action "'+RequestID+'" does not exist');
+							}
+						} else {
+							Game.Dialogue.LoadedScripts[RequestURI.substr(0,RequestURI.lastIndexOf('.')).replace('/','__')] = result;
+							console.log('Game.Dialogue.Load (Response): Loaded script "'+RequestURI+'" as "'+RequestURI.substr(0,RequestURI.lastIndexOf('.')).replace('/','__')+'"');
 						}
-						console.log('Game.Dialogue.Response: Loaded script "'+Game.Dialogue.Composition.RequestURI+'" for action "'+Game.Dialogue.Composition.RequestID+'"');
-					} else {
-						Game.Dialogue.LoadedScripts[Game.Dialogue.Composition.RequestURI.substr(0,Game.Dialogue.Composition.RequestURI.lastIndexOf('.')).replace('/','__')] = result;
-						console.log('Game.Dialogue.Response: Loaded script "'+Game.Dialogue.Composition.RequestURI+'" as "'+Game.Dialogue.Composition.RequestURI.substr(0,Game.Dialogue.Composition.RequestURI.lastIndexOf('.')).replace('/','__')+'"');
+					} catch(err) {
+						console.log('Game.Dialogue.Load (Response): Unable to load script from "'+RequestURI+'": '+err);
 					}
-				} catch(err) {
-					console.log('Game.Dialogue.Response: Unable to load script from "'+Game.Dialogue.Composition.RequestURI+'": '+err);
+				} else {
+					console.log('Game.Dialogue.Load (Response): Unable to load script from "'+RequestURI+'": '+Request.statusText);
 				}
-			} else {
-				console.log('Game.Dialogue.Response: Unable to load script from "'+Game.Dialogue.Composition.RequestURI+'": '+Game.Dialogue.Composition.Request.statusText);
 			}
-		}
-		Game.Loader.Hide('dialogue');
+			Game.Loader.Hide('dialogue');
+		};
+		Request.setRequestHeader("Cache-Control", "no-cache");
+		Request.send(null);
 	},
 	Play: function(file,id) {
 		Game.Loader.Show('dialogue');
 		var filevar = file.substr(0,file.lastIndexOf('.')).replace('/','__');
 		if (typeof Game.Dialogue.LoadedScripts[filevar] !== 'undefined') {
 			if (typeof Game.Dialogue.LoadedScripts[filevar][id] !== 'undefined') {
-				for (var i = 0; i < Game.Dialogue.LoadedScripts[filevar][id].length; i++) {
-					Game.Dialogue.Line(Game.Dialogue.LoadedScripts[filevar][id][i]);
-					Game.Loader.Hide('dialogue');
-				}
+				Game.Loader.Hide('dialogue');
+				Game.Dialogue.ProcessBlock(Game.Dialogue.LoadedScripts[filevar][id],file);
 			}
 		} else {
 			Game.Dialogue.Load(file,id);
@@ -412,6 +502,133 @@ Game.Dialogue = {
 			Game.Dialogue.Speak(script);
 		}
 	},
+	ProcessBlock: function(block,file) {
+		if (typeof block == 'object') {
+			if (Array.isArray(block)) {
+				if (block.length == 0) {
+					if (!Game.Dialogue.Visible) {
+						Game.Dialogue.Composition.Background.remove();
+					}
+				} else {
+					block.forEach(function(l) {
+						l['File'] = file;
+						Game.Dialogue.Line(l);
+					});
+				}
+			} else {
+				let p = 'default';
+				if (typeof block[Game.Story.Now] != 'undefined') {
+					p = Game.Story.Now;
+				}
+				for (let key in block) {
+					if (!block.hasOwnProperty(key)) continue;
+
+					if ((key.indexOf(Game.Story.Now) != -1 || key.substring(0,1) == '&') && key.indexOf(':') != -1) {
+						progress = Game.Story.Now;
+						if (key.substring(0,1) == '&') {
+							progress = key.substring(1,key.indexOf(':'))
+						}
+						let k = key.split(':');
+						if (Game.Story.Progress[progress].hasOwnProperty(k[1])) {
+							if (!!Game.Story.Progress[progress][k[1]]) {
+								p = key;
+							}
+						}
+					}
+					if ((key.indexOf(Game.Story.Now) != -1 || key.substring(0,1) == '&') && key.indexOf('!') != -1) {
+						progress = Game.Story.Now;
+						if (key.substring(0,1) == '&') {
+							progress = key.substring(1,key.indexOf('!'))
+						}
+						let k = key.split('!');
+						if (!Game.Story.Progress[progress][k[1]] || !Game.Story.Progress[progress].hasOwnProperty(k[1])) {
+							p = key;
+						}
+					}
+				}
+				Game.Dialogue.ProcessBlock(block[p]);
+			}
+		} else if (typeof block == 'string') {
+			if (block.indexOf('@') == -1) {
+				Game.Dialogue.Play(file,block);
+			} else {
+				var k = block.split('@');
+				Game.Dialogue.Play(k[0],k[1]);
+			}
+		} else if (block == false) {
+			if (!Game.Dialogue.Visible) {
+				Game.Dialogue.Composition.Background.remove();
+			}
+		} else {
+			console.log('Game.Dialogue.ProcessBlock: Invalid block');
+		}
+	},
+	Transcript: [],
+	ShowTranscript: function() {
+		var div = document.createElement('div');
+
+		var button = document.createElement('div');
+		button.className = 'ui_button font_text noselect';
+		button.style.float = 'right';
+		button.style.marginTop = '12px';
+		button.onclick = function() {
+			Game.Sound.Play('click.mp3');
+			Game.UI.Hide();
+		};
+		button.innerHTML = 'Close';
+		div.appendChild(button);
+
+		var header = document.createElement('div');
+		header.className = 'ui_title font_title noselect';
+		header.style.display = 'inline-block';
+		header.innerHTML = 'Transcript';
+		div.appendChild(header);
+
+		/*var subtitle = document.createElement('div');
+		subtitle.className = 'ui_subtitle font_text noselect';
+		subtitle.innerHTML = 'This is a list of all items currently loaded in the game.';
+		div.appendChild(subtitle);*/
+
+		var items = document.createElement('div');
+		items.style.display = 'inline-block';
+		items.style.width = '100%';
+		Game.Dialogue.Transcript.reverse().forEach(function(Line) {
+			var item = document.createElement('div');
+			item.className = 'dialogue_transcript_line';
+
+			var image = document.createElement('img');
+			if (Line.Image == '' || Line.Image == false || typeof Line.Image == 'undefined') {
+				image.src = './resources/images/dialogue.svg';
+			} else {
+				image.src = './resources/images/'+Line.Image;
+			}
+			image.className = 'dialogue_transcript_image';
+			item.appendChild(image);
+
+			var name = document.createElement('div');
+			name.innerHTML = Line.Who;
+			name.className = 'font_title noselect dialogue_transcript_name';
+			item.appendChild(name);
+
+			var text = document.createElement('div');
+			text.innerHTML = Line.Text;
+			text.className = 'font_text noselect dialogue_transcript_text';
+			item.appendChild(text);
+
+			items.appendChild(item);
+		});
+		div.appendChild(items);
+
+		if (Game.Dialogue.Transcript.length == 0) {
+			items.className = 'font_text noselect';
+			items.style.paddingBottom = '16px';
+			items.innerHTML = 'Nothing has been said yet!';
+		}
+
+		Game.Dialogue.Transcript.reverse();
+
+		Game.UI.Show(div);
+	},
 	LoadedScripts: {},
 	Composition: {}
 };
@@ -423,9 +640,21 @@ Game.Dialogue.Init = function() {
 
 	Game.Dialogue.Composition.Container = document.createElement('div');
 	Game.Dialogue.Composition.Container.className = 'dialogue_container dialogue_container_animated-open font_text noselect';
-	
+
+	Game.Dialogue.Composition.ContainerBackground = document.createElement('div');
+	Game.Dialogue.Composition.ContainerBackground.className = 'dialogue_container_background font_text noselect';
+	Game.Dialogue.Composition.ContainerBackground.onclick = function() {
+		Game.Dialogue.Next();
+	}
+	Game.Dialogue.Composition.ContainerBackground.Cursor = 'arrow';
+	Game.Dialogue.Composition.ContainerBackground.addEventListener('mousemove',function() {Game.Cursor.Set('dialogue_'+Game.Dialogue.Composition.ContainerBackground.Cursor);});
+	Game.Dialogue.Composition.ContainerBackground.addEventListener('mouseout',function() {Game.Cursor.Hide();});
+	Game.Dialogue.Composition.Container.appendChild(Game.Dialogue.Composition.ContainerBackground);
+
 	Game.Dialogue.Composition.Background = document.createElement('div');
 	Game.Dialogue.Composition.Background.className = 'dialogue_background dialogue_background_animated-open font_text noselect';
+	
+
 	
 	Game.Dialogue.Composition.Image = document.createElement('img');
 	Game.Dialogue.Composition.Image.className = 'dialogue_image noselect';
@@ -458,4 +687,6 @@ Game.Dialogue.Init = function() {
 			e.preventDefault();
 		}
 	});
+
+	Game.Bar.Add('bar_transcript.svg','Transcript',function(){Game.Dialogue.ShowTranscript();});
 }

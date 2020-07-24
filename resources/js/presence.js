@@ -1,5 +1,5 @@
 Game.Presence = {
-	AddPerson: function(person,expression=false,onclick=function(){},persist=false) {
+	AddPerson: function(person,expression=false,onclick='',persist=false) {
 		if (typeof Game.Characters != 'undefined') {
 			if (Game.Characters.Loaded.hasOwnProperty(person)) {
 				var character = Game.Characters.Loaded[person];
@@ -21,17 +21,32 @@ Game.Presence = {
 			console.log('Game.Presence.AddPerson: Game.Characters is not initialized, unable to add presence');
 		}
 	},
-	Add: function(id,img,onclick=function(){},persist=false) {
+	Add: function(id,img,onclick='',persist=false) {
 		if (!persist) {
 			persist = [Game.Place.Current['id']];
 		}
-		if (Game.Presence.Present.hasOwnProperty(id)) {
-			Game.Presence.Present[id].remove();
+		if (Game.Presence.IsPresent(id)) {
+			for (let person in Game.Presence.Present) {
+				if (person.indexOf(id) == 0) {
+					persist.forEach(function(place) {
+						if (Game.Presence.Present[person].persist.indexOf(place) != -1) {
+							Game.Presence.Present[person].persist.splice(Game.Presence.Present[person].persist.indexOf(place),1);
+						}
+					});
+					if (Game.Presence.Present[person].persist.length == 0) {
+						Game.Presence.Present[person].remove();
+					}
+				}
+			}
+		}
+		if (typeof onclick !== 'object' && typeof onclick !== 'string') {
+			console.log('Game.Presence.Add: Error when adding person "'+id+'": onclick is not a valid Dialogue block')
+			onclick = [{Who:"Error",Text:"Invalid dialogue block provided"}];
 		}
 		
 		var p = document.createElement('img');
-		p.src = './resources/images/'+img;
-		p.setSrc = function(imag) {p.src = './resources/images/'+imag;};
+		p.src = '/resources/images/'+img;
+		p.setSrc = function(imag) {p.src = '/resources/images/'+imag;};
 		p.persist = persist;
 		p.setPersist = function(per=false) {
 			if (!per) {
@@ -46,17 +61,28 @@ Game.Presence = {
 			},250);
 			Game.Sound.Play('click.mp3');
 		}
-		p.onclick = onclick;
+		p.dialogue = onclick;
+		p.onclick = function() {
+			if (p.dialogue !== '' && p.dialogue !== false) {
+				Game.Dialogue.ProcessBlock(p.dialogue);
+			} 
+		};
 		p.onmouseover = function() {Game.Cursor.Set('dialogue');};
 		p.onmouseout = function() {Game.Cursor.Hide();};
 		p.className = 'presence_character';
+		p.presenceID = id;
+
+		var i = 0;
+		while (Game.Presence.Present.hasOwnProperty(id+'_'+i)) {
+			i++;
+		}
 		
-		Game.Presence.Present[id] = p;
+		Game.Presence.Present[id+'_'+i] = p;
 		Game.Presence.Composition.Container.appendChild(p);
 
 		Game.Presence.Composition.Button.style.display = 'block';
 
-		Game.Present.CheckPersist();
+		Game.Presence.CheckPersist();
 
 		return p;
 	},
@@ -135,13 +161,17 @@ Game.Presence = {
 			}
 		}
 		Game.Presence.Composition.Button.style.display = 'none';
+		if (Game.Presence.Toggled) {
+			Game.Presence.Toggle();
+		}
 	},
 	IsPresent: function(id) {
-		if (Game.Presence.Present.hasOwnProperty(id)) {
-			return true;
-		} else {
-			return false;
+		for (let p in Game.Presence.Present) {
+			if (p.indexOf(id) == 0) {
+				return true;
+			}
 		}
+		return false;
 	},
 	Toggle: function() {
 		if (Game.Presence.Toggled) {

@@ -126,3 +126,34 @@ body {
 	animation: game_loader_rotate 1s linear infinite, game_loader_appear 2s linear 1;
 	z-index: 1000;
 }
+
+.game_console {
+	position: fixed;
+	top: 25%;
+	right: 12px;
+	width: 50%;
+	opacity: 0.8;
+	bottom: 48px;
+	z-index: 1000;
+	overflow: hidden;
+	pointer-events: none;
+	text-align: right;
+}
+@keyframes game_console_entry_animation {
+	0% {opacity:0;}
+	100% {opacity:1;}
+}
+@keyframes game_console_fade_animation {
+	0% {opacity:1;}
+	95% {opacity: 1};
+	100% {opacity:0.5;}
+}
+.game_console_entry {
+	animation: game_console_entry_animation 0.3s ease-out 1, game_console_fade_animation 5s 0.3s ease-out 1;
+	font-family: Consolas, monospace;
+	font-size: 14px;
+	white-space: pre-wrap;
+	margin-bottom: 8px;
+	text-shadow: 1px 1px 0px #888;
+	opacity: 0.5;
+}

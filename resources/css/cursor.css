@@ -24,3 +24,15 @@
 	background-image: url('../images/room_arrow-right.svg');
 	transform: translate(-24px,-24px);
 }
+.cursor_dialogue_arrow {
+	background-image: url('../images/cursor_dialogue_arrow.svg');
+	transform: translate(-24px,-24px);
+}
+.cursor_dialogue_check {
+	background-image: url('../images/cursor_dialogue_check.svg');
+	transform: translate(-24px,-24px);
+}
+.cursor_dialogue_question {
+	background-image: url('../images/cursor_dialogue_question.svg');
+	transform: translate(-24px,-24px);
+}

@@ -1,17 +1,25 @@
 Game.Splash = {
-	Show: function(text='',background=false,animation='fade',z=200,skip=false){
+	Lock: false,
+	Show: function(text='',background=false,animation='fade',z=200,skip=false) {
+		if (!Game.Splash.Lock) {
+			Game.Splash.ShowLock(text,background,animation,z,skip);
+		}
+	},
+	ShowLock: function(text='',background=false,animation='fade',z=200,skip=false){
 		Game.Splash.Animation = animation;
-		if (animation == 'fade') {
-			Game.Splash.Container.className = 'splash_container noselect splash_container_animated_fade-open';
-		} else if (animation == 'enter') {
-			Game.Splash.Container.className = 'splash_container noselect splash_container_animated_enter-open';
-		} else if (animation == 'leave') {
-			Game.Splash.Container.className = 'splash_container noselect splash_container_animated_leave-open';
-		} else if (Game.Splash.Animation == 'none') {
-			Game.Splash.Container.className = 'splash_container noselect';
-		} else {
-			Game.Splash.Container.className = 'splash_container noselect splash_container_animated_fade-open';
-			Game.Splash.Animation = 'fade';
+		if (!Game.Splash.Visible) {
+			if (animation == 'fade') {
+				Game.Splash.Container.className = 'splash_container noselect splash_container_animated_fade-open';
+			} else if (animation == 'enter') {
+				Game.Splash.Container.className = 'splash_container noselect splash_container_animated_enter-open';
+			} else if (animation == 'leave') {
+				Game.Splash.Container.className = 'splash_container noselect splash_container_animated_leave-open';
+			} else if (Game.Splash.Animation == 'none') {
+				Game.Splash.Container.className = 'splash_container noselect';
+			} else {
+				Game.Splash.Container.className = 'splash_container noselect splash_container_animated_fade-open';
+				Game.Splash.Animation = 'fade';
+			}
 		}
 		if (skip == true) {
 			Game.Splash.Container.className = 'splash_container noselect';
@@ -30,6 +38,11 @@ Game.Splash = {
 		clearTimeout(Game.Splash.Timeout);
 	},
 	Hide: function() {
+		if (!Game.Splash.Lock) {
+			Game.Splash.HideLock();
+		}
+	},
+	HideLock: function() {
 		if (Game.Splash.Animation == 'fade') {
 			Game.Splash.Container.className = 'splash_container noselect splash_container_animated_fade-close';
 		} else if (Game.Splash.Animation == 'enter') {

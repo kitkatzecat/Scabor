@@ -30,6 +30,11 @@ var Game = {
 		}
 	},
 	JS: {
+		GetName: function(source) {
+			var name = (source.substr(0,source.lastIndexOf('.')).replace('/','__'));
+			name = name.charAt(0).toUpperCase() + name.slice(1);
+			return name;
+		},
 		Load: function(source) {
 			var js = document.createElement('script');
 			js.setAttribute('language','javascript');
@@ -173,10 +178,72 @@ var Game = {
 window.addEventListener('load',function() {
 	console.log('Welcome to Scabor game engine - version '+Game.Version);
 
+	var query = new URLSearchParams(window.location.search);
+
 	Game.Loader.Composition.Load = document.createElement('div');
 	Game.Loader.Composition.Load.style.display = 'none';
 	Game.Loader.Composition.Load.className = 'game_loader';
+	Game.Loader.Composition.Load.ondblclick = function() {
+		var l = "Currently Loading:\n";
+		Game.Loader.Composition.Loading.forEach(function(i) {
+			l += i+"\n";
+		});
+		alert(l);
+	};
 	document.body.appendChild(Game.Loader.Composition.Load);
+
+	if (query.get('console')) {
+		Game.Console = {
+			Composition: {},
+			Input: function() {
+				var c = prompt('Enter a command:');
+				console.log('> '+c);
+				eval(c);
+			},
+			Log: function() {
+				Game.Console.NativeLog.apply(null,arguments);
+				for (let j = 0; j < arguments.length; j++) {
+					a = arguments[j];
+					let i = document.createElement('div');
+					i.className = 'game_console_entry';
+					if (typeof a == 'string') {
+						i.innerHTML = a;
+						if (a.toUpperCase().indexOf('LOADED') !== -1) {
+							i.style.color = '#080';
+						}
+						if (a.toUpperCase().indexOf('WARNING') !== -1 || a.toUpperCase().indexOf('ERROR') !== -1 || a.toUpperCase().indexOf('UNABLE') !== -1) {
+							i.style.color = '#f00';
+						}
+						if (a.substr(0,11) == 'Game.When (') {
+							i.style.color = '#808';
+						}
+						if (a.substr(0,18) == 'Game.Room.Movement') {
+							i.style.color = '#880';
+						}
+						if (a.substr(0,10) == '[Dialogue]') {
+							i.style.color = '#008';
+						}
+					} else if (typeof a.toString !== 'undefined') {
+						i.innerHTML = a.toString;
+					}
+					Game.Console.Composition.Console.prepend(i);
+				};
+			},
+			NativeLog: function() {}
+		};
+		Game.Console.Composition.Console = document.createElement('div');
+		Game.Console.Composition.Console.className = 'game_console';
+		document.body.appendChild(Game.Console.Composition.Console);
+
+		Game.Console.NativeLog = window.console.log;
+		window.console.log = Game.Console.Log;
+
+		document.addEventListener('keypress',function(e) {
+			if (e.key == 'c') {
+				Game.Console.Input();
+			}
+		});
+	}
 
 	if (window.location.href.indexOf('game.htm') != -1) {
 		console.log('Setting up game...');
@@ -194,6 +261,10 @@ window.addEventListener('load',function() {
 		document.body.appendChild(Game.Bar.Composition.Bar);
 		Game.Bar.Composition.Bar.appendChild(Game.Bar.Composition.Room);
 
+		if (query.get('console')) {
+			Game.Bar.Add('bar_console.svg','Console',Game.Console.Input,'left');	
+		}
+
 		Game.JS.Load('sound.js');
 		Game.JS.Load('music.js');
 		Game.JS.Load('splash.js');
@@ -204,12 +275,15 @@ window.addEventListener('load',function() {
 		Game.JS.Load('place.js');
 		Game.JS.Load('items.js');
 
+		Game.JS.Load('state.js');
 		Game.JS.Load('story.js');
 
 		Game.JS.Load('characters.js');
 		Game.JS.Load('dialogue.js');
 		Game.JS.Load('cutscene.js');
 		Game.JS.Load('presence.js');
+
+		Game.JS.Engine = ['Sound','Music','Splash','Cursor','Ui','Room','Place','Items','State','Story','Characters','Dialogue','Cutscene','Presence','Play'];
 
 		Game.When(function() {return typeof Game.Splash != 'undefined'},function(result) {
 			if (result) {
@@ -243,9 +317,19 @@ window.addEventListener('load',function() {
 
 		Game.When(function() {return Game.Ready},function(result) {
 			if (result) {
-				Game.Splash.Hide();
 				Game.Loader.Hide('Game');
 				Game.JS.Load('play.js');
+				if (query.get('save')) {
+					Game.State.LoadFile(query.get('save'));
+				}
+				Game.When(function() {return !Game.Splash.Visible}, function(result) {
+					if (!result) {
+						Game.Splash.Show('<span class="font_title" style="font-size:0.8em;">Waiting for state information...</span><br><span class="font_text" style="font-size:0.4em;">Developers: Engine has loaded successfully.</span>',false,'none');
+					}
+					if (query.get('console')) {
+						console.log('Press c to access console input.');
+					}
+			},500,25);
 			} else {
 				Game.Loader.Hide('Game');
 				Game.Splash.Show('An error occurred while loading.<br><span class="font_text" style="font-size:0.8em;">Try reloading the game.</span><br><span class="font_text" style="font-size:0.4em;">Developers: See console log for details.</span>',false,'none');
@@ -260,6 +344,32 @@ window.addEventListener('load',function() {
 		Game.JS.Load('splash.js');
 		Game.JS.Load('ui.js');
 		Game.JS.Load('index.js');
-		Game.Ready = true;
+
+		Game.When(function() {return typeof Game.Splash != 'undefined'},function(result) {
+			if (result) {
+				if (!Game.Ready) {
+					Game.Splash.Show('',false,'none');
+				}
+				document.body.style.opacity = '1';
+			}
+		});
+		Game.When(function() {
+			if (
+				typeof Game.Music != 'undefined' &&
+				typeof Game.Sound != 'undefined' &&
+				typeof Game.Ui != 'undefined' &&
+				typeof Game.Index != 'undefined'
+			) {
+				return true;
+			} else {
+				return false;
+			}
+		},function(result) {
+			if (result) {
+				Game.Ready = true;
+				Game.Splash.Animation = 'fade';
+				setTimeout(Game.Splash.Hide,1000);
+			}
+		},500,50);
 	}
 });

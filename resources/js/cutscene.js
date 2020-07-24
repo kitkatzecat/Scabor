@@ -1,15 +1,30 @@
 Game.Cutscene = {
-	Play: function(source,fade=true) {
-		document.body.appendChild(Game.Cutscene.Composition.Container);
-		if (fade) {
-			Game.Splash.Show();
+	Showing: false,
+	Play: function(source,fade=true,showbar=false) {
+		if (!Game.Cutscene.Showing) {
+			Game.Cursor.Hide();
+			Game.Cutscene.Showing = true;
+			document.body.appendChild(Game.Cutscene.Composition.Container);
+			if (fade) {
+				Game.Splash.Show();
+			}
+
+			Game.Loader.Show('cutscene');
+
+			if (showbar) {
+				Game.Cutscene.Composition.Container.style.zIndex = '95';
+			} else {
+				Game.Cutscene.Composition.Container.style.zIndex = '150';
+			}
+
+			setTimeout(function() {
+				var d = new Date();
+				var t = d.getTime();
+				Game.Cutscene.Composition.Frame.src = './resources/cutscenes/'+source+'?t='+t;
+			},500);
+		} else {
+			console.log('Game.Cutscene.Show: Another cutscene is already playing')
 		}
-
-		Game.Loader.Show('cutscene');
-
-		setTimeout(function() {
-			Game.Cutscene.Composition.Frame.src = './resources/cutscenes/'+source;
-		},500);
 	},
 	End: function() {
 		Game.Cutscene.Composition.Container.style.opacity = '0';
@@ -21,6 +36,7 @@ Game.Cutscene = {
 			document.body.removeChild(Game.Cutscene.Composition.Container);
 		},500);
 		this.Loaded = false;
+		Game.Cutscene.Showing = false;
 	},
 	Loaded: false,
 	OnLoad: function() {

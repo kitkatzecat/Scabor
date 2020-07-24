@@ -6,14 +6,16 @@ Game.Items = {
 			console.log('Game.Items.Open: Box Index "'+box+'" does not exist');
 		} else {
 			box = Game.Items.BoxIndex[box];
-			if (box.length == 0) {
+			if (box.length == 0 || (Game.Story.Boxes.hasOwnProperty(Game.Place.Current['id']+'__'+box) && Game.Story.Boxes[Game.Place.Current['id']+'__'+box])) {
 				Game.Dialogue.Line({Who:"Me",Text:text,Sound:sound});
 				Game.Dialogue.Line({Who:"Me",Text:"...looks like it's empty.",Sound:Game.Characters.Loaded['Me']['Sound']});
 			} else {
 				Game.Dialogue.Line({Who:"Me",Text:text,Sound:sound});
+				Game.Dialogue.Line({Who:"Me",Text:"...looks like there's something inside it.",Sound:Game.Characters.Loaded['Me']['Sound']});
 				box.forEach(element => {
 					Game.Items.GetPlayerItem(element);
 				});
+				Game.Story.Boxes[Game.Place.Current['id']+'__'+box] = true;
 			}
 		}
 	},
@@ -70,6 +72,14 @@ Game.Items = {
 		
 		items.setRequestHeader("Cache-Control", "no-cache");
 		items.send(null);
+
+		Game.When(function() {
+			return !(typeof Game.Dialogue.Load == 'undefined');
+		},function(r) {
+			if (r) {
+				Game.Dialogue.Load('Items.json');
+			}
+		})
 
 		Game.Bar.Add('bar_items.svg','Items',function(){Game.Items.ShowPlayerItems();});
 	},
@@ -172,12 +182,34 @@ Game.Items = {
 		var image = document.createElement('img');
 		image.src = './resources/images/items/'+obj['image'];
 		image.className = 'item_image_large';
+		image.title = obj['id'];
 		items.appendChild(image);
 
 		var desc = document.createElement('div');
 		desc.className = 'font_text ui_text';
-		desc.innerHTML = obj['description']+'<br><br>Amount in inventory: '+Game.Items.GetPlayerItemQuantity(obj);
+		desc.innerHTML = obj['description']+'<br><br>Amount in inventory: '+Game.Items.GetPlayerItemQuantity(obj)+'<br>';
 		items.appendChild(desc);
+
+		if (obj.hasOwnProperty('buttons')) {
+			obj['buttons'].forEach(function(b) {
+				let c = document.createElement('div');
+				c.className = 'ui_button font_text noselect';
+				c.style.marginRight = '8px';
+				c.style.marginLeft = '0px';
+				c.style.float = 'none';
+				c.style.display = 'inline-block';
+				c.onclick = function() {
+					Game.Sound.Play('click.mp3');
+					try {
+						eval(b['function']);
+					} catch(e) {
+						console.log('Game.Items.ShowItem [anonymous]: Error executing button function: '+e);
+					}
+				};
+				c.innerHTML = b['text'];
+				items.appendChild(c);
+			});
+		}
 
 		div.appendChild(items);
 
@@ -291,6 +323,11 @@ Game.Items = {
 			if (n) {
 				Game.Dialogue.Speak({Who:'Item',Text:'You got a new item!',Color:'#888',Image:'items/'+obj['image'],Sound:"Item.mp3"});
 				Game.Dialogue.Speak({Who:'Item',Text:obj['name']+' - '+obj['description'],Color:'#888',Image:'items/'+obj['image'],Sound:false});
+				if (Game.Dialogue.LoadedScripts.hasOwnProperty('Items')) {
+					if (Game.Dialogue.LoadedScripts['Items'].hasOwnProperty(obj['id'])) {
+						Game.Dialogue.Play('Items.json',obj['id']);
+					}
+				}
 			} else {
 				Game.Dialogue.Speak({Who:'Item',Text:'You got another '+obj['name']+'! You now have '+(q+1)+'.',Color:'#888',Image:'items/'+obj['image'],Sound:"Item.mp3"});
 			}

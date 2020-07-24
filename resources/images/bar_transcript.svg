@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg4796"
+   version="1.1"
+   viewBox="0 0 8.4666667 8.4666667"
+   height="32"
+   width="32">
+  <defs
+     id="defs4790">
+    <filter
+       style="color-interpolation-filters:sRGB"
+       id="filter1061"
+       x="-0.034430414"
+       width="1.0688608"
+       y="-0.037719527"
+       height="1.0754391">
+      <feGaussianBlur
+         stdDeviation="0.66736946"
+         id="feGaussianBlur1063" />
+    </filter>
+    <filter
+       height="1.0922508"
+       y="-0.046125413"
+       width="1.0590397"
+       x="-0.029519831"
+       id="filter991"
+       style="color-interpolation-filters:sRGB">
+      <feGaussianBlur
+         id="feGaussianBlur993"
+         stdDeviation="0.52512531" />
+    </filter>
+  </defs>
+  <metadata
+     id="metadata4793">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     style="stroke-width:1.33416748"
+     id="layer1"
+     transform="matrix(0.74953108,0,0,0.74953108,-1.8180025,-215.14579)">
+    <g
+       style="stroke-width:1.33416748"
+       transform="translate(0.59878424,-0.00693187)"
+       id="g1559">
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.35299847px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 7.3607646,288.36867 a 5.5338043,4.1789201 0 0 0 -5.534029,4.17907 5.5338043,4.1789201 0 0 0 5.534029,4.17856 5.5338043,4.1789201 0 0 0 3.2550984,-0.80564 c 0.55461,0.49176 1.485819,1.14052 2.506824,1.09968 0,0 -0.914403,-1.02233 -1.295528,-2.01332 a 5.5338043,4.1789201 0 0 0 1.067118,-2.45928 5.5338043,4.1789201 0 0 0 -5.5335124,-4.17907 z"
+         id="path845" />
+    </g>
+  </g>
+</svg>
