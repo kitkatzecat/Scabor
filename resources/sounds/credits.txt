@@ -1,3 +1,6 @@
+Sound Credits
+=================
+
 Rosemary.mp3
 	Adapted from "UI Confirmation Alert, A1.wav"
 	by InspectorJ on Freesound.org
@@ -21,3 +24,55 @@ click.mp3
 	by ryusa on Freesound.org
 	https://freesound.org/s/467563/
 	Licensed under Creative Commons Attribution
+
+door-commercial.mp3
+	Adapted from "Cabinet_Door_Metal_Plastic_Open_Close.wav"
+	by LamaMakesMusic on Freesound.org
+	https://freesound.org/s/403539/
+	Licensed under Creative Commons 0
+
+keycard-unlock.mp3
+	Adapted from "Electronic Door Opening"
+	by alegemaate on Freesound.org
+	https://freesound.org/s/364688/
+	Licensed under Creative Commons 0
+
+keycard-fail.mp3
+	Adapted from "Electronic Door Opening"
+	by alegemaate on Freesound.org
+	https://freesound.org/s/364688/
+	Licensed under Creative Commons 0
+		and
+	"Buzzer sounds (Wrong answer / Error)"
+	by Breviceps  on Freesound.org
+	https://freesound.org/s/493163/
+	Licensed under Creative Commons 0
+
+door-appliance.mp3
+	Adapted from "refrigerator door open"
+	by Yoyodaman234 on Freesound.org
+	https://freesound.org/s/183531/
+	Licensed under Creative Commons 0
+
+cabinet-open.mp3
+	Adapted from "Squeaky cabinet.wav"
+	by bormane on Freesound.org
+	https://freesound.org/s/257439/
+	Licensed under Creative Commons 0
+
+reveal.mp3
+	Adapted from "magic wand.wav"
+	by fons on Freesound.org
+	https://freesound.org/s/98617/
+	Licensed under Creative Commons 0
+
+drag.mp3
+	Adapted from "Footsteps on concrete"
+	by florianreichelt on Freesound.org
+	https://freesound.org/s/459964/
+	Licensed under Creative Commons 0
+		and
+	"Chair Drag on Carpet.WAV"
+	by sgcardinal on Freesound.org
+	https://freesound.org/s/395074/
+	Licensed under Creative Commons 0

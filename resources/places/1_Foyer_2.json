@@ -1,0 +1,34 @@
+{
+	"default": {
+		"id": "1_Foyer_2",
+		"title": "1 - Foyer",
+		"room": "1_Foyer_2.svg",
+		"orientation": "180",
+		"background": false,
+		"back": false,
+		"onleave": "",
+		"scripts": ["Game.json"],
+		"js": [],
+		"onload": "",
+		"sound_from": {
+			"default": false,
+			"1_Office-Hall_4": "door-open.mp3",
+			"1_Lobby": "door-open.mp3"
+		},
+		"position_from": {
+			"default": 0,
+			"2L_Foyer_1": 35,
+			"1_Foyer_1": 0,
+			"1_Office-Hall_4": 100
+		},
+		"boxes": {}
+	},
+	"Chapter1": {
+		"scripts": ["Chapter1.json","Game.json"],
+		"room": "1_Foyer_2_Chapter1.svg",
+		"onload": "Game.Story['Progress']['Chapter1']['Enter_Foyer-1'] = true; Game.Dialogue.Play('Chapter1.json','Enter_Foyer-1'); Game['Events__Chapter1']['Leave_Foyer-1']();"
+	},
+	"Chapter1:Enter_Foyer-1": {
+		"onload": "Game['Events__Chapter1']['Leave_Foyer-1']();"
+	}
+}

@@ -1,0 +1,17 @@
+{
+	"default": {
+		"id": "1_Restroom",
+		"title": "1 - Restroom",
+		"room": "Restroom_L.svg",
+		"orientation": "90",
+		"background": false,
+		"back": "1_Office-Hall_1",
+		"onleave": "",
+		"scripts": ["Game.json"],
+		"js": [],
+		"onload": "",
+		"sound_from": {
+			"default": "door-open.mp3"
+		}
+	}
+}

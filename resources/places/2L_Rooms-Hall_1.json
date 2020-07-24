@@ -1,0 +1,42 @@
+{
+	"default": {
+		"id": "2L_Rooms-Hall_1",
+		"title": "2L - Rooms Hall",
+		"room": "2L_Rooms-Hall_1.svg",
+		"orientation": "180",
+		"background": false,
+		"back": false,
+		"onleave": "",
+		"scripts": ["Game.json"],
+		"js": ["events/2L_Rooms-Hall.js"],
+		"onload": "",
+		"sound_from": {
+			"2L_Storage": "door-close.mp3",
+			"2L_Room-1": "door-close.mp3",
+			"2L_Room-2": "door-close.mp3",
+			"2L_Room-3": "door-close.mp3",
+			"2L_Room-4": "door-close.mp3"
+		},
+		"position_from": {
+			"default": 0,
+			"2L_Rooms-Hall_2": 100,
+			"2L_Storage": 0,
+			"2L_Room-1": 0,
+			"2L_Room-2": 40,
+			"2L_Room-3": 58,
+			"2L_Room-4": 100
+		},
+		"boxes": {}
+	},
+	"Chapter1": {
+		"title": "?? - Hallway",
+		"room": "2L_Rooms-Hall_1_Chapter1.svg",
+		"scripts": ["Chapter1.json","Game.json"]
+	},
+	"Chapter1:Enter_Foyer-1": {
+		"room": "2L_Rooms-Hall_1.svg"
+	},
+	"Chapter1:Interact_Rooms-Hall_Door_Interior": {
+		"title": "2L - Rooms Hall"
+	}
+}

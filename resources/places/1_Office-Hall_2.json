@@ -1,0 +1,26 @@
+{
+	"default": {
+		"id": "1_Office-Hall_2",
+		"title": "1 - Office Hall",
+		"room": "1_Office-Hall_2.svg",
+		"orientation": "180",
+		"background": false,
+		"back": false,
+		"onleave": "",
+		"scripts": ["Game.json"],
+		"js": [],
+		"onload": "",
+		"sound_from": {
+			"1_Office-A": "door-close.mp3",
+			"1_Office-B": "door-close.mp3"
+		},
+		"position_from": {
+			"default": 0,
+			"1_Office-Hall_1": 0,
+			"1_Office-Hall_3": 100,
+			"1_Office-B": 80,
+			"1_Office-A": 60
+		},
+		"boxes": {}
+	}
+}

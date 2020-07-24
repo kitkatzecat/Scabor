@@ -10,25 +10,31 @@
 		"Items_Get": false
 	},
 	"Now": false,
+	"Boxes": {},
 	"Progress": {
 		"Prologue": {
 			"Completed": false
 		},
 		"Chapter1": {
 			"Completed": false,
-			"Leave_Room-7_Begin": false,
+			"In_Room-2_Begin": true,
 			"Visit_Room-Other_1": false,
 			"Visit_Room-Other_2": false,
-			"Visit_Room-7_Other": false,
+			"Visit_Room-2_Other": false,
 			"Interact_Speaker": false,
 			"Interact_Air-Vent": false,
 			"Visit_Rooms-Hall_2": false,
 			"Visit_Rooms-Hall_Restroom": false,
 			"Interact_Rooms-Hall_Door_Interior": false,
+			"Interact_Sign_Stairs": false,
 			"Visit_Room_Post": false,
-			"Enter_Foyer-1F": false,
+			"Enter_Foyer-1": false,
 			"Interact_Lobby_Door": false,
-			"Interact_Foyer-1F_Gate": false	
+			"Interact_Foyer-1_Gate": false	
+		},
+		"Chapter2": {
+			"Completed": false,
+			"Interact_Lobby_Poster": false
 		}
 	}
 }

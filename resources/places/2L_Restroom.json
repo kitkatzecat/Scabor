@@ -1,0 +1,24 @@
+{
+	"default": {
+		"id": "2L_Restroom",
+		"title": "2L - Restroom",
+		"room": "Restroom_R.svg",
+		"orientation": "90",
+		"background": false,
+		"back": "2L_Rooms-Hall_2",
+		"onleave": "",
+		"scripts": ["Game.json"],
+		"js": [],
+		"onload": "",
+		"sound_from": {
+			"default": "door-open.mp3"
+		}
+	},
+	"Chapter1": {
+		"onload": "Game.Dialogue.Play('Chapter1.json','Visit_Rooms-Hall_Restroom');Game.Story.Progress['Chapter1']['Visit_Rooms-Hall_Restroom'] = true;",
+		"title": "?? - Restroom"
+	},
+	"Chapter1:Visit_Rooms-Hall_Restroom": {
+		"onload": ""
+	}
+}

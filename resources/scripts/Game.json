@@ -1,0 +1,91 @@
+{
+	"Place_Leave_Rosemary": [
+		{"Who":"Rosemary","Text":"Wait, where are you going? There might be something else in here!","Expression":"talking-excited"}
+	],
+	"Interact_Door-Frame": [
+		{"Who":"Me","Text":"This door frame is made of nice wood..."}
+	],
+	"Interact_Outlet": [
+		{"Who":"Me","Text":"Just a regular power outlet."}
+	],
+	"Interact_Outlet_Occupied": [
+		{"Who":"Me","Text":"Just a regular power outlet. There's a cord plugged in to it."}
+	],
+	"Interact_Wall": {
+		"default": [
+			{"Who":"Me","Text":"It's the wall."}
+		],
+		"Chapter2!Interact_Wall": [
+			{"Who":"Me","Text":"It's the wall.","Set":"Chapter2:Interact_Wall"}
+		]
+	},
+	"Interact_Floor": [
+		{"Who":"Me","Text":"The floor is hard concrete."}
+	],
+	"Interact_Floor_Restroom": [
+		{"Who":"Me","Text":"The floor is non-slip tile."}
+	],
+	"Interact_Speaker_Initial": [
+		{"Who":"Me","Text":"An intercom speaker?"},
+		{"Who":"Me","Text":"Why would you need that here?"}
+	],
+	"Interact_Speaker": [
+		{"Who":"Me","Text":"Another intercom speaker."},
+		{"Who":"Me","Text":"How many of these does this place have?"}
+	],
+	"Interact_Air-Vent": [
+		{"Who":"Me","Text":"Another air vent..."},
+		{"Who":"Me","Text":"So that's how they're pumping oxygen throughout the station."}
+	],
+	"Interact_Restroom_Stall": [
+		{"Who":"Me","Text":"There's 3 stalls."},
+		{"Who":"Me","Text":"Nothing unusual."}
+	],
+	"Interact_Restroom_Mirror": [
+		{"Who":"Me","Text":"There's a mirror on the wall."},
+		{"Who":"Me","Text":"Yep, that looks like me."}
+	],
+	"Interact_Restroom_Sink": [
+		{"Who":"Me","Text":"There are 3 sinks."},
+		{"Who":"Me","Text":"At least I know I can keep my hands clean."}
+	],
+	"Interact_Stairs_Up": [
+		{"Who":"Me","Text":"These stairs must go up to the next floor."}
+	],
+	"Interact_Stairs_Down": [
+		{"Who":"Me","Text":"These stairs must go down to the lower floor."}
+	],
+	"Interact_Bookcase_Empty": [
+		{"Who":"Me","Text":"It looks like a bookcase, but it's empty."}
+	],
+	"Interact_Shelf_Empty": [
+		{"Who":"Me","Text":"A metal wire shelf. There's nothing on it."}
+	],
+	"Interact_Desk_Corner": [
+		{"Who":"Me","Text":"A desk sits in the corner of the room."}
+	],
+	"Interact_Desk-Chair": [
+		{"Who":"Me","Text":"A chair sits in front of the desk."}
+	],
+	"Interact_Chair": [
+		{"Who":"Me","Text":"A wooden chair."}
+	],
+	"Interact_Trash-Can_Stacked": [
+		{"Who":"Me","Text":"Some empty trash cans are stacked together."}
+	],
+	"Interact_Chair_Stacked": [
+		{"Who":"Me","Text":"There are some chairs stacked in the corner."}
+	],
+	"Interact_File-Cabinet": [
+		{"Who":"Me","Text":"A file cabinet. It has 4 drawers."}
+	],
+	"Interact_Cabinets_Wall": [
+		{"Who":"Me","Text":"There are cabinets mounted on the wall. Maybe there's something inside of them?"}
+	],
+	"Interact_Refrigerator": [
+		{"Who":"Me","Text":"It looks like a large refrigerator."}
+	],
+	"Interact_Table_Metal": [
+		{"Who":"Me","Text":"There's a shiny industrial-looking metal table."}
+	]
+}

@@ -1,0 +1,31 @@
+{
+	"default": {
+		"id": "1_Office-Hall_1",
+		"title": "1 - Office Hall",
+		"room": "1_Office-Hall_1.svg",
+		"orientation": "90",
+		"background": false,
+		"back": false,
+		"onleave": "",
+		"scripts": ["Game.json"],
+		"js": [],
+		"onload": "",
+		"sound_from": {
+			"1_Foyer_1": "door-open.mp3",
+			"1_Restroom": "door-close.mp3"
+		},
+		"position_from": {
+			"default": 0,
+			"1_Foyer_1": 0,
+			"1_Office-Hall_2": 100,
+			"1_Restroom": 80
+		},
+		"boxes": {}
+	},
+	"Chapter1": {
+		"onload": "Game['Events__Chapter1']['Leave_Office-Hall_1']();"
+	},
+	"Chapter1!Enter_Office-Hall": {
+		"onload": "Game.Story.Progress['Chapter1']['Enter_Office-Hall'] = true;Game['Events__Chapter1']['Leave_Office-Hall_1']();"
+	}
+}

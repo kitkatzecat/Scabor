@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cutscene</title>
+	<link rel="stylesheet" href="../css/font.css">
+	<style>
+		body {
+			background: #c9eaef;
+			text-align: center;
+		}
+
+		.image {
+			width: 8.5in;
+			max-width: 90%;
+			height: auto;
+			margin-top: 5vh;
+			margin-bottom: 5vh;
+		}
+
+		.dialogue_button {
+			position: fixed;
+			bottom: calc(5% + 30px);
+			height: 64px;
+			width: 64px;
+			right: calc(5% + 30px);
+			border: 2px solid #000;
+			border-radius: 50px;
+			background-color: rgb(160, 160, 160);
+			z-index: 102;
+			cursor: pointer;
+			background-position: center center;
+			background-size: 50% 50%;
+			background-repeat: no-repeat;
+		}
+
+		.dialogue_button:hover {
+			border-color: #fff;
+			box-shadow: 2px 2px 0px #000, -2px 2px 0px #000, 2px -2px 0px #000, -2px -2px 0px #000;
+		}
+
+		.dialogue_button_image-arrow-right {
+			background-image: url('../images/dialogue_arrow-right-black.svg');
+			background-color: rgb(211, 157, 9);
+		}
+
+		.dialogue_button_image-arrow-right:hover {
+			background-image: url('../images/dialogue_arrow-right-white.svg');
+			background-color: rgb(211, 157, 9);
+		}
+
+		.dialogue_button:hover+.dialogue_button_caption {
+			display: block;
+		}
+
+		.dialogue_button_caption {
+			position: fixed;
+			bottom: calc(5% + 48px);
+			right: calc(5% + 46px);
+			height: 32px;
+			border-top-left-radius: 20px;
+			border-bottom-left-radius: 20px;
+			z-index: 91;
+			cursor: default;
+			background-color: rgb(96, 96, 96);
+			color: #fff;
+			padding-right: 64px;
+			padding-left: 16px;
+			text-align: right;
+			font-size: 18px;
+			line-height: 32px;
+			display: none;
+			transform-origin: 100% 50%;
+
+			animation: dialogue_button_caption_animation .1s ease-out;
+		}
+
+		@keyframes dialogue_button_caption_animation {
+			0% {
+				transform: scaleX(0.01);
+			}
+
+			100% {
+				transform: scaleX(1);
+			}
+		}
+	</style>
+	<script>
+		function Load() {
+			setTimeout(function () {
+				Cutscene.Ready();
+				document.getElementById('button').onclick = function () {
+					/*if (window.parent.Game.Story.Progress['Chapter2']['Interact_Lobby_Poster'] == false) {
+						window.parent.Game.Story.Progress['Chapter2']['Interact_Lobby_Poster'] = true;
+						window.parent.Game.Dialogue.Play('Chapter2.json','Interact_Lobby_Poster_Initial');
+					}*/
+					Cutscene.End();
+				}
+			}, 500);
+		}
+	</script>
+</head>
+
+<body>
+	<img src="resources/Paper_Profile_Rosemary.svg" alt="" class="image">
+	<div id="button" class="dialogue_button dialogue_button_image-arrow-right"></div>
+	<div class="dialogue_button_caption">Continue</div>
+</body>
+
+</html>

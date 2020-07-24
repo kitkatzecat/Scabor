@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="room"
+   viewBox="0 0 215.9 127"
+   height="480"
+   width="816"
+   version="1.1"
+   sodipodi:docname="2L_Room-Other.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1440"
+     inkscape:window-height="837"
+     id="namedview79"
+     showgrid="false"
+     inkscape:zoom="6.1568625"
+     inkscape:cx="244.32648"
+     inkscape:cy="106.63355"
+     inkscape:window-x="3272"
+     inkscape:window-y="227"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="room" />
+  <defs
+     id="defs2" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     onclick="Game.Dialogue.Play('Game.json','Interact_Floor');"
+     id="path2911"
+     d="M 6.0021115,110.06666 108.03792,128.05833 210.07374,110.06666 108.03792,92.075 Z"
+     style="display:inline;fill:#fafafa;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+  <path
+     onclick="Game.Dialogue.Play('Game.json','Interact_Wall');"
+     id="path2894"
+     d="M 108.03792,92.075 V -1.058342 L 6.0021115,16.93333 v 93.13333 z"
+     style="display:inline;fill:#e8f6f8;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+  <path
+     onclick="Game.Dialogue.Play('Game.json','Interact_Wall');"
+     id="path2894-1"
+     d="M 108.03792,92.075 V -1.058342 L 210.07374,16.93333 v 93.13333 z"
+     style="display:inline;fill:#c9eaef;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+  <path
+     onclick="Game.Dialogue.Play('Game.json','Interact_Door-Frame');"
+     style="display:inline;fill:#a66400;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+     d="m 166.55847,102.39376 v -47.625 l 27.00949,4.7625 v 47.625 z"
+     id="path2320-6" />
+  <g
+     style="display:inline;stroke-linejoin:round"
+     onclick="Game.Dialogue.Play('Doors.json','2L_Rooms-Hall_1');"
+     id="g940"
+     transform="matrix(0.99999997,0.35265394,0,0.99999997,24.008442,-211.27498)">
+    <path
+       id="path1657"
+       d="m 144.05055,263.13331 v -46.56667 l 24.00843,-4.23333 v 46.56667 z"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+    <path
+       id="path2362"
+       d="m 147.05161,243.55416 v -1.05833 l -1.50053,0.26458 v 1.05834 z"
+       style="fill:#c3c34a;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+  </g>
+  <g
+     onclick="Game.Dialogue.Play('Game.json','Interact_Outlet');"
+     transform="matrix(0.99999997,0.35265394,0,0.99999997,57.020018,-209.68749)"
+     style="display:inline;stroke-linejoin:round"
+     id="g1795">
+    <path
+       style="fill:#fefefd;fill-opacity:1;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 102.03581,272.65832 3.00106,-0.52917 v -3.175 l -3.00106,0.52917 z"
+       id="path1777" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 103.53634,270.27707 v 1.05833"
+       id="path1783" />
+  </g>
+  <g
+     onclick="Game['Events__Game']['Interact_Speaker']()"
+     style="display:inline;stroke-linejoin:round"
+     id="g1151"
+     transform="translate(-70.52475,-167.61874)">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 174.0611,177.40833 v 4.23333 l -12.00422,2.11667 v -4.23334 z"
+       id="path1155" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 163.55741,179.78958 9.00316,-1.5875 v 3.175 l -9.00316,1.5875 z"
+       id="path1157" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 163.55741,180.31874 9.00316,-1.5875"
+       id="path1165" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 163.55741,180.84791 9.00316,-1.5875"
+       id="path1167" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 163.55741,181.37708 9.00316,-1.5875"
+       id="path1169" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 163.55741,181.90624 9.00316,-1.5875"
+       id="path1171" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 163.55741,182.43541 9.00316,-1.5875"
+       id="path1173" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 162.05688,179.52499 -1.50053,-0.26458 v 4.23333 l 1.50053,0.26459 z"
+       id="path1179" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 174.0611,177.40833 -1.50053,-0.26459 -12.00422,2.11667 1.50053,0.26458 z"
+       id="path1181" />
+    <path
+       style="fill:#d0d0d0;fill-opacity:1;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 174.0611,177.40833 v 4.23333 l -12.00422,2.11667 v -4.23334 z"
+       id="path1155-8" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 163.55741,179.78958 9.00316,-1.5875 v 3.175 l -9.00316,1.5875 z"
+       id="path1157-1" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 163.55741,180.31874 9.00316,-1.5875"
+       id="path1165-8" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 163.55741,180.84791 9.00316,-1.5875"
+       id="path1167-9" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 163.55741,181.37708 9.00316,-1.5875"
+       id="path1169-1" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 163.55741,181.90624 9.00316,-1.5875"
+       id="path1171-7" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 163.55741,182.43541 9.00316,-1.5875"
+       id="path1173-5" />
+    <path
+       style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 162.05688,179.52499 -1.50053,-0.26458 v 4.23333 l 1.50053,0.26459 z"
+       id="path1179-4" />
+    <path
+       style="fill:#bbbbbb;fill-opacity:1;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 174.0611,177.40833 -1.50053,-0.26459 -12.00422,2.11667 1.50053,0.26458 z"
+       id="path1181-0" />
+  </g>
+  <g
+     onclick="Game['Events__Game']['Interact_Air-Vent']()"
+     style="display:inline;stroke-linejoin:round"
+     id="g1161"
+     transform="translate(-66.023177,-168.94166)">
+    <path
+       style="fill:#d0d0d0;fill-opacity:1;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 150.05267,181.64166 v 8.46667 l -12.00421,2.11666 v -8.46666 z"
+       id="path1222" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 139.54898,184.55208 9.00316,-1.5875"
+       id="path1224" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 139.54898,185.61041 9.00316,-1.5875"
+       id="path1226" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 139.54898,186.66874 9.00316,-1.5875"
+       id="path1228" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 139.54898,187.72708 9.00316,-1.5875"
+       id="path1230" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 139.54898,188.78541 9.00316,-1.5875"
+       id="path1232" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 139.54898,189.84374 9.00316,-1.5875"
+       id="path1234" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 139.54898,190.90208 9.00316,-1.5875"
+       id="path1236" />
+  </g>
+  <g
+     onclick="Game['Events__Game']['Interact_Air-Vent']()"
+     id="g1161-7"
+     transform="matrix(0.99999997,0.35265394,0,0.99999997,36.012636,-212.33333)"
+     style="display:inline;stroke-linejoin:round">
+    <path
+       style="fill:#d0d0d0;fill-opacity:1;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 150.05267,181.64166 v 8.46667 l -12.00421,2.11666 v -8.46666 z"
+       id="path1222-4" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 139.54898,184.55208 9.00316,-1.5875"
+       id="path1224-1" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 139.54898,185.61041 9.00316,-1.5875"
+       id="path1226-0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 139.54898,186.66874 9.00316,-1.5875"
+       id="path1228-3" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 139.54898,187.72708 9.00316,-1.5875"
+       id="path1230-1" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 139.54898,188.78541 9.00316,-1.5875"
+       id="path1232-2" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 139.54898,189.84374 9.00316,-1.5875"
+       id="path1234-6" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 139.54898,190.90208 9.00316,-1.5875"
+       id="path1236-4" />
+  </g>
+  <g
+     onclick="Game.Dialogue.Play('Chapter1.json','Interact_Bed_Other');"
+     id="g898">
+    <path
+       style="display:inline;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 105.03687,79.90415 36.01264,6.35 -30.01054,5.29166 -36.012636,-6.35 z"
+       id="path862" />
+    <path
+       style="display:inline;fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 141.04951,86.25415 -30.01054,5.29166 v 6.35 l 30.01054,-5.29166 z"
+       id="path864" />
+    <path
+       style="display:inline;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 75.026334,85.19581 36.012636,6.35 v 6.35 l -36.012636,-6.35 z"
+       id="path866" />
+    <path
+       style="display:inline;fill:#c3944a;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 76.52686,98.16042 1.500529,-0.26459 v -2.11666 l -1.500529,0.26459 z"
+       id="path878" />
+    <path
+       style="display:inline;fill:#ddc298;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 75.026215,91.54585 v 3.70416 0.52917 2.11667 l 1.500682,0.26458 v -2.11667 l 33.011423,5.82084 v 2.11666 l 1.50069,0.26459 v -2.11667 -0.52917 -3.70416 z"
+       id="path868" />
+    <path
+       style="display:inline;fill:#c3944a;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 139.54898,99.21876 -1.50053,-0.26459 v -2.11666 l 1.50053,0.26458 z"
+       id="path874" />
+    <path
+       style="display:inline;fill:#d1ad75;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 141.04958,92.60418 -30.01057,5.29167 v 4.23333 2.11667 l 1.50068,-0.26459 v -2.11666 l 27.0092,-4.7625 v 2.11666 l 1.50069,-0.26458 v -2.11667 -0.52916 z"
+       id="path870" />
+    <path
+       style="display:inline;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 90.031601,85.72498 v -1.05833 l 18.006319,-3.175 v 1.05833 z"
+       id="path888" />
+    <path
+       style="display:inline;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 82.528965,84.40206 v -1.05833 l 7.502636,1.32292 v 1.05833 z"
+       id="path890" />
+    <path
+       style="display:inline;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 108.03792,81.49165 -7.50263,-1.32292 -18.006325,3.175 7.502636,1.32292 z"
+       id="path892" />
+    <path
+       style="display:inline;fill:#dc9696;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 87.030546,95.77917 3e-6,-8.46669 30.010531,-5.29167 24.00843,4.23334 v 8.46669 l -30.01054,5.29166 z"
+       id="path880" />
+    <path
+       style="display:inline;fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 88.531072,96.04375 3e-6,-8.46669 30.010535,-5.29166"
+       id="path884" />
+    <path
+       style="display:inline;fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 87.030549,87.31248 24.008421,4.23333 30.01054,-5.29166"
+       id="path882" />
+  </g>
+  <g
+     onclick="Game.Dialogue.Play('Chapter1.json','Interact_Night-Stand_Other');"
+     id="g1765"
+     style="display:inline;stroke-linejoin:round"
+     transform="translate(-68.62369,-169.47081)">
+    <path
+       id="path864-8"
+       d="m 110.63844,256.25415 12.08854,-2.11667 12.08854,2.11667 -12.08854,2.11667 z"
+       style="fill:#e9d8bd;fill-opacity:1;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+    <path
+       id="path870-8"
+       d="m 112.14951,273.45207 1.51106,-0.26459 v -2.11666 l -1.51106,0.26458 z"
+       style="fill:#d1ad75;fill-opacity:1;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+    <path
+       id="path866-1"
+       d="m 110.63844,256.25415 v 4.23333 12.7 l 1.51107,0.26459 v -2.11667 l 9.0664,1.5875 v 2.11667 l 1.51107,0.26458 v -16.93333 z"
+       style="fill:#ddc298;fill-opacity:1;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+    <path
+       id="path884-2"
+       d="m 133.30445,273.45207 -1.51107,-0.26459 v -2.11666 l 1.51107,0.26458 z"
+       style="fill:#c3944a;fill-opacity:1;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+    <path
+       id="path868-4"
+       d="m 134.81552,256.25415 v 16.93333 l -1.51107,0.26459 v -2.11667 l -9.06641,1.5875 v 2.11667 l -1.51106,0.26458 v -16.93333 z"
+       style="fill:#d1ad75;fill-opacity:1;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+  </g>
+  <g
+     onclick="Game.Items.Open('Empty','The top drawer of the night stand...')"
+     id="g1787"
+     style="display:inline;stroke-linejoin:round"
+     transform="translate(-68.62369,-169.47081)">
+    <path
+       id="path876-8"
+       d="m 124.23804,260.2229 9.06641,-1.5875 v 4.23333 l -9.06641,1.5875 z"
+       style="fill:#c3944a;fill-opacity:1;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+    <path
+       id="path880-3"
+       d="m 127.26018,261.28123 3.02213,-0.52916 v 1.05833 l -3.02213,0.52917 z"
+       style="fill:#c3c34a;fill-opacity:1;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+  </g>
+  <g
+     onclick="Game.Items.Open('Nightstand_Bottom','The bottom drawer of the night stand...')"
+     id="g1791"
+     style="display:inline;stroke-linejoin:round"
+     transform="translate(-68.62369,-169.47081)">
+    <path
+       id="path878-9"
+       d="m 124.23804,266.5729 9.06641,-1.5875 v 4.23333 l -9.06641,1.5875 z"
+       style="fill:#c3944a;fill-opacity:1;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+    <path
+       id="path882-3"
+       d="m 127.26018,267.63123 3.02213,-0.52916 v 1.05833 l -3.02213,0.52917 z"
+       style="fill:#c3c34a;fill-opacity:1;stroke:#000000;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+  </g>
+</svg>

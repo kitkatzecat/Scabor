@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cutscene</title>
+	<link rel="stylesheet" href="../css/font.css">
+	<style>
+		body {
+			background: #000;
+			cursor: none;
+		}
+		@keyframes earth_zoom {
+			from {transform: scale(2.6) translateY(30%) translateX(20%);}
+			to {transform: scale(1) translateY(0) translateX(0);}
+		}
+		@keyframes earth_move {
+			from {left: 0px;}
+			to {left: -500px;}
+		}
+		#earth {
+			z-index: 10;
+			position: fixed;
+			width: calc(100% + 500px);
+			height: 100%;
+			top: 0;
+			left: 0;
+			transform-origin: 50% 50%;
+			animation: 10s ease-in-out 0s 1 earth_zoom, 15s linear 0s 1 earth_move;
+			background-image: url('resources/earth.jpg');
+			background-size: 100% 100%;
+		}
+		@keyframes room_zoom {
+			0% {transform: scale(4) translateY(30%) translateX(5%); opacity: 0;}
+			50% {transform: scale(4) translateY(15%) translateX(5%); opacity: 0;}
+			100% {transform: scale(1) translateY(0%) translateX(0%); opacity: 1;}
+		}
+		#room {
+			z-index: 20;
+			position: fixed;
+			width: 100%;
+			height: auto;
+			top: 0;
+			left: 0;
+			transform-origin: 50% 50%;
+			animation: 10s ease-out 0s 1 room_zoom;
+		}
+	</style>
+	<script>
+		var countdown = 12;
+		function Load() {
+			setTimeout(function() {
+				Countdown();
+				Cutscene.Ready();
+				window.parent.Game.Place.Enter(0,false);
+				setTimeout(function() {
+					document.getElementById('audio').play();
+				},1000);
+			},1000);
+		}
+		function Countdown() {
+			if (countdown == 0) {
+				document.getElementById('text').innerHTML = 0;
+				window.parent.Game['Events__Chapter1']['Enter_Lobby']();
+				Cutscene.End();
+			} else {
+				document.getElementById('text').innerHTML = countdown;
+				countdown--;
+				setTimeout(Countdown,1000);
+			}
+		}
+	</script>
+</head>
+<body>
+	<p style="display:none;position: absolute;top: 20px;left:20px;color: #fff;text-shadow: 2px 2px 0px #000;z-index: 50;"><span id="text">[]</span></p>
+
+	<div id="earth"></div>
+	<img src="resources/lobby.svg" alt="" id="room">
+	<audio id="audio"><source src="resources/reveal.mp3"/></audio>
+</body>
+</html>

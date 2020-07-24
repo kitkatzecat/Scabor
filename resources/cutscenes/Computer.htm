@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cutscene</title>
+	<link rel="stylesheet" href="../css/font.css">
+	<style>
+		body {
+			background: #c9eaef;
+		}
+		.noselect {
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+		#stand {
+			background-color: rgb(30,30,30);
+			position: fixed;
+			left: 50%;
+			width: calc(0.3 * 140vh);
+			transform: translateX(-50%);
+			top: 80%;
+			bottom: 0;
+			border-left: 2px solid #000;
+			border-right: 2px solid #000;
+			z-index: 2;
+		}
+		#container {
+			background-color:rgb(40,40,40); 
+			padding: 8vh;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			border: 2px solid #000;
+			border-radius: 10px;
+			width: 140vh;
+			height: 90vh;
+			box-sizing: border-box;
+			z-index: 3;
+		}
+		#screen {
+			border: 2px solid #000;
+			border-radius: 10px;
+			background-color: rgb(3,134,139);
+			width: 100%;
+			height: 100%;
+			position: relative;
+			overflow: hidden;
+		}
+		#light {
+			position: fixed;
+			bottom: 3vh;
+			right: 12vh;
+			width: 1vh;
+			height: 1vh;
+			border-radius: 100%;
+			background-color: rgb(0,200,0);
+			border: 2px solid #808080;
+		}
+		#toolbar {
+			border-bottom: 2px solid #000;
+			background-color: rgba(0,0,0,0.8);
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 5vh;
+			font-size: 2.5vh;
+			text-align: center;
+			color: #fff;
+			padding: 1vh;
+			box-sizing: border-box;
+		}
+		#jump {
+			position: absolute;
+			top: -0.7vh;
+			left: 0;
+			height: 6.6vh;
+			width: 7.8vh;
+		}
+		#window {
+			position: absolute;
+			top: 10vh;
+			left: 5vh;
+			right: 5vh;
+			bottom: 5vh;
+			padding: 1vh;
+			border: 2px solid #000;
+			background-color: rgba(0,0,0,0.8);
+			color: #fff;
+		}
+		#title {
+			width: 100%;
+			height: 8%;
+			font-size: 2.5vh;
+			text-align: center;
+		}
+		#frame {
+			width: 100%;
+			height: 92%;
+			border: none;
+			background-color: #fff;
+		}
+		.dialogue_button {
+			position: fixed;
+			bottom: calc(5% + 30px);
+			height: 64px;
+			width: 64px;
+			right: calc(5% + 30px);
+			border: 2px solid #000;
+			border-radius: 50px;
+			background-color: rgb(160, 160, 160);
+			z-index: 102;
+			cursor: pointer;
+			background-position: center center;
+			background-size: 50% 50%;
+			background-repeat: no-repeat;
+		}
+
+		.dialogue_button:hover {
+			border-color: #fff;
+			box-shadow: 2px 2px 0px #000, -2px 2px 0px #000, 2px -2px 0px #000, -2px -2px 0px #000;
+		}
+
+		.dialogue_button_image-arrow-right {
+			background-image: url('../images/dialogue_arrow-right-black.svg');
+			background-color: rgb(211, 157, 9);
+		}
+
+		.dialogue_button_image-arrow-right:hover {
+			background-image: url('../images/dialogue_arrow-right-white.svg');
+			background-color: rgb(211, 157, 9);
+		}
+
+		.dialogue_button:hover+.dialogue_button_caption {
+			display: block;
+		}
+
+		.dialogue_button_caption {
+			position: fixed;
+			bottom: calc(5% + 48px);
+			right: calc(5% + 46px);
+			height: 32px;
+			border-top-left-radius: 20px;
+			border-bottom-left-radius: 20px;
+			z-index: 91;
+			cursor: default;
+			background-color: rgb(96, 96, 96);
+			color: #fff;
+			padding-right: 64px;
+			padding-left: 16px;
+			text-align: right;
+			font-size: 18px;
+			line-height: 32px;
+			display: none;
+			transform-origin: 100% 50%;
+
+			animation: dialogue_button_caption_animation .1s ease-out;
+		}
+
+		@keyframes dialogue_button_caption_animation {
+			0% {
+				transform: scaleX(0.01);
+			}
+
+			100% {
+				transform: scaleX(1);
+			}
+		}
+	</style>
+	<script>
+		function Load() {
+			var frame = document.getElementById('frame');
+			var toolbar = document.getElementById('toolbar');
+			var title = document.getElementById('title');
+			var query = new URLSearchParams(window.location.search);
+
+			frame.addEventListener('load',function () {
+				setTimeout(function() {
+					Cutscene.Ready();
+				}, 500);
+				document.getElementById('button').onclick = function () {
+					Cutscene.End();
+				}
+			});
+
+			toolbar.innerText = query.get('toolbar');
+			title.innerText = query.get('title');
+			frame.src = 'resources/'+query.get('src');
+		}
+	</script>
+</head>
+
+<body>
+	<div id="stand"></div>
+	<div id="container" class="noselect font_title">
+		<div id="screen">
+			<div id="light"></div>
+			<div id="toolbar" class="font_title"></div>
+			<svg
+			xmlns:dc="http://purl.org/dc/elements/1.1/"
+			xmlns:cc="http://creativecommons.org/ns#"
+			xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+			xmlns:svg="http://www.w3.org/2000/svg"
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0,0,48,48"
+			id="jump"
+			version="1.1">
+				<defs
+					id="defs4">
+					<linearGradient
+						id="linearGradient4426">
+					<stop
+						style="stop-color:#ffffff;stop-opacity:1;"
+						offset="0"
+						id="stop4428" />
+					<stop
+						style="stop-color:#ffffff;stop-opacity:0;"
+						offset="1"
+						id="stop4430" />
+					</linearGradient>
+				</defs>
+				<metadata
+					id="metadata7">
+					<rdf:RDF>
+					<cc:Work
+						rdf:about="">
+						<dc:format>image/svg+xml</dc:format>
+						<dc:type
+							rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+						<dc:title></dc:title>
+					</cc:Work>
+					</rdf:RDF>
+				</metadata>
+				<g
+					transform="matrix(1.4288828,0,0,1.4288828,-112.34082,16.734281)"
+					id="g878">
+					<circle
+						style="opacity:1;fill:#ababab;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2.4000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+						id="path4201-4-8"
+						cx="95.417778"
+						cy="5.0848947"
+						r="14.874999" />
+					<path
+						style="opacity:1;fill:#3d4fc0;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+						d="m 97.956845,-9.5713565 c 3.091815,1.933418 0.278666,8.356003 -2.539062,14.78125 6.214337,2.724262 12.429057,5.4481845 14.578127,2.824219 a 14.874999,14.874999 0 0 0 0.29687,-2.949219 14.874999,14.874999 0 0 0 -12.335935,-14.65625 z"
+						id="path4201-4-4-1" />
+					<path
+						style="opacity:1;fill:#c03b3b;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+						d="M 95.417783,-9.7901065 A 14.874999,14.874999 0 0 0 80.781064,2.4579405 c 2.094281,-2.74706105 8.367151,0.0027 14.640625,2.753906 2.807053,-6.405427 5.609281,-12.807692 2.5625,-14.7636718 a 14.874999,14.874999 0 0 0 -2.566406,-0.2382812 z"
+						id="path4201-4-2-3" />
+					<path
+						style="opacity:1;fill:#3d4fc0;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+						d="m 83.818174,1.3231745 c -1.32475,-0.04316 -2.373679,0.276836 -3.025391,1.119141 a 14.874999,14.874999 0 0 0 -0.25,2.642578 14.874999,14.874999 0 0 0 11.888672,14.5546875 C 90.08973,17.365482 92.752949,11.288997 95.419736,5.2079405 91.095783,3.3122765 86.774399,1.4194805 83.818174,1.3231745 Z"
+						id="path4201-4-0-7" />
+					<path
+						style="opacity:1;fill:#c03b3b;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+						d="M 95.419736,5.2079405 C 92.752949,11.288997 90.08973,17.365482 92.431455,19.639581 a 14.874999,14.874999 0 0 0 2.986328,0.320312 14.874999,14.874999 0 0 0 14.578127,-11.9257805 c -2.14853,2.6233095 -8.36326,-0.102371 -14.576174,-2.826172 z"
+						id="path4201-4-6-2" />
+					<path
+						style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.01148689px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+						d="m 80.048516,5.2098945 c 0,-13.480077 30.738534,13.4800765 30.738534,0"
+						id="path4205-9-0" />
+					<path
+						style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.01400006;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+						d="m 95.417782,20.577975 c -13.475959,0 13.475958,-30.892411 0,-30.892411"
+						id="path4205-2" />
+				</g>
+				<circle
+					r="0"
+					cy="27.661018"
+					cx="8"
+					id="path4175-83"
+					style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+				</svg>
+				<div id="window">
+					<div class="font_title" id="title"></div>
+					<iframe src="" id="frame" frameborder="0"></iframe>
+				</div>
+		</div>
+	</div>
+	<div id="button" class="dialogue_button dialogue_button_image-arrow-right"></div>
+	<div class="dialogue_button_caption">Continue</div>
+</body>
+
+</html>

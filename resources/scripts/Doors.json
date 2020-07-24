@@ -1,0 +1,153 @@
+{
+	"Locked": [
+		{"Who":"Me","Text":"It's locked.","Sound":"door-lock.mp3","Function":"setTimeout(function() {Game.Sound.Play('keycard-fail.mp3');},500);"}
+	],
+	"2L_Rooms-Hall_Initial": [
+		{"Who":"Me","Text":"A door. Maybe it goes outside?"},
+		{"Who":"Me","Text":"Should I go through it?","Prompt":[{"Text":"Yes","Function":"Game.Place.Load('2L_Rooms-Hall_1',true);"},{"Text":"No","Function":false}]}
+	],
+	"2L_Rooms-Hall_1": [
+		{"Who":"Me","Text":"This door goes back out to the hallway."},
+		{"Who":"Me","Text":"Should I go out?","Prompt":[{"Text":"Yes","Function":"Game.Place.Load('2L_Rooms-Hall_1',true);"},{"Text":"No","Function":false}]}
+	],
+	"2L_Room-1": [
+		{"Who":"Me","Text":"The door to Room #1."},
+		{"Who":"Me","Text":"Should I go inside?","Prompt":[{"Text":"Yes","Function":"Game.Place.Load('2L_Room-1',true);"},{"Text":"No","Function":false}]}
+	],
+	"2L_Room-2": [
+		{"Who":"Me","Text":"The door to Room #2. This is the room I woke up in."},
+		{"Who":"Me","Text":"Should I go inside?","Prompt":[{"Text":"Yes","Function":"Game.Place.Load('2L_Room-2',true);"},{"Text":"No","Function":false}]}
+	],
+	"2L_Room-3": [
+		{"Who":"Me","Text":"The door to Room #3."},
+		{"Who":"Me","Text":"Should I go inside?","Prompt":[{"Text":"Yes","Function":"Game.Place.Load('2L_Room-3',true);"},{"Text":"No","Function":false}]}
+	],
+	"2L_Room-4" : [
+		{"Who":"Me","Text":"The door to Room #4."},
+		{"Who":"Me","Text":"Should I go inside?","Prompt":[{"Text":"Yes","Function":"Game.Place.Load('2L_Room-4',true);"},{"Text":"No","Function":false}]}
+	],
+	"2L_Restroom" : [
+		{"Who":"Me","Text":"The door to a restroom."},
+		{"Who":"Me","Text":"Should I go inside?","Prompt":[{"Text":"Yes","Function":"Game.Place.Load('2L_Restroom',true);"},{"Text":"No","Function":false}]}
+	],
+	"2L_Rooms-Hall_Door_Interior": [
+		{"Who":"Me","Text":"This door goes out to the foyer."},
+		{"Who":"Me","Text":"Should I go out?","Prompt":[{"Text":"Yes","Function":"Game.Place.Load('2L_Foyer_1',true);"},{"Text":"No","Function":false}]}
+	],
+	"2L_Rooms-Hall": [
+		{"Who":"Me","Text":"This door goes back to the Rooms Hall."},
+		{"Who":"Me","Text":"Should I go through?","Prompt":[{"Text":"Yes","Function":"Game.Place.Load('2L_Rooms-Hall_2',true);"},{"Text":"No","Function":false}]}
+	],
+	"1_Office-Hall_1": {
+		"default": [
+			{"Who":"Me","Text":"The door to an office hallway."},
+			{"Who":"Me","Text":"Should I go through?","Prompt":[{"Text":"Yes","Function":"Game.Place.Load('1_Office-Hall_1',true);"},{"Text":"No","Function":false}]}
+		],
+		"Chapter1!Enter_Office-Hall": [
+			{"Who":"Me","Text":"The sign above this door says Office. It must lead to some offices."},
+			{"Who":"Me","Text":"Should I go through?","Prompt":[{"Text":"Yes","Function":"Game.Place.Load('1_Office-Hall_1',true);"},{"Text":"No","Function":false}]}
+		],
+		"Chapter1!Interact_Lobby_Door": "Chapter1.json@Foyer-1_Leave_Door",
+		"Chapter1:Find_Keycard": "Chapter1.json@Foyer-1_Leave_Lobby"
+	},
+	"1_Office-Hall_4": {
+		"default": [
+			{"Who":"Me","Text":"The door to an office hallway.","Function":"Game['Events__Game']['Interact_Keycard_Door']('Red','1_Office-Hall_4',false,'Should I go through?')"}
+		],
+		"Chapter1!Discover_Office-Loop": [
+			{"Who":"Me","Text":"The sign above this door says Office. Maybe it leads to some offices.","Function":"Game['Events__Game']['Interact_Keycard_Door']('Red','1_Office-Hall_4',false,'Should I go through?')"}
+		],
+		"Chapter1!Interact_Office-Hall_4_Door": [
+			{"Who":"Me","Text":"The sign above this door says Office. Maybe it leads to some offices.","Set":"Chapter1:Interact_Office-Hall_4_Door"},
+			{"Who":"Me","Text":"It's locked.","Sound":"door-lock.mp3","Function":"setTimeout(function() {Game.Sound.Play('keycard-fail.mp3');},500);"},
+			{"Who":"Simon","Text":"Another locked door?","Expression":"annoyed"},
+			{"Who":"Rosemary","Text":"Maybe we could try that one on the other side?","Expression":"thinking"},
+			{"Who":"Simon","Text":"I just hope no one catches us.","Expression":"deadpan"}
+		],
+		"Chapter1!Interact_Lobby_Door": "Chapter1.json@Foyer-1_Leave_Door",
+		"Chapter1:Find_Keycard": "Chapter1.json@Foyer-1_Leave_Lobby"
+	},
+	"1_Foyer_1": [
+		{"Who":"Me","Text":"This door goes out to the foyer."},
+		{"Who":"Me","Text":"Should I go out?","Prompt":[{"Text":"Yes","Function":"Game.Place.Load('1_Foyer_1',true);"},{"Text":"No","Function":false}]}
+	],
+	"1_Foyer_2": {
+		"default": [
+			{"Who":"Me","Text":"This door goes out to the foyer."},
+			{"Who":"Me","Text":"Should I go out?","Prompt":[{"Text":"Yes","Function":"Game.Place.Load('1_Foyer_2',true);"},{"Text":"No","Function":false}]}
+		],
+		"Chapter1": [
+			{"Who":"Me","Text":"Looks like this door goes out to the foyer."},
+			{"Who":"Me","Text":"Should I go out?","Prompt":[{"Text":"Yes","Function":"Game.Place.Load('1_Foyer_2',true);"},{"Text":"No","Function":false}]}
+		],
+		"Chapter1!Discover_Office-Loop": [
+			{"Who":"Rosemary","Text":"Where does this go? Another hallway?","Expression":"confused","Set":["Chapter1:Interact_Office-Hall_4_Door","Chapter1:Discover_Office-Loop"]},
+			{"Who":"Simon","Text":"I think it might go back out to the foyer...","Expression":"thinking"},
+			{"Who":"Rosemary","Text":"Oh yeah! I think I saw another door to offices out there.","Expression":"talking-excited"},
+			{"Who":"Rosemary","Text":"It makes sense that it would be the same hallway.","Expression":"talking-excited","Play":"1_Foyer_2"}
+		]
+	},
+	"1_Lobby": {
+		"default": [
+			{"Who":"Me","Text":"The door to the lobby."},
+			{"Who":"Me","Text":"Should I go through?","Prompt":[{"Text":"Yes","Function":"Game.Place.Load('1_Lobby',true);"},{"Text":"No","Function":false}]}
+		],
+		"Chapter1!Enter_Lobby": "Chapter1.json@Interact_Lobby_Door_Keycard",
+		"Chapter1!Find_Keycard": "Chapter1.json@Interact_Lobby_Door_Find-Keycard",
+		"Chapter1!Interact_Lobby_Door": "Chapter1.json@Interact_Lobby_Door_Initial"
+	},
+	"1_Restroom" : [
+		{"Who":"Me","Text":"The door to a restroom."},
+		{"Who":"Me","Text":"Should I go inside?","Prompt":[{"Text":"Yes","Function":"Game.Place.Load('1_Restroom',true);"},{"Text":"No","Function":false}]}
+	],
+	"1_Office-A" : {
+		"default": [
+			{"Who":"Me","Text":"The door to office A."},
+			{"Who":"Me","Text":"Should I go inside?","Prompt":[{"Text":"Yes","Function":"Game.Place.Load('1_Office-A',true);"},{"Text":"No","Function":false}]}
+		],
+		"Chapter1!Enter_Office": [
+			{"Who":"Me","Text":"This door has a sign on it that says A. It must be office A."},
+			{"Who":"Me","Text":"Should I go inside?","Prompt":[{"Text":"Yes","Function":"Game.Place.Load('1_Office-A',true);","Set":"Chapter1:Enter_Office"},{"Text":"No","Function":false}]}
+		]
+	},
+	"1_Office-B" : {
+		"default": [
+			{"Who":"Me","Text":"The door to office B."},
+			{"Who":"Me","Text":"Should I go inside?","Prompt":[{"Text":"Yes","Function":"Game.Place.Load('1_Office-B',true);"},{"Text":"No","Function":false}]}
+		],
+		"Chapter1!Enter_Office": [
+			{"Who":"Me","Text":"This door has a sign on it that says B. It must be office B."},
+			{"Who":"Me","Text":"Should I go inside?","Prompt":[{"Text":"Yes","Function":"Game.Place.Load('1_Office-B',true);","Set":"Chapter1:Enter_Office"},{"Text":"No","Function":false}]}
+		]
+	},
+	"1_Office-C" : {
+		"default": [
+			{"Who":"Me","Text":"The door to office C."},
+			{"Who":"Me","Text":"Should I go inside?","Prompt":[{"Text":"Yes","Function":"Game.Place.Load('1_Office-C',true);"},{"Text":"No","Function":false}]}
+		],
+		"Chapter1!Enter_Office": [
+			{"Who":"Me","Text":"This door has a sign on it that says C. It must be office C."},
+			{"Who":"Me","Text":"Should I go inside?","Prompt":[{"Text":"Yes","Function":"Game.Place.Load('1_Office-C',true);","Set":"Chapter1:Enter_Office"},{"Text":"No","Function":false}]}
+		]
+	},
+	"1_Office-D" : {
+		"default": [
+			{"Who":"Me","Text":"The door to office D."},
+			{"Who":"Me","Text":"Should I go inside?","Prompt":[{"Text":"Yes","Function":"Game.Place.Load('1_Office-D',true);"},{"Text":"No","Function":false}]}
+		],
+		"Chapter1!Enter_Office": [
+			{"Who":"Me","Text":"This door has a sign on it that says D. It must be office D."},
+			{"Who":"Me","Text":"Should I go inside?","Prompt":[{"Text":"Yes","Function":"Game.Place.Load('1_Office-D',true);","Set":"Chapter1:Enter_Office"},{"Text":"No","Function":false}]}
+		]
+	},
+	"1_Storage" : {
+		"default": [
+			{"Who":"Me","Text":"The door to the storage room."},
+			{"Who":"Me","Text":"Should I go inside?","Prompt":[{"Text":"Yes","Function":"Game.Place.Load('1_Storage',true);"},{"Text":"No","Function":false}]}
+		],
+		"Chapter1!Enter_Storage": [
+			{"Who":"Me","Text":"This door must be to a storage room."},
+			{"Who":"Me","Text":"Should I go inside?","Prompt":[{"Text":"Yes","Function":"Game.Place.Load('1_Storage',true);","Set":"Chapter1:Enter_Storage"},{"Text":"No","Function":false}]}
+		]
+	}
+}

@@ -1,0 +1,48 @@
+Scabor game engine Dialogue Script file format
+
+Definitions.json // Script files are in json format
+{
+	"Basic Block": [ // This block will just read its lines directly, no additional processing (Array of Objects)
+
+		{ // For a loaded character, any properties from below can be added to supersede character properties
+			"Who": "Character",
+			"Text": "Hello World!",
+			"Expression": "excited" // specified in character file
+		},
+
+		{ // For an unloaded character / all possible properties
+			"Who": "Someone",
+			"Text": "Hello World!",
+			"Image": "path to image, starting from /resources/images" / false for no image,
+			"Function": "JavaScript function to be executed when this line is read" / false for no function,
+			"Close": "JavaScript function to be executed when this line is closed" / false for no function,
+			"Sound": "path to sound, starting from /resources/sounds" / false for no sound,
+			"Color": "color for character name background, in any CSS color format",
+			"Set": variable to set to true or false, preceded by chapter if not current / "Chapter1:Did_Thing" / ":Did_Thing" / "Chapter1!Did_Thing" / "!Did_Thing"
+						also allows multiple to be set as an array / ["Chapter1:Thing1",":Thing2"],
+			"Play": "any valid block type, shown after this line (block is loaded when this block is played after any Set or Function operations are done)",
+			"Prompt": [ // array of options to display for the player to choose when this line is read
+				{
+					"Text": "Text to display on this option",
+					"Function": "Function to be executed if this option is clicked" / false for no function,
+					"Set": "same as Set for a dialogue line" / false for none if you want,
+					"Play": "same as Play for a dialogue line, except loaded when option is clicked"
+				}
+			]
+		},
+	],
+
+	"Conditional Block": { // This block reads a specified block based on a condition, lower blocks overwrite higher ones (Object of any block types)
+		"default": (The default block to be read if none of the following conditions are met, can be any block type),
+		"Chapter1": (This block will be read if Game.Story.Now is Chapter1 and none of the following conditions are met),
+		"Chapter1:Property1": (This block will be read if Game.Story.Now is Chapter1 and Property1 of Chapter1 (Game.Story.Progress['Chapter1']) is true and none of the following conditions are met),
+		"Chapter1!Property2": (This block will be read if Game.Story.Now is Chapter1 and Property2 of Chapter1 is false or undefined[!]),
+		"&Chapter1:Property3": (This block will be read if Property3 of Chapter1 is true, even if Game.Story.Now isn't Chapter1) (and vice versa for !)
+	},
+
+	"Local Reference Block": // This block redirects the reading to another block in the same file, can redirect to any block type (String)
+		"Basic Block", // Will read the block "Basic Block" from this file
+	
+	"Nonlocal Reference Block": // This block redirects the reading to another block in a different file, path starts in /resources/scripts (String)
+		"Test.json@Hello" // Will read the block "Hello" from the file "Test.json"
+}

@@ -1,0 +1,69 @@
+{
+	"Enter_Lobby": [
+		{"Who":"Rosemary","Text":"...","Image":false,"Function":"Game.Splash.Show('','','fade',98);Game.Music.Story['Chapter2'][0]();"},
+		{"Who":"Simon","Text":"...","Image":false},
+		{"Who":"Rosemary","Text":"What the...?","Image":false,"Close":"setTimeout(function(){Game.Cutscene.Play('Chapter2_0.htm');},500)"}
+	],
+	"Enter_Lobby_Reaction": [
+		{"Who":"Rosemary","Text":"What the hell?!","Expression":"scared"},
+		{"Who":"Simon","Text":"...","Expression":"surprised-sad"},
+		{"Who":"Simon","Text":"Is that...?","Expression":"surprised-sad"},
+		{"Who":"Simon","Text":"Are we...?","Expression":"scared"},
+		{"Who":"Rosemary","Text":"In space?!","Expression":"scared"},
+		{"Who":"Simon","Text":"No way... what?","Expression":"surprised-sad"},
+		{"Who":"Simon","Text":"How even...?","Expression":"surprised"},
+		{"Who":"Rosemary","Text":"Maybe it's fake! Like a projection or something?","Expression":"surprised"},
+		{"Who":"Simon","Text":"I don't know... it looks pretty real to me.","Expression":"talking"},
+		{"Who":"Rosemary","Text":"But... how? I don't remember coming to space...","Expression":"surprised"},
+		{"Who":"Simon","Text":"Neither do I...","Expression":"thinking"},
+		{"Who":"Simon","Text":"But at least now we know we're not in a hotel!","Expression":"talking-excited"},
+		{"Who":"Rosemary","Text":"Great...","Expression":"annoyed","Close":"Game['Events__Chapter2']['Presence']['Lobby_Reaction']()"}
+	],
+	"Interact_Lobby_Window": [
+		{"Who":"Me","Text":"It's a window, and what's outside it..."},
+		{"Who":"Me","Text":"... is the planet Earth."}
+	],
+	"Interact_Lobby_Poster-L": [
+		{"Who":"Me","Text":"There's a poster on the wall. It looks like a map."},
+		{"Who":"Me","Text":"Should I take a closer look?","Prompt":[{"Text":"Yes","Function":"Game.Cutscene.Play('1_Lobby_Poster-L.htm');"},{"Text":"No","Function":false}]}
+	], 
+	"Interact_Lobby_Poster-R": [
+		{"Who":"Me","Text":"There's a poster on the wall. It looks like some words."},
+		{"Who":"Me","Text":"Should I take a closer look?","Prompt":[{"Text":"Yes","Function":"Game.Cutscene.Play('1_Lobby_Poster-R.htm');"},{"Text":"No","Function":false}]}
+	],
+	"Interact_Lobby_Poster_Initial": [
+		{"Who":"Rosemary","Text":"\"Station Beta\"..? So this place is a space station?","Expression":"thinking","Function":"Game.Presence.ClearAll()"},
+		{"Who":"Rosemary","Text":"So we're definitely in space?","Expression":"surprised"},
+		{"Who":"Simon","Text":"No way...","Expression":"surprised"},
+		{"Who":"Simon","Text":"...","Expression":"thinking"},
+		{"Who":"Simon","Text":"That explains why there are so many air vents...","Expression":"thinking"},
+		{"Who":"Rosemary","Text":"What do you mean?","Expression":"confused"},
+		{"Who":"Simon","Text":"This place has a ton of air vents, like everywhere. That must be why - to keep the air supply fresh.","Expression":"talking"},
+		{"Who":"Rosemary","Text":"Huh. Now that I think about it, I guess I did notice that.","Expression":"surprised"},
+		{"Who":"Rosemary","Text":"Well, what now?","Expression":"surprised","Close":"Game['Events__Chapter2']['Presence']['Lobby_Poster']()"}
+	],
+	"Lobby_Leave": {
+		"default": [
+			{"Who":"Rosemary","Text":"Wait, before we go - what's that door over there?","Expression":"confused"}
+		],
+		"Chapter1!Interact_Lobby_Poster": [
+			{"Who":"Rosemary","Text":"Wait, where are you going? I think we should look around in here some more.","Expression":"surprised"}
+		]
+	},
+	"Presence_Rosemary_Lobby_Reaction": [
+		{"Who":"Rosemary","Text":"Why don't I remember getting here?","Expression":"thinking"},
+		{"Who":"Rosemary","Text":"I mean, I'm in space! Who wouldn't remember something like that?","Expression":"surprised"}
+	],
+	"Presence_Simon_Lobby_Reaction": [
+		{"Who":"Simon","Text":"...","Expression":"surprised"},
+		{"Who":"Simon","Text":"So we're really... are we?","Expression":"surprised"},
+		{"Who":"Simon","Text":"I never imagined...","Expression":"surprised"}
+	],
+	"Presence_Rosemary_Lobby_Poster": [
+		{"Who":"Rosemary","Text":"Scabor Corporation? Why does that sound familiar?","Expression":"confused"}
+	],
+	"Presence_Simon_Lobby_Poster": [
+		{"Who":"Simon","Text":"I... what?","Expression":"deadpan"},
+		{"Who":"Simon","Text":"No way we're...","Expression":"thinking"}
+	]
+}

@@ -1,0 +1,29 @@
+{
+	"default": {
+		"id": "1_Lobby",
+		"title": "1 - Lobby",
+		"room": "1_Lobby.svg",
+		"orientation": "270",
+		"background": "earth_lobby.jpg",
+		"back": "1_Foyer_2",
+		"onleave": "",
+		"scripts": ["Game.json"],
+		"js": [],
+		"onload": "",
+		"sound_from": {
+			"default": "door-open.mp3"
+		},
+		"position_from": {
+			"default": 0
+		},
+		"boxes": {}
+	},
+	"Chapter1": {
+		"sound_from": {
+			"default": false
+		}
+	},
+	"Chapter2!Finished_Lobby": {
+		"onload": "Game['Events__Chapter2']['Lobby_Leave']()"
+	}
+}

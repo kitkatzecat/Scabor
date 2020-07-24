@@ -8,7 +8,10 @@
     "Keycard_Red": {
         "image": "Keycard_Red.svg",
         "name": "Red Keycard",
-        "description": "A keycard that can open doors locked with a red security clearance."
+		"description": "A keycard that can open doors locked with a red security clearance.",
+		"buttons": [
+			{"text":"View","function":"Game.Cutscene.Play('Chapter2_0.htm')"}
+		]
     },
     "Keycard_Blue": {
         "image": "Keycard_Blue.svg",
@@ -29,5 +32,31 @@
         "image": "Die.svg",
         "name": "Die",
         "description": "A small, rounded cube with dots on each side to represent numbers... I hope you knew that already."
+	},
+    "Pen": {
+        "image": "Pen.svg",
+        "name": "Pen",
+        "description": "A writing instrument used to apply ink to a surface. May be useful for poking into small holes?"
+    },
+    "Paper_Blank": {
+        "image": "Paper_Blank.svg",
+        "name": "Blank Paper",
+        "description": "A blank piece of paper. Very versatile, can be folded into almost any shape."
+    },
+    "Paper_Letterhead": {
+        "image": "Paper_Letterhead.svg",
+        "name": "Letterhead Paper",
+        "description": "A piece of paper with a letterhead for Scabor Corporation at the top.",
+		"buttons": [
+			{"text":"View","function":"Game.Cutscene.Play('Paper_Letterhead.htm')"}
+		]
+    },
+    "Paper_Profile_Rosemary": {
+        "image": "Paper_Letterhead.svg",
+        "name": "Subject Profile: Rosemary",
+		"description": "A paper that says \"Subject Profile\" at the top. It looks like it's about Rosemary.",
+		"buttons": [
+			{"text":"Read","function":"Game.Cutscene.Play('Paper_Profile_Rosemary.htm')"}
+		]
     }
 }

@@ -1,0 +1,29 @@
+{
+	"default": {
+		"id": "1_Foyer_1",
+		"title": "1 - Foyer",
+		"room": "1_Foyer_1.svg",
+		"orientation": "270",
+		"background": false,
+		"back": false,
+		"onleave": "",
+		"scripts": ["Game.json"],
+		"js": [],
+		"onload": "",
+		"sound_from": {
+			"default": false,
+			"1_Office-Hall_1": "door-open.mp3",
+			"1_Lobby": "door-open.mp3"
+		},
+		"position_from": {
+			"default": 0,
+			"1_Foyer_2": 100
+		},
+		"boxes": {}
+	},
+	"Chapter1": {
+		"room": "1_Foyer_1_Chapter1.svg",
+		"scripts": ["Chapter1.json","Game.json"],
+		"onload": "Game['Events__Chapter1']['Leave_Foyer-1']();"
+	}
+}

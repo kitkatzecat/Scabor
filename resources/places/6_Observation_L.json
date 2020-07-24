@@ -1,0 +1,22 @@
+{
+	"default": {
+		"id": "6_Observation_L",
+		"title": "6 - Observation",
+		"room": "6_Observation_L.svg",
+		"orientation": "180",
+		"background": "earth_observation_l.jpg",
+		"back": false,
+		"onleave": "",
+		"scripts": ["Game.json"],
+		"js": [],
+		"onload": "",
+		"sound_from": {
+			"default": "door-open.mp3"
+		},
+		"position_from": {
+			"default": 0,
+			"6_Observation_R": 100
+		},
+		"boxes": {}
+	}
+}

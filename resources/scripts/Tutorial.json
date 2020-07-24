@@ -1,5 +1,5 @@
 {
-	"Chapter1_Enter_Rooms-Hall": [
+	"Movement": [
 		{"Who":"Tutorial","Text":"Well done! You're now in the hallway."},
 		{"Who":"Tutorial","Text":"Hold your cursor at the right or left edges of the screen to shift your view of the area."},
 		{"Who":"Tutorial","Text":"Navigate around the place by clicking the blue arrows on the walls."},
@@ -8,11 +8,12 @@
 		{"Who":"Tutorial","Text":"You can inspect an object by clicking on it with your cursor (which is a magnifying glass)."},
 		{"Who":"Tutorial","Text":"Don't be afraid to inspect anything and everything you see!"}
 	],
-	"Chapter1_Presence": [
+	"Presence": [
 		{"Who":"Tutorial","Text":"Looks like you've found some friends!"},
 		{"Who":"Tutorial","Text":"When you have someone else in the room with you, they'll show in the bottom right corner of the screen."},
 		{"Who":"Tutorial","Text":"Try clicking on them to talk to them and get their reactions to stuff that's happening!"},
 		{"Who":"Tutorial","Text":"Or, if you're stuck, they might be able to guide you in the right direction."},
+		{"Who":"Tutorial","Text":"If they're in the way, just click the arrow in the bottom right part of the screen to move them over."},
 		{"Who":"Tutorial","Text":"Strike up a conversation!"}
 	],
 	"Room_Leave": [

@@ -1,0 +1,26 @@
+{
+	"default": {
+		"id": "2L_Room-3",
+		"title": "2L - Room 3",
+		"room": "2L_Room-Other.svg",
+		"orientation": "0",
+		"background": false,
+		"back": false,
+		"onleave": "",
+		"scripts": ["Game.json"],
+		"js": [],
+		"onload": "",
+		"sound_from": {
+			"default": "door-open.mp3"
+		},
+		"boxes": {
+			"Nightstand_Bottom": []
+		}
+	},
+	"Chapter1": {
+		"title": "?? - Room 3"
+	},
+	"Chapter1:Interact_Rooms-Hall_Door_Interior": {
+		"title": "2L - Room 3"
+	}
+}

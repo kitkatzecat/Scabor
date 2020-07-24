@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="room"
+   viewBox="0 0 354.54166 127"
+   height="480"
+   width="1340"
+   version="1.1"
+   sodipodi:docname="2L_Foyer_2.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview85"
+     showgrid="true"
+     inkscape:zoom="0.93731343"
+     inkscape:cx="245.63221"
+     inkscape:cy="261.41502"
+     inkscape:window-x="1352"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="room">
+    <inkscape:grid
+       type="axonomgrid"
+       id="grid4595"
+       units="px"
+       empspacing="4"
+       spacingy="0.52916666"
+       gridanglex="10"
+       gridanglez="10"
+       color="#ff0000"
+       opacity="0.1254902" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     onclick="Game.Dialogue.Play('Game.json','Interact_Wall');"
+     id="path2073"
+     d="m 204.07162,-14.816666 144.05056,25.4 -1e-5,88.899986 -144.05055,-25.399988 z"
+     style="fill:#e8f6f8;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  <path
+     onclick="Game.Dialogue.Play('Game.json','Interact_Wall');"
+     id="path2075"
+     d="M -12.004203,112.18332 V 23.283333 L 96.033712,4.2333345 V -8.466666 l 108.037908,-6.35 v 88.899998 c -1.50053,0.264584 -214.575296,37.835418 -216.075823,38.099988 z"
+     style="fill:#c9eaef;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  <path
+     onclick="Game.Dialogue.Play('Chapter-1.json','Interact_Wall');"
+     id="path871-6"
+     d="m 41.879502,102.68218 -6.002099,-1.05833 V 55.057186 l 6.002099,1.058333 z"
+     style="fill:#e8f6f8;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  <path
+     onclick="Game.Dialogue.Play('Game.json','Interact_Floor');"
+     id="path1533"
+     d="m 204.07162,74.083333 66.02317,11.641666 3.00106,-0.529166 48.01685,8.466666 -3.13632,0.505307 30.14578,5.315514 L 66.02318,149.225 c -6.002107,-1.05833 -132.046344,-25.4 -138.04845,-26.45833 l 66.0231709,-11.64167 -3.0010533,-0.52917 47.8816004,-8.4428 3.001054,0.52915 z"
+     style="fill:#fafafa;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  <g
+     onclick="Game['Events__Game']['Interact_Keycard_Door']('Red','2L_Kitchen','The door to a kitchen.')"
+     style="stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none"
+     transform="matrix(-1,0,0,1,287.96586,0.02385833)"
+     id="g3204">
+    <path
+       style="fill:#dcdcdc;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 249.08742,102.12917 V 54.504161 l 48.01685,8.466667 v 47.625002 z"
+       id="path1161-8" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 273.09585,58.737495 V 106.3625"
+       id="path1163-7" />
+    <path
+       style="fill:#f0f0f0;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 277.59743,82.814581 -3.00106,-0.529167 v 10.583333 l 3.00106,0.529167 z"
+       id="path1181-9" />
+    <path
+       style="fill:#f0f0f0;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 271.59532,81.756247 -3.00105,-0.529166 v 10.583333 l 3.00105,0.529164 z"
+       id="path1183-2" />
+    <g
+       onclick="Game.Events['Chapter-1']['Interact_Kitchen_Door_Windows']();"
+       style="stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none"
+       id="g3208">
+      <ellipse
+         style="opacity:1;fill:#f7fcfd;fill-opacity:1;stroke:#000000;stroke-width:0.26703689;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke"
+         id="path2219"
+         cx="265.14197"
+         cy="27.453983"
+         rx="3.8185358"
+         ry="3.7611403"
+         transform="matrix(0.98480273,0.17367666,0,1,0,0)" />
+      <ellipse
+         style="opacity:1;fill:#f7fcfd;fill-opacity:1;stroke:#000000;stroke-width:0.26703689;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke"
+         id="path2219-1"
+         cx="289.45636"
+         cy="27.516882"
+         rx="3.8185358"
+         ry="3.7611403"
+         transform="matrix(0.98480273,0.17367666,0,1,0,0)" />
+    </g>
+  </g>
+  <g
+     onclick="Game.Place.Load('2L_Foyer_1',true)"
+     onmouseout="Game.Room.HidePointer();"
+     onmouseover="Game.Room.ShowPointer();"
+     style="stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+     id="layer1"
+     transform="matrix(1,-0.17632698,0,1,-59.193852,-22.038916)">
+    <g
+       style="stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+       id="g1004"
+       transform="translate(-327.83008,-163.66388)"
+       onmouseover="Game.Room.ShowPointer();"
+       onmouseout="Game.Room.HidePointer();">
+      <circle
+         r="8.2020836"
+         cy="239.92587"
+         cx="407.20511"
+         id="path978"
+         style="opacity:1;fill:#2572eb;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke" />
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="m 407.20508,231.45898 c -4.67288,0 -8.4668,3.79392 -8.4668,8.4668 0,4.67288 3.79392,8.4668 8.4668,8.4668 4.67288,0 8.46679,-3.79392 8.4668,-8.4668 0,-4.67288 -3.79392,-8.4668 -8.4668,-8.4668 z m 0,0.5293 c 4.38689,0 7.9375,3.55061 7.9375,7.9375 0,4.3869 -3.55061,7.9375 -7.9375,7.9375 -4.3869,0 -7.9375,-3.5506 -7.9375,-7.9375 0,-4.38689 3.5506,-7.9375 7.9375,-7.9375 z"
+         id="path978-8" />
+      <path
+         id="path969"
+         d="m 407.183,235.69334 a 0.49412638,0.6669585 0 0 0 -0.26249,0.12859 l -3.6779,3.49946 a 0.49412638,0.6669585 0 0 0 -0.24319,0.81364 0.49412638,0.6669585 0 0 0 0.01,0.0341 0.49412638,0.6669585 0 0 0 0.004,0.0128 0.49412638,0.6669585 0 0 0 0.21294,0.32148 l 3.69465,3.51942 a 0.49412638,0.6669585 0 1 0 0.56869,-1.08979 l -2.45944,-2.34277 h 5.91221 a 0.49505395,0.66821056 0 1 0 0,-1.33642 h -5.91608 l 2.46331,-2.34277 a 0.49412638,0.6669585 0 0 0 -0.30619,-1.21746 z"
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
+    </g>
+  </g>
+  <g
+     onclick="Game.Dialogue.Play('Game.json','Interact_Stairs_Up');"
+     transform="translate(7.4121788e-6,-6.35)"
+     id="g2295">
+    <path
+       style="fill:#f0f0f0;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 96.033705,99.483332 v -4.233333 l 48.016855,8.466671 V 107.95 Z"
+       id="path2247" />
+    <path
+       style="fill:#fafafa;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 96.033705,95.249999 6.002105,-1.058334 48.01685,8.466665 -6.0021,1.05834 z"
+       id="path2249" />
+    <path
+       style="fill:#f0f0f0;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 102.03581,94.191665 v -4.233333 l 48.01685,8.466667 v 4.233331 z"
+       id="path2251" />
+    <path
+       style="fill:#fafafa;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 102.03581,89.958332 6.00211,-1.058333 48.01685,8.466666 -6.00211,1.058334 z"
+       id="path2253" />
+    <path
+       style="fill:#f0f0f0;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 108.03792,88.899999 v -4.233333 l 48.01685,8.466666 v 4.233333 z"
+       id="path2255" />
+    <path
+       style="fill:#fafafa;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 108.03792,84.666666 6.0021,-1.058334 48.01685,8.466667 -6.0021,1.058333 z"
+       id="path2257" />
+    <path
+       style="fill:#f0f0f0;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 114.04002,83.608332 v -4.233333 l 48.01685,8.466667 v 4.233333 z"
+       id="path2259" />
+    <path
+       style="fill:#fafafa;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 114.04002,79.374999 6.00211,-1.058333 48.01685,8.466666 -6.00211,1.058334 z"
+       id="path2261" />
+    <path
+       style="fill:#f0f0f0;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 120.04213,78.316666 v -4.233334 l 48.01685,8.466667 v 4.233333 z"
+       id="path2263" />
+    <path
+       style="fill:#fafafa;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 120.04213,74.083332 6.00211,-1.058333 48.01685,8.466667 -6.00211,1.058333 z"
+       id="path2265" />
+    <path
+       style="fill:#f0f0f0;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 126.04424,73.024999 v -4.233333 l 48.01685,8.466666 v 4.233334 z"
+       id="path2267" />
+    <path
+       style="fill:#fafafa;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 126.04424,68.791666 6.0021,-1.058334 48.01686,8.466667 -6.00211,1.058333 z"
+       id="path2269" />
+    <path
+       style="fill:#f0f0f0;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 132.04634,67.733332 v -4.233333 l 48.01686,8.466667 v 4.233333 z"
+       id="path2271" />
+    <path
+       style="fill:#fafafa;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 132.04634,63.499999 6.00211,-1.058333 48.01685,8.466666 -6.0021,1.058334 z"
+       id="path2273" />
+    <path
+       style="fill:#f0f0f0;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 138.04845,62.441666 v -4.233333 l 48.01685,8.466666 v 4.233333 z"
+       id="path2275" />
+    <path
+       style="fill:#fafafa;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 138.04845,58.208333 6.00211,-1.058334 48.01685,8.466667 -6.00211,1.058333 z"
+       id="path2277" />
+  </g>
+  <path
+     onclick="Game.Dialogue.Play('Game.json','Interact_Wall');"
+     id="path1562"
+     d="M 252.08847,82.549999 V -27.516666 l -108.03791,19.05 -1e-5,110.066666 z"
+     style="fill:#c9eaef;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  <path
+     onclick="Game.Dialogue.Play('Game.json','Interact_Wall');"
+     id="path1564"
+     d="m 144.05056,101.6 -3.00106,-0.52917 V -8.995833 l 3.00106,0.529167 z"
+     style="fill:#e8f6f8;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  <g
+     onclick="Game.Place.Load('3L_Foyer_2',true);"
+     onmouseout="Game.Room.HidePointer();"
+     onmouseover="Game.Room.ShowPointer();"
+     transform="matrix(-0.8660254,0.65270363,0.5,0.77786192,350.51349,-419.76073)"
+     id="g1004-4">
+    <circle
+       style="opacity:1;fill:#2572eb;fill-opacity:1;stroke:none;stroke-width:0.52916664;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke"
+       id="path978-1"
+       cx="407.20511"
+       cy="239.92587"
+       r="8.2020836" />
+    <path
+       id="path978-8-7"
+       d="m 407.20508,231.45898 c -4.67288,0 -8.4668,3.79392 -8.4668,8.4668 0,4.67288 3.79392,8.4668 8.4668,8.4668 4.67288,0 8.46679,-3.79392 8.4668,-8.4668 0,-4.67288 -3.79392,-8.4668 -8.4668,-8.4668 z m 0,0.5293 c 4.38689,0 7.9375,3.55061 7.9375,7.9375 0,4.3869 -3.55061,7.9375 -7.9375,7.9375 -4.3869,0 -7.9375,-3.5506 -7.9375,-7.9375 0,-4.38689 3.5506,-7.9375 7.9375,-7.9375 z"
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.52916664;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.79374993;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 407.183,235.69334 a 0.49412638,0.6669585 0 0 0 -0.26249,0.12859 l -3.6779,3.49946 a 0.49412638,0.6669585 0 0 0 -0.24319,0.81364 0.49412638,0.6669585 0 0 0 0.01,0.0341 0.49412638,0.6669585 0 0 0 0.004,0.0128 0.49412638,0.6669585 0 0 0 0.21294,0.32148 l 3.69465,3.51942 a 0.49412638,0.6669585 0 1 0 0.56869,-1.08979 l -2.45944,-2.34277 h 5.91221 a 0.49505395,0.66821056 0 1 0 0,-1.33642 h -5.91608 l 2.46331,-2.34277 a 0.49412638,0.6669585 0 0 0 -0.30619,-1.21746 z"
+       id="path969-1" />
+  </g>
+  <path
+     id="path1161-3-1"
+     d="m 39.011502,56.621432 -0.26561,0.04651 v 45.374998 l -44.8830501,7.91425 v 0.26768 L 39.011502,102.2636 v -0.11109 z"
+     style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
+  <path
+     onclick="Game.Dialogue.Play('Chapter-1.json','Interact_Wall');"
+     id="path2121-0-5"
+     d="m 41.879502,56.115521 -48.0168501,8.466665 0.135249,46.542814 -6.1373589,1.08217 V 61.407186 l 54.01896,-9.525 z"
+     style="fill:#c9eaef;fill-opacity:1;stroke:none;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  <path
+     id="path2121-8"
+     d="m 41.879502,56.115519 -48.0168501,8.466666 0.135249,46.542815 -6.1373589,1.08217"
+     style="fill:none;stroke:#000000;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  <g
+     onclick="Game['Events__Game']['Interact_Air-Vent']()"
+     id="g1161-7-9-6"
+     transform="matrix(-0.99999995,0.35265394,0,0.99999995,197.93426,-143.5178)"
+     style="display:inline;stroke-width:0.26500002;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none">
+    <path
+       style="fill:#d0d0d0;fill-opacity:1;stroke:#000000;stroke-width:0.26500002;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 150.05267,181.64166 v 8.46667 l -12.00421,2.11666 v -8.46666 z"
+       id="path1222-4-7-9" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26500002;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 139.54898,184.55208 9.00316,-1.5875"
+       id="path1224-1-0-4" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26500002;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 139.54898,185.61041 9.00316,-1.5875"
+       id="path1226-0-0-2" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26500002;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 139.54898,186.66874 9.00316,-1.5875"
+       id="path1228-3-4-1" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26500002;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 139.54898,187.72708 9.00316,-1.5875"
+       id="path1230-1-6-8" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26500002;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 139.54898,188.78541 9.00316,-1.5875"
+       id="path1232-2-1-6" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26500002;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 139.54898,189.84374 9.00316,-1.5875"
+       id="path1234-6-3-5" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26500002;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 139.54898,190.90208 9.00316,-1.5875"
+       id="path1236-4-6-1" />
+  </g>
+  <path
+     onclick="Game.Dialogue.Play('Game.json','Interact_Wall');"
+     id="path871"
+     d="m 270.09479,85.724999 6.0021,-1.05833 V 38.1 l -6.0021,1.058333 z"
+     style="fill:#c9eaef;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  <g
+     onclick="Game['Events__Game']['Interact_Keycard_Door']('Red','2L_Recreation','The door to a recreation room.')"
+     style="stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none"
+     transform="matrix(-1,0,0,1,329.9806,-9.5488487)"
+     id="g3218">
+    <path
+       style="fill:#378738;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 56.884759,94.744679 V 47.119683 L 8.867909,55.58635 v 47.625 z"
+       id="path1161" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 32.876333,51.353016 V 98.978019"
+       id="path1163" />
+    <path
+       id="path1173"
+       transform="matrix(-0.26458333,0,0,0.26458333,329.9806,9.5488487)"
+       d="M 1067.0527 175.65039 A 31.307638 26.182268 50.586533 0 0 1043.5117 199.9043 A 31.307638 26.182268 50.586533 0 0 1043.5156 200 A 31.307638 26.182268 50.586533 0 0 1043.5156 200.01562 L 1043.5156 324 L 1100.2285 334 L 1100.2285 210.17383 A 31.307638 26.182268 50.586533 0 0 1100.2324 210.0957 A 31.307638 26.182268 50.586533 0 0 1100.2285 210 A 31.307638 26.182268 50.586533 0 0 1071.873 176.0957 A 31.307638 26.182268 50.586533 0 0 1067.0527 175.65039 z "
+       style="fill:#43a544;fill-opacity:1;stroke:#000000;stroke-width:1.00157475;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       style="fill:#c3c34a;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 28.374747,80.192598 3.001054,-0.529166 0,1.5875 -3.001054,0.529166 z"
+       id="path1181" />
+    <path
+       style="fill:#c3c34a;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 34.376854,79.134265 3.00105,-0.529166 v 1.5875 l -3.00105,0.529166 z"
+       id="path1181-7" />
+    <path
+       id="path1173-9"
+       d="m 20.645661,60.785539 a 6.9273917,8.2834791 39.413467 0 1 6.22856,6.41718 6.9273917,8.2834791 39.413467 0 1 0,0.02532 6.9273917,8.2834791 39.413467 0 1 0,0.0041 v 32.804211 l -15.00529,2.64583 V 69.919865 a 6.9273917,8.2834791 39.413467 0 1 0,-0.02066 6.9273917,8.2834791 39.413467 0 1 0,-0.02532 6.9273917,8.2834791 39.413467 0 1 7.50239,-8.970513 6.9273917,8.2834791 39.413467 0 1 1.27538,-0.117821 z"
+       style="fill:#43a344;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
+  <path
+     id="path1161-3"
+     d="m 272.96279,39.664246 0.26561,0.04651 v 45.375002 l 44.88305,7.914238 v 0.267682 l -45.14866,-7.96126 V 85.19532 Z"
+     style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
+  <path
+     onclick="Game.Dialogue.Play('Chapter-1.json','Interact_Wall');"
+     id="path2121-0"
+     d="m 270.09479,39.158334 48.01685,8.466666 -0.13526,46.542806 6.13737,1.082172 V 44.45 l -54.01896,-9.525 z"
+     style="fill:#e8f6f8;fill-opacity:1;stroke:none;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  <path
+     id="path2121"
+     d="m 270.09479,39.158333 48.01685,8.466666 -0.13526,46.542807 6.13737,1.082172"
+     style="fill:none;stroke:#000000;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  <g
+     onclick="Game['Events__Game']['Interact_Air-Vent']()"
+     id="g1161-7-9-7"
+     transform="matrix(0.99999995,0.35265394,0,0.99999995,186.0653,-147.77498)"
+     style="display:inline;stroke-width:0.26500002;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none">
+    <path
+       style="fill:#d0d0d0;fill-opacity:1;stroke:#000000;stroke-width:0.26500002;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 150.05267,181.64166 v 8.46667 l -12.00421,2.11666 v -8.46666 z"
+       id="path1222-4-7-8" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26500002;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 139.54898,184.55208 9.00316,-1.5875"
+       id="path1224-1-0-5" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26500002;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 139.54898,185.61041 9.00316,-1.5875"
+       id="path1226-0-0-7" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26500002;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 139.54898,186.66874 9.00316,-1.5875"
+       id="path1228-3-4-4" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26500002;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 139.54898,187.72708 9.00316,-1.5875"
+       id="path1230-1-6-84" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26500002;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 139.54898,188.78541 9.00316,-1.5875"
+       id="path1232-2-1-67" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26500002;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 139.54898,189.84374 9.00316,-1.5875"
+       id="path1234-6-3-2" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26500002;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 139.54898,190.90208 9.00316,-1.5875"
+       id="path1236-4-6-7" />
+  </g>
+  <g
+     onclick="Game.Events__Game['Interact_Keycard-Reader']('Red');"
+     transform="translate(-7.9493307e-6)"
+     id="g975">
+    <path
+       style="fill:#969696;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 321.1127,75.670832 v -3.175 l 3.00106,0.529167 v 3.175 z"
+       id="path949" />
+    <path
+       style="fill:none;stroke:#ff0101;stroke-width:0.52916666;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 322.61323,74.347914 v 1.058334"
+       id="path968" />
+    <path
+       style="fill:#858585;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 321.1127,72.495832 v 0.529167 l 3.00106,0.529167 v -0.529167 z"
+       id="path970" />
+  </g>
+  <g
+     onclick="Game.Events__Game['Interact_Keycard-Reader']('Red');"
+     transform="matrix(1,-0.35265396,0,1,-276.0969,120.65)"
+     id="g975-2">
+    <path
+       style="fill:#969696;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 321.1127,75.670832 v -3.175 l 3.00106,0.529167 v 3.175 z"
+       id="path949-9" />
+    <path
+       style="fill:none;stroke:#ff0101;stroke-width:0.52916664;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 322.61323,74.347914 v 1.058334"
+       id="path968-5" />
+    <path
+       style="fill:#858585;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 321.1127,72.495832 v 0.529167 l 3.00106,0.529167 v -0.529167 z"
+       id="path970-5" />
+  </g>
+  <g
+     id="g4740"
+     onclick="Game['Events__Game']['Interact_Sign']('Kitchen');"
+     transform="matrix(1,-0.35265396,0,1,-276.36749,108.04542)">
+    <path
+       inkscape:connector-curvature="0"
+       id="path4639-6"
+       d="m 282.3696,51.85834 24.00842,4.23333 V 51.858337 L 282.3696,47.625006 Z"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <text
+       transform="matrix(0.97779582,0.17241178,0,1.0227084,0,0)"
+       id="text4662"
+       y="1.5484459"
+       x="301.04938"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.18812132px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.26458332"
+         y="1.5484459"
+         x="301.04938"
+         id="tspan4660"
+         sodipodi:role="line">KITCHEN</tspan></text>
+  </g>
+  <g
+     id="g4740-2"
+     onclick="Game['Events__Game']['Interact_Sign']('Recreation');"
+     transform="matrix(1,0.17632698,0,1,-0.27058764,-64.606049)">
+    <path
+       inkscape:connector-curvature="0"
+       id="path4639-6-1"
+       d="m 282.3696,53.974127 24.00842,-3e-6 v -4.233333 l -24.00842,2e-6 z"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <text
+       transform="scale(0.90786766,1.1014821)"
+       id="text4662-6"
+       y="48.56073"
+       x="324.23819"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88860321px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.26458332"
+         y="48.56073"
+         x="324.23819"
+         id="tspan4660-6"
+         sodipodi:role="line">RECREATION</tspan></text>
+  </g>
+  <g
+     id="g4750"
+     onclick="Game['Events__Game']['Interact_Sign_Stairs'](2,'L',true);"
+     transform="matrix(1,-0.35265396,0,1,-114.04003,64.558329)">
+    <path
+       inkscape:connector-curvature="0"
+       id="path4639-6-5"
+       d="m 210.07373,66.675003 24.00842,4.23333 V 66.675 l -24.00842,-4.233331 z"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path4639-6-9"
+       d="m 210.07373,73.025005 12.00421,2.116666 v -4.233333 l -12.00421,-2.116667 z"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <text
+       transform="matrix(1.0872235,0.19170684,0,0.91977409,0,0)"
+       id="text4687"
+       y="38.508133"
+       x="198.74097"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.54266167px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.26458332"
+         y="38.508133"
+         x="198.74097"
+         id="tspan4685"
+         sodipodi:role="line">2L</tspan></text>
+    <g
+       transform="matrix(1,0.17632698,0,1,-1.2465263,-39.378129)"
+       id="g4735">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.50007153px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="201.38216"
+         y="74.816643"
+         id="text4691"
+         transform="scale(1.0975133,0.91115068)"><tspan
+           sodipodi:role="line"
+           id="tspan4689"
+           x="201.38216"
+           y="74.816643"
+           style="stroke-width:0.26458332">TO 3L</tspan></text>
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="m 232.85439,67.22176 -0.08,-1.60582 c -0.0125,-0.2542 0,0 -0.0125,-0.2542 -0.25378,-0.0129 0,0 -0.25378,-0.0129 l -1.60778,-0.0811 0.0534,0.34003 1.23441,0.0611 -2.13792,2.13791 0.004,0.004 0.25849,0.25849 0.004,0.004 2.13791,-2.13792 0.0595,1.23287 z"
+         id="path4710"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccccccccccccc" />
+    </g>
+  </g>
+</svg>

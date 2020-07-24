@@ -1,0 +1,22 @@
+{
+	"default": {
+		"id": "3L_Foyer_2",
+		"title": "3L - Foyer",
+		"room": "2L_Foyer_2.svg",
+		"orientation": "180",
+		"background": false,
+		"back": false,
+		"onleave": "",
+		"scripts": ["Game.json"],
+		"js": [],
+		"onload": "",
+		"sound_from": {
+			"default": false
+		},
+		"position_from": {
+			"default": 0,
+			"2L_Foyer_2": 100
+		},
+		"boxes": {}
+	}
+}

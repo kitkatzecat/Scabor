@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cutscene</title>
+	<link rel="stylesheet" href="../css/font.css">
+	<style>
+		body {
+			background: #c9eaef;
+		}
+		.noselect {
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+		#container {
+			background-color:rgb(130,140,149); 
+			padding: 16px;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			border: 2px solid #000;
+			border-radius: 10px;
+		}
+		#screen {
+			border: 2px solid #000;
+			border-radius: 10px;
+			background-color: rgb(137,199,92);
+			padding: 18px;
+			font-size: 48px;
+			text-align: right;
+			height: 56px;
+			cursor: default;
+		}
+		.button {
+			width: 60px;
+			font-size: 48px;
+			text-align: center;
+			border-radius: 10px;
+			border: 2px solid #000;
+			background-color:rgb(180,190,199);
+			padding: 16px;
+			display: inline-block;
+			margin-top: 4px;
+			cursor: pointer;
+		}
+		.button:hover {
+			background-image: linear-gradient(to bottom, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0.2) 100%);
+			background-size: 100% 100%;
+		}
+		.button.x {
+			background-color: rgb(184,27,27);
+		}
+		.button.check {
+			background-color: rgb(21,153,42);
+		}
+		.icon {
+			width: 40px;
+			height: 40px;
+			vertical-align: middle;
+			margin-top: -10px;
+		}
+	</style>
+	<script>
+		function Load() {
+			setTimeout(function () {
+				Cutscene.Ready();
+				document.querySelectorAll('.button').forEach(function(b) {
+					b.addEventListener('click',function() {
+						window.parent.Game.Sound.Play('keypad-beep.mp3');
+					});
+				});
+				document.querySelectorAll('.n').forEach(function(b) {
+					b.addEventListener('click',function() {
+						var s = document.getElementById('screen');
+						if (s.innerHTML.length < 6) {
+							s.innerHTML += b.innerHTML;
+						} else {
+							s.innerHTML = s.innerHTML.substr(1,5)+b.innerHTML;
+						}
+					});
+				});
+				document.getElementById('button-x').addEventListener('click',function() {
+					Cutscene.End();
+				});
+				document.getElementById('button-check').addEventListener('click',function() {
+					setTimeout(function() {
+						window.parent.Game.Sound.Play('keycard-fail.mp3');
+					}, 200);
+				});
+			}, 500);
+		}
+	</script>
+</head>
+
+<body>
+	<div id="container" class="noselect font_title">
+		<div id="screen">000000</div>
+		<div class="button n">1</div>
+		<div class="button n">2</div>
+		<div class="button n">3</div>
+		<br>
+		<div class="button n">4</div>
+		<div class="button n">5</div>
+		<div class="button n">6</div>
+		<br>
+		<div class="button n">7</div>
+		<div class="button n">8</div>
+		<div class="button n">9</div>
+		<br>
+		<div id="button-x" class="button x"><img class="icon" src="../images/dialogue_x-black.svg"></div>
+		<div class="button n">0</div>
+		<div id="button-check" class="button check"><img class="icon" src="../images/dialogue_check-black.svg"></div>
+	</div>
+</body>
+
+</html>

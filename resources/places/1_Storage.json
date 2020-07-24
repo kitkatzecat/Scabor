@@ -1,0 +1,31 @@
+{
+	"default": {
+		"id": "1_Storage",
+		"title": "1 - Storage",
+		"room": "1_Storage.svg",
+		"orientation": "0",
+		"background": false,
+		"back": "1_Office-Hall_4",
+		"onleave": "",
+		"scripts": ["Game.json"],
+		"js": [],
+		"onload": "",
+		"sound_from": {
+			"default": "door-open.mp3"
+		},
+		"boxes": {
+			"File-Cabinet-1_1": [],
+			"File-Cabinet-1_2": [],
+			"File-Cabinet-1_3": [],
+			"File-Cabinet-1_4": [],
+			"File-Cabinet-2_1": [],
+			"File-Cabinet-2_2": [],
+			"File-Cabinet-2_3": [],
+			"File-Cabinet-2_4": [],
+			"File-Cabinet-3_1": [],
+			"File-Cabinet-3_2": [],
+			"File-Cabinet-3_3": [],
+			"File-Cabinet-3_4": []
+		}
+	}
+}

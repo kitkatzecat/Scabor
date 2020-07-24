@@ -1,0 +1,35 @@
+{
+	"default": {
+		"id": "1_Office-C",
+		"title": "1 - Office C",
+		"room": "1_Office-C.svg",
+		"orientation": "270",
+		"background": false,
+		"back": "1_Office-Hall_3",
+		"onleave": "",
+		"scripts": ["Game.json"],
+		"js": [],
+		"onload": "Game.Dialogue.Play('Chapter1.json','Enter_Office')",
+		"sound_from": {
+			"default": "door-open.mp3"
+		},
+		"boxes": {
+			"Desk_Top": [],
+			"Desk_Middle": [],
+			"Desk_Bottom": [],
+			"File-Cabinet-1_1": [],
+			"File-Cabinet-1_2": [],
+			"File-Cabinet-1_3": [],
+			"File-Cabinet-1_4": [],
+			"File-Cabinet-2_1": [],
+			"File-Cabinet-2_2": [],
+			"File-Cabinet-2_3": [],
+			"File-Cabinet-2_4": [],
+			"File-Cabinet-3_1": [],
+			"File-Cabinet-3_2": [],
+			"File-Cabinet-3_3": [],
+			"File-Cabinet-3_4": [],
+			"Trash-Can": []
+		}
+	}
+}

@@ -1,0 +1,29 @@
+{
+	"default": {
+		"id": "2L_Foyer_2",
+		"title": "2L - Foyer",
+		"room": "2L_Foyer_2.svg",
+		"orientation": "180",
+		"background": false,
+		"back": false,
+		"onleave": "",
+		"scripts": ["Game.json"],
+		"js": [],
+		"onload": "",
+		"sound_from": {
+			"2L_Recreation": "door-open.mp3",
+			"2L_Kitchen": "door-commercial.mp3"
+		},
+		"position_from": {
+			"default": 0,
+			"2L_Recreation": 100,
+			"2L_Foyer_1": 0,
+			"2L_Kitchen": 0
+		},
+		"boxes": {}
+	},
+	"Chapter1": {
+		"onload": "Game['Events__Chapter1']['Leave_Foyer-2L']();",
+		"scripts": ["Chapter1.json","Game.json"]
+	}
+}

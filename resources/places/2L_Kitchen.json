@@ -1,0 +1,33 @@
+{
+	"default": {
+		"id": "2L_Kitchen",
+		"title": "2L - Kitchen",
+		"room": "2L_Kitchen.svg",
+		"orientation": "270",
+		"background": false,
+		"back": "2L_Foyer_1",
+		"onleave": "",
+		"scripts": ["Game.json"],
+		"js": [],
+		"onload": "",
+		"sound_from": {
+			"default": "door-commercial.mp3"
+		},
+		"position_from": {
+			"default": 0
+		},
+		"boxes": {
+			"Cabinet-1": [],
+			"Cabinet-2": [],
+			"Cabinet-3": [],
+			"Cabinet-4": [],
+			"Cabinet-5": [],
+			"Cabinet-6": [],
+			"Refrigerator-1": ["Pen","Pen","Pen","Pen"],
+			"Refrigerator-2": [],
+			"Oven": [],
+			"Trash-Can-1": [],
+			"Trash-Can-2": []
+		}
+	}
+}

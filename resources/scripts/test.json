@@ -74,6 +74,38 @@
 	],
 	"Rosemaryy": [
 		{"Who":"Rosemary","Text":"akjsghksdfhglkajshglk","Expression":"talking-excited"},
-		{"Who":"Rosemary","Text":"fuck","Expression":"deadpan"}
+		{"Who":"Rosemary","Text":"fuck","Image":"cursor_dialogue.svg"}
+	],
+	"Long": [
+		{"Who":"Rosemary","Text":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris est sapien, sodales in dignissim a, tincidunt at quam. Duis vel leo tortor. Praesent sagittis auctor suscipit. Sed a leo vel lectus interdum lacinia at vitae tortor. Integer varius, libero eget mattis ornare, diam nibh tincidunt diam, eget accumsan massa ex eget ante. Donec vitae ullamcorper lacus, et laoreet ante. Phasellus quis diam vitae augue placerat pretium. Proin gravida turpis eget metus porttitor, nec malesuada purus dignissim. Nullam lobortis elementum nisl id vestibulum. Curabitur sed maximus turpis, eu pulvinar mauris. Ut iaculis turpis ornare facilisis pretium. Integer malesuada blandit dolor vulputate posuere. Proin sagittis a massa eget bibendum. Ut quis ante at ligula hendrerit lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris est sapien, sodales in dignissim a, tincidunt at quam. Duis vel leo tortor. Praesent sagittis auctor suscipit. Sed a leo vel lectus interdum lacinia at vitae tortor. Integer varius, libero eget mattis ornare, diam nibh tincidunt diam, eget accumsan massa ex eget ante. Donec vitae ullamcorper lacus, et laoreet ante. Phasellus quis diam vitae augue placerat pretium. Proin gravida turpis eget metus porttitor, nec malesuada purus dignissim. Nullam lobortis elementum nisl id vestibulum. Curabitur sed maximus turpis, eu pulvinar mauris. Ut iaculis turpis ornare facilisis pretium. Integer malesuada blandit dolor vulputate posuere. Proin sagittis a massa eget bibendum. Ut quis ante at ligula hendrerit lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris est sapien, sodales in dignissim a, tincidunt at quam. Duis vel leo tortor. Praesent sagittis auctor suscipit. Sed a leo vel lectus interdum lacinia at vitae tortor. Integer varius, libero eget mattis ornare, diam nibh tincidunt diam, eget accumsan massa ex eget ante. Donec vitae ullamcorper lacus, et laoreet ante. Phasellus quis diam vitae augue placerat pretium. Proin gravida turpis eget metus porttitor, nec malesuada purus dignissim. Nullam lobortis elementum nisl id vestibulum. Curabitur sed maximus turpis, eu pulvinar mauris. Ut iaculis turpis ornare facilisis pretium. Integer malesuada blandit dolor vulputate posuere. Proin sagittis a massa eget bibendum. Ut quis ante at ligula hendrerit lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris est sapien, sodales in dignissim a, tincidunt at quam. Duis vel leo tortor. Praesent sagittis auctor suscipit. Sed a leo vel lectus interdum lacinia at vitae tortor. Integer varius, libero eget mattis ornare, diam nibh tincidunt diam, eget accumsan massa ex eget ante. Donec vitae ullamcorper lacus, et laoreet ante. Phasellus quis diam vitae augue placerat pretium. Proin gravida turpis eget metus porttitor, nec malesuada purus dignissim. Nullam lobortis elementum nisl id vestibulum. Curabitur sed maximus turpis, eu pulvinar mauris. Ut iaculis turpis ornare facilisis pretium. Integer malesuada blandit dolor vulputate posuere. Proin sagittis a massa eget bibendum. Ut quis ante at ligula hendrerit lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris est sapien, sodales in dignissim a, tincidunt at quam. Duis vel leo tortor. Praesent sagittis auctor suscipit. Sed a leo vel lectus interdum lacinia at vitae tortor. Integer varius, libero eget mattis ornare, diam nibh tincidunt diam, eget accumsan massa ex eget ante. Donec vitae ullamcorper lacus, et laoreet ante. Phasellus quis diam vitae augue placerat pretium. Proin gravida turpis eget metus porttitor, nec malesuada purus dignissim. Nullam lobortis elementum nisl id vestibulum. Curabitur sed maximus turpis, eu pulvinar mauris. Ut iaculis turpis ornare facilisis pretium. Integer malesuada blandit dolor vulputate posuere. Proin sagittis a massa eget bibendum. Ut quis ante at ligula hendrerit lacinia. ","Expression":"talking-excited"}
+	],
+	"Recursion-1": "Blank",
+	"Blank": false,
+	"Aaa": {
+		"default": [
+			{"Who":"Tutorial","Text":"Aaa is true"}
+		],
+		"Chapter1!Aaa": [
+			{"Who":"Tutorial","Text":"Aaa is false"}
+		]
+	},
+	"Aaa_Set": [
+		{"Who":"Tutorial","Text":"What do you wann od?","Prompt":[{"Text":"Set to true","Set":"Chapter1:Aaa"},{"Text":"Set to false","Set":"Chapter1!Aaa"}]}
+		],
+	"Adam": [
+		{"Who":"Adam","Text":"...wha? Who's there?!","Expression":"surprised","Function":"Game.Music.Load('ChapterX_X_1.mp3',true,true);"},
+		{"Who":"Adam","Text":"Huh? Who're you?","Expression":"confused"},
+		{"Who":"Rosemary","Text":"We could ask you the same thing!","Expression":"confused"},
+		{"Who":"Rosemary","Text":"Who are you?","Expression":"confused"},
+		{"Who":"Adam","Text":"Uh, well, my name's Adam, but I'm not really sure what's going on...","Expression":"talking"}
+	],
+	"Convo1": [
+		{"Who":"Tutorial","Text":"What kind of bird was that?","Prompt":[
+			{"Text":"A sparrow","Play":[
+				{"Who":"Adam","Expression":"annoyed","Text":"No, dipshit","Play":"Convo1"}
+			]},
+			{"Text":"uhhhhhhhhhhhhhhh","Play":"Rosemaryy"},
+			{"Text":"hmm a swan?","Play":"Chapter1.json@Presence_Rosemary_Storage"}
+		]}
 	]
 }
