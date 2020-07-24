@@ -1,0 +1,32 @@
+.title_box {
+	font-family: 'Play', 'Exo 2', sans-serif;
+	background-color: rgb(33,37,43);
+	color: #ddd;
+}
+.title_box:hover {
+	background-color: rgb(50,56,66);
+}
+
+.title_box_active {
+	font-family: 'Play', 'Exo 2', sans-serif;
+	background-color: rgb(40,44,52);
+	color: #fff;
+	font-weight: bold;
+}
+.sidebar {
+	background-color: rgb(33,37,43);
+	color: #fff;
+	font-family: 'Exo 2', sans-serif;
+}
+body {
+	background-color: rgb(40,44,52);
+	color: #fff;
+	overflow: hidden;
+}
+select, input[type=text] {
+	background-color: rgb(50,56,66);
+	border: 1px solid rgb(33,37,43);
+	color: #fff;
+	font-family: 'Exo 2', sans-serif;
+	padding: 6px;
+}

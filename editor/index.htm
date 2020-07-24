@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="resources/font.css">
+	<link rel="stylesheet" href="resources/index.css">
+	<script src="resources/index.js"></script>
+	<title>Scabor Editor</title>
+	<style>
+		body {
+			background-color: rgb(33,37,43);
+		}
+		img.tabicon {
+			width: 16px;
+			height: 16px;
+			margin-right: 5px;
+			margin-bottom: -3px;
+		}
+		@keyframes tab-open {
+			from { width: 0px; padding-left: 0px; padding-right: 0px; text-overflow: clip; }
+			to { width: 175px; padding-left: 11px; padding-right: 11px; text-overflow: clip; }
+		}
+		div.tab {
+			position: relative;
+			box-sizing: border-box;
+			height: 40px;
+			width: 175px;
+			border-left: 1px solid rgb(24,26,31);
+			border-right: 1px solid rgb(24,26,31);
+			background-color: transparent;
+			margin-left: -1px;
+			display: inline-block;
+			cursor: pointer;
+			padding: 11px;
+			font-size: 14px;
+			color: #808080;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+			animation: tab-open 0.2s ease-out;
+		}
+		@media (prefers-reduced-motion: reduce) {
+			div.tab {
+				animation: none;
+			}
+		}
+		div.tab:hover {
+			padding-right: 27px;
+			background-color: rgb(50,56,66);
+		}
+		div.tabactive {
+			background-color: rgb(40,44,52);
+			color: #fff;
+		}
+		div#tabs {
+			position: fixed;
+			top: 0;
+			left: 20%;
+			right: 0;
+			height: 40px;
+			overflow-y: hidden;
+			overflow-x: auto;
+			white-space: nowrap;
+		}
+		div.tabtitle {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 20%;
+			height: 40px;
+			box-sizing: border-box;
+			padding: 6px;
+			padding-left: 12px;
+			font-size: 20px;
+		}
+		div.tabclose {
+			font-size: 12px;
+			line-height: 16px;
+			text-align: center;
+			height: 18px;
+			position: absolute;
+			right: 8px;
+			top: 11px;
+			width: 18px;
+			border-radius: 100%;
+			display: none;
+		}
+		div.tabclose:hover {
+			background-color: rgb(40, 44, 52);
+		}
+		div.resourcesidebar {
+			position: fixed;
+			top: 40px;
+			left: 0;
+			width: 20%;
+			bottom: 0;
+			box-shadow: 0px 0px 4px rgba(0,0,0,0.5);
+		}
+		div#iframebody {
+			position: fixed;
+			top: 40px;
+			left: 20%;
+			right: 0;
+			bottom: 0;
+			box-shadow: 0px 0px 4px rgba(0,0,0,0.5);
+			border: none;
+		}
+		div#bodymessage {
+			position: fixed;
+			top: 40px;
+			left: 20%;
+			right: 0;
+			bottom: 0;
+			padding-left: 16px;
+		}
+		iframe.body {
+			width: 100%;
+			height: 100%;
+			border: none;
+			background-color: rgb(40,44,52);
+		}
+		.title_box {
+			font-size: 12px;
+			padding: 4px;
+			cursor: pointer;
+			padding-left: 12px;
+			padding-right: 12px;
+		}
+		.title_box.font_title {
+			background-color: rgb(40,44,52);
+			font-weight: bold;
+		}
+		img.sidebaricon {
+			width: 13px;
+			height: 13px;
+			vertical-align: text-bottom;
+			margin-right: 6px;
+		}
+	</style>
+</head>
+<body>
+	<div class="tabtitle">
+		<span class="font_title" style="font-weight: bold;">Scabor </span>
+		<span class="font_text">Editor</span>
+	</div>
+
+	<div class="resourcesidebar sidebar">
+		<div class="title_box font_title">RESOURCES</div>
+		<div id="sidebar_resources"></div>
+		<div class="title_box font_title">FILES</div>
+		<div id="sidebar_files"></div>
+	</div>
+
+	<div id="bodymessage">
+		<h2>Select a resource or file to open.</h2>
+		<p style="color:#808080">Scabor Editor is a resource editor for the Scabor game engine.</p>
+	</div>
+	<div id="iframebody"></div>
+	<div id="tabs"></div>
+</body>
+</html>
