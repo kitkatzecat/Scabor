@@ -195,10 +195,18 @@ window.addEventListener('load',function() {
 	if (query.get('console')) {
 		Game.Console = {
 			Composition: {},
+			PreviousInput: '',
 			Input: function() {
-				var c = prompt('Enter a command:');
-				console.log('> '+c);
-				eval(c);
+				var c = prompt('Enter a command:',Game.Console.PreviousInput);
+				if (!!c) {
+					console.log('> '+c);
+					try {
+						eval(c);
+					} catch(e) {
+						console.log(e.toString());
+					}
+					Game.Console.PreviousInput = c;
+				}
 			},
 			Log: function() {
 				Game.Console.NativeLog.apply(null,arguments);
@@ -239,7 +247,7 @@ window.addEventListener('load',function() {
 		window.console.log = Game.Console.Log;
 
 		document.addEventListener('keypress',function(e) {
-			if (e.key == 'c') {
+			if (e.key == '`') {
 				Game.Console.Input();
 			}
 		});
@@ -327,7 +335,7 @@ window.addEventListener('load',function() {
 						Game.Splash.Show('<span class="font_title" style="font-size:0.8em;">Waiting for state information...</span><br><span class="font_text" style="font-size:0.4em;">Developers: Engine has loaded successfully.</span>',false,'none');
 					}
 					if (query.get('console')) {
-						console.log('Press c to access console input.');
+						console.log('Press ` (tilde) to access console input.');
 					}
 			},500,25);
 			} else {
