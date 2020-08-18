@@ -73,7 +73,12 @@ Game.State = {
 	Load: function(State) {
 		Game.Splash.Show('Loading...');
 		if (typeof State == 'string') {
-			state = JSON.parse(State);
+			try {
+				state = JSON.parse(State);
+			} catch(e) {
+				console.log('Game.State.Load: Unable to convert string to JSON: '+e);
+				return;
+			}
 		}
 
 		if (Game.Version != State.State.GameVersion) {
