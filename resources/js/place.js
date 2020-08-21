@@ -28,7 +28,7 @@ Game.Place = {
 								}
 							}
 							if (key.indexOf(Game.Story.Now) != -1 && key.indexOf('!') != -1) {
-								var k = key.split(':');
+								var k = key.split('!');
 								if (!Game.Story.Progress[Game.Story.Now][k[1]] || !Game.Story.Progress[Game.Story.Now].hasOwnProperty(k[1])) {
 									Object.assign(Game.Place.Next,result[key]);
 								}
