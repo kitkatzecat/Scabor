@@ -5,6 +5,8 @@
 }
 .title_box:hover {
 	background-color: rgb(50,56,66);
+	margin-left: -500px;
+	border-left: 500px solid rgb(50,56,66);
 }
 
 .title_box_active {

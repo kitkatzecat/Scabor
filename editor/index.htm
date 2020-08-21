@@ -132,11 +132,50 @@
 			background-color: rgb(40,44,52);
 			font-weight: bold;
 		}
+		.title_box.expandable {
+			padding-left: 31px;
+			background-position: 12px 5px;
+			background-size: auto 11px;
+			background-repeat: no-repeat;
+		}
+		.title_box.expandable.closed {
+			background-image: url('resources/arrow-right.svg');
+		}
+		.title_box.expandable.open {
+			background-image: url('resources/arrow-down.svg');
+		}
+		.sidebar_group {
+			padding-left: 31px;
+		}
+		.sidebar_group.open {
+			display: block;
+		}
+		.sidebar_group.closed {
+			display: none;
+		}
 		img.sidebaricon {
 			width: 13px;
 			height: 13px;
 			vertical-align: text-bottom;
 			margin-right: 6px;
+		}
+		div#sidebar_resources {
+			position: absolute;
+			top: 0;
+			width: 100%;
+			bottom: 50%;
+			overflow: auto;
+		}
+		div#sidebar_files {
+			position: absolute;
+			top: 50%;
+			width: 100%;
+			bottom: 0;
+			overflow: auto;
+		}
+		#sidebar_resources_title, #sidebar_files_title {
+			position: sticky;
+			top: 0;
 		}
 	</style>
 </head>
@@ -147,10 +186,13 @@
 	</div>
 
 	<div class="resourcesidebar sidebar">
-		<div class="title_box font_title">RESOURCES</div>
-		<div id="sidebar_resources"></div>
-		<div class="title_box font_title">FILES</div>
-		<div id="sidebar_files"></div>
+		<div id="sidebar_resources">
+			<div class="title_box font_title" id="sidebar_resources_title">RESOURCES</div>
+		</div>
+		<div id="sidebar_files">
+			<div class="title_box font_title" id="sidebar_files_title">FILES</div>
+			<div class="title_box expandable open">Folder</div>
+		</div>
 	</div>
 
 	<div id="bodymessage">

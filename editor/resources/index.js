@@ -215,10 +215,51 @@ var Handler = {
 			}
 			return resources;
 		}
+		var group = function(title,icon=false,content) {
+			content.className = 'sidebar_group closed';
+			var head = document.createElement('div');
+			head.className = 'title_box expandable closed';
+			if (icon) {
+				head.innerHTML = '<img class="sidebaricon" src="resources/'+icon+'">'+title;
+			} else {
+				head.innerHTML = title;
+			}
+			head.visible = false;
+			head.onclick = function() {
+				if (head.visible) {
+					head.classList.remove('open');
+					head.classList.add('closed');
+					content.classList.remove('open');
+					content.classList.add('closed');
+					head.visible = false;
+				} else {
+					head.classList.remove('closed');
+					head.classList.add('open');
+					content.classList.remove('closed');
+					content.classList.add('open');
+					head.visible = true;
+				}
+			}
+			return [head,content];
+		}
+		var sidebarResources = document.getElementById('sidebar_resources');
+		var places = group('Places','place.svg',
+			render(Handler.Files['places'],'place.svg',(key) => {Tabs.Open('place.htm?file='+key,'Script Editor','place.svg')})
+		);
+		sidebarResources.appendChild(places[0]);
+		sidebarResources.appendChild(places[1]);
 
-		document.getElementById('sidebar_resources').appendChild(render(Handler.Files['places'],'place.svg',(key) => {Tabs.Open('place.htm?file='+key,'Script Editor','place.svg')}));
-		document.getElementById('sidebar_resources').appendChild(render(Handler.Files['scripts'],'dialogue.svg',(key) => {Tabs.Open('script.htm?file='+key,'Script Editor','dialogue.svg')}));
-		document.getElementById('sidebar_resources').appendChild(render(Handler.Files['characters'],'person.svg',(key) => {Tabs.Open('script.htm?file='+key,'Script Editor','person.svg')}));
+		var scripts = group('Scripts','dialogue.svg',
+			render(Handler.Files['scripts'],'dialogue.svg',(key) => {Tabs.Open('script.htm?file='+key,'Script Editor','dialogue.svg')})
+		);
+		sidebarResources.appendChild(scripts[0]);
+		sidebarResources.appendChild(scripts[1]);
+
+		var people = group('Characters','person.svg',
+			render(Handler.Files['characters'],'person.svg',(key) => {Tabs.Open('script.htm?file='+key,'Script Editor','person.svg')})
+		);
+		sidebarResources.appendChild(people[0]);
+		sidebarResources.appendChild(people[1]);
 	},
 	Files: {}
 }
