@@ -38,6 +38,7 @@ Definitions.json // Script files are in json format
 		"Chapter1:Property1": (This block will be read if Game.Story.Now is Chapter1 and Property1 of Chapter1 (Game.Story.Progress['Chapter1']) is true and none of the following conditions are met),
 		"Chapter1!Property2": (This block will be read if Game.Story.Now is Chapter1 and Property2 of Chapter1 is false or undefined[!]),
 		"&Chapter1:Property3": (This block will be read if Property3 of Chapter1 is true, even if Game.Story.Now isn't Chapter1) (and vice versa for !)
+		"...#Item1": (This block will be read if the player has at least 1 of Item1, "..." is same syntax as above) (and vice versa for $)
 	},
 
 	"Local Reference Block": // This block redirects the reading to another block in the same file, can redirect to any block type (String)

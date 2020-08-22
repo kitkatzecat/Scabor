@@ -545,6 +545,18 @@ Game.Dialogue = {
 							p = key;
 						}
 					}
+					if ((key.indexOf(Game.Story.Now) != -1 || key.substring(0,1) == '&') && key.indexOf('#') != -1) {
+						let k = key.split('#');
+						if (Game.Items.GetPlayerItemQuantity(k[1]) > 0) {
+							p = key;
+						}
+					}
+					if ((key.indexOf(Game.Story.Now) != -1 || key.substring(0,1) == '&') && key.indexOf('$') != -1) {
+						let k = key.split('$');
+						if (Game.Items.GetPlayerItemQuantity(k[1]) == 0) {
+							p = key;
+						}
+					}
 				}
 				Game.Dialogue.ProcessBlock(block[p]);
 			}
