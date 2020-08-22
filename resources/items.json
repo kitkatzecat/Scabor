@@ -8,10 +8,7 @@
     "Keycard_Red": {
         "image": "Keycard_Red.svg",
         "name": "Red Keycard",
-		"description": "A keycard that can open doors locked with a red security clearance.",
-		"buttons": [
-			{"text":"View","function":"Game.Cutscene.Play('Chapter2_0.htm')"}
-		]
+		"description": "A keycard that can open doors locked with a red security clearance."
     },
     "Keycard_Blue": {
         "image": "Keycard_Blue.svg",
