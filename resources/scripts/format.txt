@@ -32,6 +32,10 @@ Definitions.json // Script files are in json format
 		},
 	],
 
+	"Random Block": [ // This block reads a random one of the block(s) specified within. Can be any type of block. (Array of Arrays or Strings)
+		// any of the other block types
+	],
+
 	"Conditional Block": { // This block reads a specified block based on a condition, lower blocks overwrite higher ones (Object of any block types)
 		"default": (The default block to be read if none of the following conditions are met, can be any block type),
 		"Chapter1": (This block will be read if Game.Story.Now is Chapter1 and none of the following conditions are met),

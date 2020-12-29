@@ -412,6 +412,8 @@ Game.Dialogue = {
 								Game.Dialogue.ProcessBlock(result[RequestID],RequestURI);
 								console.log('Game.Dialogue.Load (Response): Loaded script "'+RequestURI+'" for action "'+RequestID+'"');
 							} else {
+								Game.Loader.Hide('dialogue');
+								Game.Dialogue.ProcessBlock(false,RequestURI);
 								console.log('Game.Dialogue.Load (Response): Loaded script "'+RequestURI+'" successfully, but action "'+RequestID+'" does not exist');
 							}
 						} else {
@@ -502,18 +504,23 @@ Game.Dialogue = {
 			Game.Dialogue.Speak(script);
 		}
 	},
-	ProcessBlock: function(block,file) {
+	ProcessBlock: function(block,file='') {
 		if (typeof block == 'object') {
 			if (Array.isArray(block)) {
 				if (block.length == 0) {
 					if (!Game.Dialogue.Visible) {
 						Game.Dialogue.Composition.Background.remove();
 					}
-				} else {
+				} else if (block.every(function(e) {
+					return (typeof e == 'object' && !Array.isArray(e));
+				})) {
 					block.forEach(function(l) {
 						l['File'] = file;
 						Game.Dialogue.Line(l);
 					});
+				} else {
+					let r = Math.ceil(Math.random()*block.length)-1;
+					Game.Dialogue.ProcessBlock(block[r],file);
 				}
 			} else {
 				let p = 'default';
@@ -558,7 +565,7 @@ Game.Dialogue = {
 						}
 					}
 				}
-				Game.Dialogue.ProcessBlock(block[p]);
+				Game.Dialogue.ProcessBlock(block[p],file);
 			}
 		} else if (typeof block == 'string') {
 			if (block.indexOf('@') == -1) {
