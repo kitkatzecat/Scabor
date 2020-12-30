@@ -21,19 +21,40 @@ Game.Music = {
 		}
 		
 		audio.unload = function() {
-			audio.pause();
-			audio.innerHTML = '';
-			Game.Music.Tracks.splice(Game.Music.Tracks.indexOf(audio,1));
-			audio.parentNode.removeChild(audio);
+			Game.Music.Unload(audio);
 		}
+
+		var play = function() {
+			if (audio.readyState >= 2) {
+				audio.playSrc();
+			} else {
+				var p = function() {
+					audio.playSrc();
+					audio.removeEventListener('canplay',p);
+				}
+				audio.addEventListener('canplay',p);
+			}
+		}
+		audio.playSrc = audio.play;
+		audio.play = play;
 		
 		return audio;
 	},
 	Unload: function(audio) {
-		audio.pause();
-		audio.innerHTML = '';
-		Game.Music.Tracks.splice(Game.Music.Tracks.indexOf(audio,1));
-		audio.parentNode.removeChild(audio);
+		var v = 100;
+		var f = function() {
+			v--;
+			audio.volume = (v/100);
+			if (v == 0) {
+				audio.pause();
+				audio.innerHTML = '';
+				Game.Music.Tracks.splice(Game.Music.Tracks.indexOf(audio,1));
+				audio.parentNode.removeChild(audio);
+			} else {
+				setTimeout(f,10);
+			}
+		};
+		setTimeout(f,10);
 	},
 	PauseAll: function() {
 		for (var i = 0; i < Game.Music.Tracks.length; i++) {
