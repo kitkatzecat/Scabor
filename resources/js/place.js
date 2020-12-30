@@ -19,17 +19,29 @@ Game.Place = {
 						for (var key in result) {
 							if (!result.hasOwnProperty(key)) continue;
 				
-							if ((key.indexOf(Game.Story.Now) != -1 || key.substring(0,1) == '&') && key.indexOf(':') != -1) {
+							if (((key.indexOf(Game.Story.Now) != -1 && key.indexOf(Game.Story.Now) <= 1 ) || key.substring(0,1) == '&') && key.indexOf(':') != -1) {
 								var k = key.split(':');
-								if (Game.Story.Progress[Game.Story.Now].hasOwnProperty(k[1])) {
-									if (!!Game.Story.Progress[Game.Story.Now][k[1]]) {
+								if (k[0][0] == '&') {
+									k[0] = k[0].substring(1,k[0].length);
+								}
+								if (k[0] == '') {
+									k[0] = Game.Story.Now;
+								}
+								if (Game.Story.Progress[k[0]].hasOwnProperty(k[1])) {
+									if (!!Game.Story.Progress[k[0]][k[1]]) {
 										Object.assign(Game.Place.Next,result[key]);
 									}
 								}
 							}
-							if ((key.indexOf(Game.Story.Now) != -1 || key.substring(0,1) == '&') && key.indexOf('!') != -1) {
+							if (((key.indexOf(Game.Story.Now) != -1 && key.indexOf(Game.Story.Now) <= 1 ) || key.substring(0,1) == '&') && key.indexOf('!') != -1) {
 								var k = key.split('!');
-								if (!Game.Story.Progress[Game.Story.Now][k[1]] || !Game.Story.Progress[Game.Story.Now].hasOwnProperty(k[1])) {
+								if (k[0][0] == '&') {
+									k[0] = k[0].substring(1,k[0].length);
+								}
+								if (k[0] == '') {
+									k[0] = Game.Story.Now;
+								}
+								if (!Game.Story.Progress[k[0]][k[1]] || !Game.Story.Progress[k[0]].hasOwnProperty(k[1])) {
 									Object.assign(Game.Place.Next,result[key]);
 								}
 							}
